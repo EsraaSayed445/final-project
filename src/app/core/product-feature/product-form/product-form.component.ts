@@ -30,7 +30,8 @@ export class ProductFormComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private paymentTypeService: PaymentTypeService,
     private categoryService: CategoryService ,
-    private tagService: TagService
+    private tagService: TagService,
+    
     ) { }
 
 
@@ -78,8 +79,10 @@ export class ProductFormComponent implements OnInit {
 
   onAddProduct(form: NgForm) {
     this.addProduct = form.value;
+    
     this.productService.addProduct(this.addProduct);
-    this.router.navigateByUrl('home');
+    console.log(this.product);
+  //   this.router.navigateByUrl('home');
   }
 
   getProductById(){

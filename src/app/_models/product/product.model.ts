@@ -16,7 +16,7 @@ export interface Product{
     category:Category;
     tags:Tag[];
     paymentTypes:PaymentType[];
-    
+    description:string;
 }
 export interface ProductWithCounter extends Product{
     cartCounter :number;

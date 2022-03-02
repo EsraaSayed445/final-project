@@ -93,6 +93,7 @@ export class ProductService {
     ProductWithCounter[]
   >();
   private cartArray: ProductWithCounter[] = [];
+  errorMessage: any;
 
   constructor(private httpClient: HttpClient) {}
 
@@ -103,7 +104,16 @@ export class ProductService {
     return this.productsArray.find((product) => product.id === id);
   }
   addProduct(product: Product) {
-    this.productsArray.push(product);
+    // this.productsArray.push(product);
+   
+    const body = product;
+    console.log(body);
+    return this.httpClient.post<any>(environment.baseUrl + 'foods',body).subscribe({
+      error: error => {
+          this.errorMessage = error.message;
+          console.error('There was an error!', error);
+      }
+  })
    }
   updateProduct() {}
 
