@@ -1,0 +1,67 @@
+h1
+{
+    font-size: 2.8rem;
+    font-weight: 700;
+    padding-bottom: 1rem;
+}
+h3
+{
+    font-size: 1.96rem;
+    font-weight: 400;
+    margin-bottom: 1.6rem;
+}
+h4
+{
+    color:$color-primary;
+    font-size: 1.68rem;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+h5
+{
+    color: $gray-800;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    margin: 1.6rem 0;
+}
+a
+{
+    text-decoration: none;
+    color:$gray-400;
+}
+
+li
+{
+    list-style: none;
+}
+
+del
+{
+    color: rgba(145, 145, 145, 0.5);
+    font-size: 1.3rem;
+}
+
+input[type="text"], 
+input[type="password"], 
+input[type="datetime"], 
+input[type="datetime-local"], 
+input[type="date"], 
+input[type="month"], 
+input[type="time"], 
+input[type="week"], 
+input[type="number"], 
+input[type="email"], 
+input[type="url"], 
+input[type="search"], 
+input[type="tel"], 
+input[type="color"],
+button,
+textarea
+{
+    -webkit-appearance: none;
+}
+
+strong
+{
+    font-weight: 700;
+}

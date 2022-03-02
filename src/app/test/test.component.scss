@@ -1,0 +1,25 @@
+h1{
+    text-align: center;
+    margin-top: 5%;
+    font-family: monospace;
+}
+img,form{
+  margin: auto;
+  display: block;
+}
+form{
+    text-align: center;
+}
+.form-control{
+    margin: 10px;
+    height: 30px;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: azure;
+    color: darkblue;
+    width: 250px;
+}
+label,input{
+    font-size: 20px;
+    font-family: monospace;
+}

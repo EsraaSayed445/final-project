@@ -1,0 +1,36 @@
+.item-listing
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    width:100%;
+    align-self: flex-start;
+    
+    &__items
+    {
+        display: flex;
+        flex-wrap: wrap;
+
+        &.item-listing--3items
+        {
+            > .item-medium-1
+            {    
+                min-width: 33%;
+            }
+        }
+        &.item-listing--4items
+        {
+            > .item-medium-1
+            {    
+                min-width: 25%;
+            }
+        }
+    }
+
+    &__tools
+    {
+        margin: 1.5rem;
+        display: flex;
+    }
+}

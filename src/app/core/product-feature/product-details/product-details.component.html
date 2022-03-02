@@ -1,0 +1,92 @@
+<div class="product-details container">
+    <section class="product-details__main">
+        <!-- images slider -->
+        <div class="slider">
+            <div class="slider__items">
+                <div class="slider__item active" [style]="'background-image:url(' + product.imgUrl + ')'"></div>
+                <div class="slider__item" [style]="'background-image:url(' + product.imgUrl + ')'"></div>
+                <div class="slider__item" [style]="'background-image:url(' + product.imgUrl + ')'"></div>
+            </div>
+            <div class="slider__indicators">
+                <span class="slider__indicator active"></span>
+                <span class="slider__indicator"></span>
+                <span class="slider__indicator"></span>
+            </div>
+        </div>
+        <!-- product info -->
+        <div class="product-details__info">
+            <h1> {{product.data[0].name}} </h1>
+            <div class="rating">
+                <div class="rating__stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="rating__data">
+                    2 reviews
+                </div>
+            </div>
+            <div class="product-details__amount">
+                {{calculatePrice() | currency:'EGP'}}
+            </div>
+            <p class="product-details__desc">
+             {{product.data[0].description}}
+            </p>
+            <div class="product-details__add">
+                <div class="increment-control">
+                    <a href="#" class="increment-control__action">-</a>
+                    <input type="text" class="form-control" title="Qty" value="1">
+                    <a href="#" class="increment-control__action">+</a>
+                </div>
+                <button href="#" class="btn btn--primary">Add to cart</button>
+            </div>
+            <div class="product-details__meta">
+                Categories: <a rel="tag" href="#">Accessories</a>, <a rel="tag" href="#">Bags</a>.
+            </div>
+        </div>
+    </section>
+    <section class="tabs">
+        <div class="tabs__headers">
+            <div class="tabs__header active">
+                Description
+            </div>
+            <div class="tabs__header">
+                Additional Information
+            </div>
+            <div class="tabs__header">
+                Reviews (2)
+            </div>
+        </div>
+        <div class="tabs__bodies">
+            <div class="tabs__body active">
+                <div class="product-details__desc">
+                    <!-- slice pip -->
+                    <p>
+                        {{'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Lore ipsum dolor sit amet, consectetur adipiscing elit. Fusce sagittis, massa fringilla consequat blandit, mauris ligula porta nisi, non tristique enim sapien vel nisl. Suspendisse vestibulum lobortisda pibus'| slice:0:100 }}
+                    </p>
+                    <p>
+                        {{'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Lore ipsum dolor sit amet, consectetur adipiscing elit. Fusce sagittis, massa fringilla consequat blandit, mauris ligula porta nisi, non tristique enim sapien vel nisl. Suspendisse vestibulum lobortisda pibus'| slice:0:50 }} 
+
+                    </p>
+                </div>   
+            </div>
+            <div class="tabs__body ">
+                tab2
+            </div>
+            <div class="tabs__body">
+                tab3
+            </div>
+        </div>
+    </section>
+    <div class="separator"></div>
+    <!-- related products -->
+    <section class="realated-product">
+        <h3>Related <strong>Products</strong></h3>
+        <div class="item-listing__items item-listing--4items">
+            <!-- medium item -->
+            <app-product-item  class="item-medium-1"  *ngFor="let item of relatedProducts" [productItem]="item"></app-product-item>
+        </div>
+    </section>
+</div>

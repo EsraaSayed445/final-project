@@ -1,0 +1,33 @@
+.btn
+{
+    color: $white;
+    padding: 1.12rem 1.6rem;
+    border-radius: .4rem;
+    min-width: 11.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 1.12rem;
+    font-weight: 700;
+    border:none;
+    cursor: pointer;
+
+    &--primary
+    {
+        background-color: $color-primary;
+        &:hover
+        {
+            background-color:darken($color-primary,5%);
+        }
+    }
+    &--gray
+    {
+        background-color: $gray-1000;
+        &:hover
+        {
+            background-color:lighten($gray-1000,10%);
+        }
+    }
+    
+}

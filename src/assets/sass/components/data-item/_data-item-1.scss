@@ -1,0 +1,42 @@
+.data-item-1
+{
+    display: flex;
+    justify-content: space-between;
+    &__left-side
+    {
+        margin-right: 5rem;
+    }
+
+    &__header
+    {
+        font-size: 3.08rem;
+        font-weight: 700;
+        margin-bottom: 1.6rem;
+    }
+
+    &__desc-lg
+    {
+        font-size: 2rem;
+        font-weight: 400;
+        margin-bottom: 1.6rem;
+    }
+
+    &__desc-sm
+    {
+        font-size: 1.4rem;
+        font-weight: 400;
+        &:not(:last-of-type)
+        {
+            margin-bottom: 1.6rem;
+        }
+    }
+
+    &__right-side
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+}

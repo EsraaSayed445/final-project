@@ -1,0 +1,72 @@
+.taged-textbox
+{
+    display: flex;
+    flex-direction: column;
+    border:$border-meduim;
+    border-radius: 4px;
+    padding: 1.2rem;
+
+    // &__lable
+    // {
+
+    // }
+    &__data
+    {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    &__tags
+    {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__tag
+    {
+        background-color: $gray-200;
+        padding: .5rem;
+        border-radius: 10rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &:not(:last-of-type)
+        {
+            margin-right: 1rem;
+        }
+        span
+        {
+            padding: 0 .7rem;
+        }
+    }
+    &__remove
+    {
+        width:1.5rem;
+        height: 1.5rem;
+        font-size: 1rem;
+        border-radius: 50%;
+        background-color: $gray-900;
+        color:$gray-200;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__clear
+    {
+        font-size: 2rem;
+    }
+
+    &__textbox
+    {
+        border-width:0;
+        width:100%;
+        padding: 0;
+        line-height: 1.85;
+        font-size:1.4rem;
+        &:focus,&:active
+        {
+            border-width: 0;
+        }
+    }
+}

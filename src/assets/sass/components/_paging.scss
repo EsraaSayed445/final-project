@@ -1,0 +1,32 @@
+.paging
+{
+    display: flex;
+    margin: 1.5rem;
+    font-size:1.4rem;
+    color: $color-primary;
+    font-weight: 400;
+
+    &__arrow
+    {
+        border: $border-light;
+        padding: .8rem 1.2rem;
+        &:first-of-type
+        {
+            border-radius: 4px 0 0 4px;
+        }
+        &:last-of-type
+        {
+            border-radius: 0 4px 4px 0;             
+        }
+    }
+    &__number
+    {
+        border: $border-light;
+        padding: .8rem 1.2rem;
+        &.active
+        {
+            background-color: $color-primary;
+            color: $white;
+        }
+    }
+}

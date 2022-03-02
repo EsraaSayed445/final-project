@@ -1,0 +1,203 @@
+<div class="header">
+    <!-- upper header -->
+    <div class="header__upper">
+        <!-- container -->
+        <div class="container">
+            <!-- contact info -->
+            <ul class="list list--hr list--hr-separator">
+                <li class="list__item">
+                    <span class="info">
+                        <!-- icon -->
+                        <i class="info__icon far fa-dot-circle"></i>
+                        <!-- info -->
+                        <span class="info__data">1234 Street Name, City Name</span>
+                    </span>
+                </li>
+                <li class="list__item">
+                    <a href="#" class="info">
+                        <!-- icon -->
+                        <i class="info__icon fab fa-whatsapp"></i>
+                        <!-- info -->
+                        <span class="info__data">123-456-7890</span>
+                    </a>
+                </li>
+                <li class="list__item">
+                    <a href="#" class="info">
+                        <!-- icon -->
+                        <i class="info__icon far fa-envelope"></i>
+                        <!-- info -->
+                        <span class="info__data">mail@domain.com</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- side menu -->
+            <ul class="list list--hr">
+                <li class="list__item">
+                    <a href="#" class="link">
+                        <!-- icon -->
+                        <i class="link__icon fas fa-angle-right"></i>
+                        <!-- info -->
+                        About Us
+                    </a>
+                </li>
+                <li class="list__item">
+                    <a href="#" class="link">
+                        <!-- icon -->
+                        <i class="link__icon fas fa-angle-right"></i>
+                        <!-- info -->
+                        Contact Us
+                    </a>
+                </li>
+                <!-- languges -->
+                <li class="list__item">
+                    <!-- drop down -->
+                    <!-- to oppen dropdown dropdown--opened -->
+                    <app-dropdown>
+                        <ng-container class="header">
+
+                            <a href="#" class="link">
+                                <img class="flag flag-us" src="" alt="">
+                                English
+                            </a>
+                            <i class="fas fa-angle-down"></i>
+
+                        </ng-container>
+                        <ng-container class="body">
+
+                            <ul class="dropdown__items list">
+                                <li class="dropdown__item list__item">
+                                    <a href="#" class="link">
+                                        <img class="flag flag-us" src="" alt="">
+                                        English
+                                    </a>
+                                </li>
+                                <li class="dropdown__item list__item">
+                                    <a href="#" class="link">
+                                        <img class="flag flag-es" src="" alt="">
+                                        Español
+                                    </a>
+                                </li>
+                                <li class="dropdown__item list__item">
+                                    <a href="#" class="link">
+                                        <img class="flag flag-fr" src="" alt="">
+                                        Française
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </ng-container>
+                    </app-dropdown>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- middle header -->
+    <div class="header__middle container">
+        <!-- logo -->
+        <a href="#" class="header__logo-box">
+            <img class="header__logo" src="/assets/img/logo.png" alt="">
+        </a>
+        <!-- user options -->
+        <div class="header__user-options">
+            <!-- login control -->
+            <a href="#" class="link">Login</a>
+            <app-dropdown>
+                <ng-container class="header">
+                    <div class="image image--small image--circle"
+                        style="background-image: url('assets/img/PersonalImage.png')">
+                    </div>
+                </ng-container>
+                <ng-container class="body"></ng-container>
+            </app-dropdown>
+
+            <!-- shopping card dropdown -->
+            <!-- dropdown--opened to open -->
+
+            <app-dropdown>
+                <ng-container class="header">
+                    <div class="image image--small" style="background-image: url('assets/img/shopping-cart.png')">
+                        <div class="notification notification--danger">
+                            {{addedProducts.length}}
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-container class="body">
+                    <!-- items -->
+                    <ul class="dropdown__items list list--vr-separator">
+                        <li *ngFor="let item of addedProducts " class="dropdown__item list__item">
+                            <!-- item small 2 -->
+                            <div class="item-small-1">
+                                <!-- item data -->
+                                <div class="item-small-1__data">
+                                    <!-- title -->
+                                    <a href="" class="item-small-1__title">{{item.data[0].name}} X {{item.price}}</a>
+                                    <!-- price   -->
+                                    <span class="item-small-1__description"> 
+                                        {{item.cartCounter}} X ${{item.price}}
+                                    </span>
+                                </div>
+                                <!-- item image -->
+                                <div class="item-small-1__image-box">
+                                    <a href="#" class="item-small-1__image image"
+                                        [style]="'background-image: url('+item.imgUrl+')'">
+                                    </a>
+                                    <a href="#" class="item-small-1__action">
+                                        <i class="fas fa-times"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                    <!-- totals -->
+                    <div class="separator"></div>
+                    <div class="block">
+                        <span class="lable">Total:</span>
+                        <span class="lable">$2870</span>
+                    </div>
+                    <!-- actions -->
+                    <div class="block list list--hr">
+                        <a class="list-item btn btn--gray" href="">View Cart</a>
+                        <a class="list-item btn btn--primary" href="">Checkout</a>
+                    </div>
+                </ng-container>
+            </app-dropdown>
+
+        </div>
+    </div>
+    <!-- lower header -->
+    <div class="header__lower container">
+        <!-- navigation -->
+        <nav class="nav">
+            <ul class="nav__items list list--hr">
+                <!-- items -->
+                <li class="nav__item">
+                    <a class="nav__link" routerLink="home">Home</a>
+                </li>
+                <li class="nav__item dropdown ">
+                    <!-- title -->
+                    <a class="nav__link dropdown__header" routerLink="">
+                        Products
+                    </a>
+                    <!-- items -->
+                    <div class="dropdown__body">
+                        <ul class=" list">
+                            <li class="list__item">
+                                <a class="nav__inner-link" routerLink="product/listing">Product Listing</a>
+                            </li>
+                            <li class="list__item">
+                                <a class="nav__inner-link" routerLink="product/add">Add Product</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="#">Contact Us</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="#">About Us</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

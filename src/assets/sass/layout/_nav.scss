@@ -1,0 +1,55 @@
+.nav
+{
+    
+    // &__items
+    // {
+
+    // }
+    &__item
+    {
+        &.dropdown
+        {
+            > .dropdown__body
+            {
+                display: flex;
+                visibility: hidden;
+                top:8rem;
+                
+            }
+            &:hover
+            {
+                & > .dropdown__body
+                {
+                    visibility: visible;
+                    top: 6.2rem;
+                    transition: all .2s ease-out;
+                }
+            }
+        }
+    }
+    &__link
+    {
+        text-transform: uppercase;
+        color:$gray-900;
+        font-weight: 700;
+        font-size: 1.2rem;
+        padding: 2.3rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover
+        {
+            color:$color-primary;
+        }
+    }
+    &__inner-link
+    {
+        padding: .6rem 1.8rem;
+        display: flex;
+        &:hover
+        {
+            background-color: $gray-100;
+        }
+    }
+}

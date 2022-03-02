@@ -1,0 +1,38 @@
+.login
+{
+    width: 60%;
+    margin:0 auto;
+    margin-top: 10vh;
+    border:$border-meduim;
+    border-top: 4px solid $color-primary;
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+
+    &__header
+    {
+        margin-bottom: 2rem;
+    }
+
+    &__Password
+    {
+        position: relative;
+    }
+
+    &__forget-password
+    {
+        position: absolute;
+        right: 0;
+        top :0;
+    }
+
+    &__register-now
+    {
+        color: $color-primary;
+        font-size: 1.3rem;
+        font-weight: 700;
+        align-self: flex-end;
+        padding-top: 1rem;
+    }
+}

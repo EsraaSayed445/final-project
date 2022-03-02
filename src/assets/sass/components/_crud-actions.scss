@@ -1,0 +1,15 @@
+.crud-actions
+{
+    position: absolute;
+    bottom: .5rem;
+    right: 1.5rem;
+  
+    a
+    {
+        &:hover
+        {
+            color:$color-primary;
+        }
+    }
+    
+}

@@ -1,0 +1,54 @@
+.tabs 
+{
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 25.5rem;
+  position: relative;
+  flex-direction: column;
+  margin-bottom: 5rem;
+  &__headers
+  {
+      display: flex;
+  }
+  &__header 
+  {
+    position: relative;
+    z-index: 2;
+    border: $border-light;
+    border-top: 2px solid $gray-200;
+    border-bottom-width: 0;
+    border-radius: 4px 4px 0 0;
+    padding: 1.6rem 2.4rem;
+    background-color: $gray-100;
+    margin-right: 1px;
+    color:$color-primary;
+    
+    &.active 
+    {
+    
+      border-top-color: $color-primary;
+      background-color: $white;
+      border-bottom-width: 0;
+    }
+  }
+
+  &__bodies
+  {
+    padding: 2.4rem;
+    border: $border-light;
+    min-height: 20rem;
+    position: relative;
+    top:-2px;
+  }
+
+  &__body 
+  {
+    font-size: 1.4rem;
+    
+    &:not(.active)
+    {
+        display: none;
+    }
+  }
+}

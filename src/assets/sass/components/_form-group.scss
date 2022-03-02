@@ -1,0 +1,89 @@
+.form-group
+{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.6rem;
+    position: relative;
+    flex-grow: 1;
+
+    &__checkboxs
+    {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    &__checkbox
+    {
+        display: flex;
+        align-items: center;
+        min-width:50%;
+        font-size: 1.4rem;
+        span
+        {
+            padding: .4rem;
+        }
+    }
+    &__radios
+    {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    &__radio
+    {
+        display: flex;
+        align-items: center;
+        min-width:50%;
+        font-size: 1.4rem;
+        span
+        {
+            padding: .4rem;
+        }
+    }
+
+    label
+    {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: .8rem;
+    }
+
+    &.invalid
+    {
+        label
+        {
+            color:$color-danger;
+        }
+        .form-control
+        {
+            border-color:$color-danger;
+            position: relative;
+        }
+        &::after
+        {
+            @include fontawesom('');
+            position: absolute;
+            bottom:.725rem;
+            right:.725rem;
+            font-size: 2rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: $color-danger;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color:$white;
+        }
+    }
+}
+.form-row
+{
+    display: flex;
+    width:100%;
+    justify-content: stretch;
+    .form-group:not(:last-of-type)
+    {
+        padding-right: 1rem;
+    }
+}

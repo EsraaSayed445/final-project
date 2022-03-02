@@ -1,0 +1,20 @@
+.link
+{
+    cursor: pointer;
+    &__icon
+    {
+        font-size: 1.08rem;
+        padding-right: .5rem;
+    }
+    &:hover
+    {
+        .link__icon
+        {
+            animation-name: shake;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            animation-duration: .3s;
+            animation-timing-function: linear;
+        }
+    }
+}

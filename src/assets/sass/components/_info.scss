@@ -1,0 +1,18 @@
+.info
+{
+    display: flex;
+    align-items: center;
+    line-height: 2.4rem;
+    padding: .6rem 1rem;
+    
+    &__icon
+    {
+        font-size: 1.512rem;
+        color:$color-primary;
+        padding-right: .5rem;
+    }
+    &__data
+    {
+        color: $gray-400;
+    }
+}

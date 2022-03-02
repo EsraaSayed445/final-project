@@ -1,0 +1,48 @@
+.item-small-1
+{
+    display: flex;
+    width:26rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem;
+    &__data
+    {
+        display: flex;
+        flex-direction: column;
+        color: $gray-400;
+    }
+    &__title
+    {
+        font-weight: 700;
+    }
+    &__description
+    {
+        font-size: 1.12rem;
+    }
+    &__image-box
+    {
+      position: relative;  
+    }
+    &__image
+    {
+        width:8rem;
+        height: 8rem;
+        display: block;
+    }
+    &__action
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        top:-.5rem;
+        right: -.5rem;
+        background-color: white;
+        border-radius: 50%;
+        font-size: 1rem;
+        color:$black;
+        box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+    }
+}

@@ -1,0 +1,67 @@
+.add-product
+{
+    width:100%;
+    display: flex;
+    align-items: flex-start;
+    &__add
+    {
+        width:70%;
+        display: flex;
+    }
+    &__images
+    {
+        width:60%;
+        position: relative;
+    }
+    &__image-actions
+    {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width:100%;
+        position: absolute;
+    }
+    &__image-action
+    {
+        
+        font-size: 2rem;
+        padding: 1.5rem;
+        i
+        {
+            color:$gray-900;
+            padding: .5rem;
+            &:hover
+            {
+                color:$color-primary;
+            }
+        }
+    }
+    &__data
+    {
+        align-self: flex-start;
+        padding: 0 3rem;
+    }
+    &__discount
+    {
+        display: flex;
+        width: 100%;
+        .form-group
+        {
+            width:50%;
+        }
+    }
+    &__actions
+    {
+        display: flex;
+        justify-content: flex-end;
+
+        .btn:first-of-type
+        {
+            margin-right: 1rem;
+        }
+    }
+    .tabs
+    {
+        margin-bottom: 1rem;
+    }
+}

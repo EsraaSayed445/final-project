@@ -1,0 +1,17 @@
+.image
+{
+    background-size: cover;
+    background-position: center;
+    margin: .3rem;
+    position: relative;
+    &--small
+    {
+        width: 3rem;
+        height: 3rem;
+    }
+    &--circle
+    {
+        border-radius: 50%;
+        border:2px solid $gray-900;
+    }
+}

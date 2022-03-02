@@ -1,0 +1,15 @@
+.form-control
+{
+    line-height: 1.85;
+    border:$border-meduim;
+    border-radius: 4px;
+    padding: .6rem 1.2rem;
+    width:100%;
+    font-size:1.4rem;
+
+    &:focus , &:active
+    {
+        outline:none;
+        border:$border-dark; 
+    }    
+}

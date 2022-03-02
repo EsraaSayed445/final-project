@@ -1,0 +1,34 @@
+.container
+{
+    width:$container-width;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.block
+{
+    padding: 1.7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $white;
+}
+
+.separator
+{
+    border-top: $border-light;
+    width:100%;
+}
+
+.flex
+{
+    &-row
+    {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+}

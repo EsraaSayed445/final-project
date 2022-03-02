@@ -1,0 +1,29 @@
+<div class="container">
+    <!-- filters -->
+  <app-product-filtering  class="filters"></app-product-filtering>
+    <!-- Items -->
+    <section class="item-listing">
+        <!-- tools (sorting , change view , exporting) -->
+        <div class="item-listing__tools">
+            <select class="form-control" name="" id="">
+                <option value="1">Featured</option>
+                <option value="2">Price low to high</option>
+                <option value="3">Price high to low</option>
+                <option value="4">Name</option>
+            </select>
+            <a class="action-btn" routerLink="product-add">
+                <i class="fas fa-plus"></i>
+            </a>
+        </div>
+        <!-- items -->
+        <div class="item-listing__items item-listing--3items">
+            <!-- medium 8 item -->
+         <app-product-item class="item-medium-1" *ngFor="let item of productArray" [productItem]="item" >
+
+         </app-product-item>
+     
+        </div>
+        <!-- paging -->
+      <app-paging class="paging"></app-paging>
+    </section>
+</div>

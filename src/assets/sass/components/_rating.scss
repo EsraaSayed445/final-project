@@ -1,0 +1,19 @@
+.rating
+{
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    &__stars
+    {
+        display: flex;
+        color: $color-primary;
+        padding: 0 .5rem 0 0;
+    }
+    &__data
+    {
+        font-size: 1.19rem;
+        color: $gray-600;
+        font-weight: 400;
+    }
+}

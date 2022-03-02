@@ -1,0 +1,38 @@
+<!-- string interpolation -->
+<h1> Hello {{personName}} </h1>
+<!-- properity binding -->
+<img [src]="imgSrc" alt="pic1">
+
+<form action="#">
+    <label for="username">userName</label>
+    <input type="text" name="username" id="" value="username" #inputEle>
+    <br>
+    <label for="password">password</label>
+    <input name="password" id="" [type]="showPassword ? 'text' : 'password'"  value="password"  #inputEle>
+    <br>
+<!-- DOM manipolation by element refrance and on click -->
+    <input  type="button" [ngClass]="{'password-show':showPassword}" (click)="showPassword =! showPassword"
+     [ngStyle]="{'fontSize.px':15,'width.px':180,'margin.px':15,'backgroundColor':'white'}" value="show/hide password"#inputEle />
+     <p  #paraEle>forget your password</p>
+
+    <p  *ngIf="showPassword; else hidePassword" #paraEle>hide password</p>
+
+    <ng-template #hidePassword>
+        <p>show password</p>
+    </ng-template>
+</form>
+
+<!-- directive behavior & structure -->
+
+<div [ngSwitch]="num">
+    <h2 *ngSwitchCase="1" [style]="'text-align: center; margin:3%'"> welcome to my page {{personName}} </h2>
+    <h3 *ngSwitchCase="2" [style]="'text-align: center; margin:3%'">hello {{personName}} </h3>
+    <p *ngSwitchDefault [style]="'text-align: center; margin:3% , font-size:15px'">Hello from  defult paragraph</p>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+.col-1
+{
+    float: left;
+    width: (100% - (($no-of-col - 1)*$verticat-gutter))/ $no-of-col *1 + 0 * $verticat-gutter;
+}
+.col-2
+{
+    float: left;
+    width: (100% - (($no-of-col - 1)*$verticat-gutter))/ $no-of-col *2 + 1 * $verticat-gutter;
+}
+.col-3
+{
+    float: left;
+    width: (100% - (($no-of-col - 1)*$verticat-gutter))/ $no-of-col *3 + 2 * $verticat-gutter;
+}
+

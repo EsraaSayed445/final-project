@@ -1,0 +1,44 @@
+.list
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &__item
+    {
+        background-color: white; 
+        padding-bottom: .8rem;
+        padding-top: .8rem;
+        padding-left: 1.2rem; 
+        padding-right: 1.2rem;
+    }
+ 
+    &--hr
+    {
+        flex-direction: row;
+        > .list__item
+        {
+            &:last-of-type
+            {
+                padding-right: 0;
+            }
+            &:first-of-type
+            {
+                padding-left: 0;
+            }
+        }
+        &-separator
+        {
+            .list__item:not(:last-of-type)
+            {
+                border-right: $border-light;
+            }
+        }
+    }
+    &--vr-separator
+    {
+        .list__item:not(:last-of-type)
+        {
+            border-bottom: $border-light;
+        }
+    }
+}
