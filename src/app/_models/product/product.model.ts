@@ -9,6 +9,7 @@ export interface Product{
     price:number;
     discount?: number;
     imgUrl?:string;
+    imagepath?:string;
     supplier?: Supplier;
     data:ProductLang[];
     name?:string;
