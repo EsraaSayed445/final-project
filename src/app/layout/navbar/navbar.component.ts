@@ -1,5 +1,5 @@
 import { Component, OnInit , Input } from '@angular/core';
-import { Product , ProductWithCounter } from 'src/app/_models/product/product.model';
+import { Product } from 'src/app/_models/product/product.model';
 import{ ProductService} from 'src/app/_services/product/product.service';
 @Component({
   selector: 'app-navbar',
@@ -8,9 +8,14 @@ import{ ProductService} from 'src/app/_services/product/product.service';
 })
 export class NavbarComponent implements OnInit {
 
-  addedProducts: ProductWithCounter[]=[];
-  
-  dropdownOpened = false;
+addedProducts :Product[]=[];
+dropdownOpened= false
+myproduct!:Product
+
+
+onItemAdded(product:Product){
+  console.log(product)
+  this.addedProducts.push(product);}
 
   constructor(private productService: ProductService) {
    }
@@ -24,5 +29,11 @@ export class NavbarComponent implements OnInit {
       ()=>{}
     )
   }
+ // deleted item from cart
+ delete(myproduct:Product){
 
+  this.addedProducts.splice(this.addedProducts.indexOf(myproduct), 1);
+ //  make it with 0 because when add it to cart start counter again from 0
+  myproduct.cartCounter=0
+          }
 }
