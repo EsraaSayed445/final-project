@@ -1,4 +1,5 @@
-<div class="header">
+  <!-- header -->
+  <div class="header">
     <!-- upper header -->
     <div class="header__upper">
         <!-- container -->
@@ -52,18 +53,18 @@
                 <li class="list__item">
                     <!-- drop down -->
                     <!-- to oppen dropdown dropdown--opened -->
-                    <app-dropdown>
-                        <ng-container class="header">
-
+                    <div class="dropdown ">
+                        <!-- header -->
+                        <div class="dropdown__header">
                             <a href="#" class="link">
                                 <img class="flag flag-us" src="" alt="">
                                 English
                             </a>
                             <i class="fas fa-angle-down"></i>
+                        </div>
 
-                        </ng-container>
-                        <ng-container class="body">
-
+                        <!-- items -->
+                        <div class="dropdown__body">
                             <ul class="dropdown__items list">
                                 <li class="dropdown__item list__item">
                                     <a href="#" class="link">
@@ -84,9 +85,8 @@
                                     </a>
                                 </li>
                             </ul>
-
-                        </ng-container>
-                    </app-dropdown>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -95,53 +95,54 @@
     <div class="header__middle container">
         <!-- logo -->
         <a href="#" class="header__logo-box">
-            <img class="header__logo" src="/assets/img/logo.png" alt="">
+            <img class="header__logo" src="../../../assets/img/logo.png" alt="">
         </a>
         <!-- user options -->
         <div class="header__user-options">
             <!-- login control -->
             <a href="#" class="link">Login</a>
-            <app-dropdown>
-                <ng-container class="header">
-                    <div class="image image--small image--circle"
-                        style="background-image: url('assets/img/PersonalImage.png')">
+            <div class="dropdown">
+                <div class="dropdown__header">
+                    <div class="image image--small image--circle" style="background-image: url('../../../assets/img/PersonalImage.png')">
                     </div>
-                </ng-container>
-                <ng-container class="body"></ng-container>
-            </app-dropdown>
+                </div>
+                <div class="dropdown__body">
 
+                </div>
+            </div>
             <!-- shopping card dropdown -->
             <!-- dropdown--opened to open -->
-
-            <app-dropdown>
-                <ng-container class="header">
+            <div class="dropdown dropdown--left" [ngClass]="{ 'dropdown--opened':dropdownOpened }  ">
+                <!-- header -->
+                <div class="dropdown__header" (click)="dropdownOpened = !dropdownOpened">
                     <div class="image image--small" style="background-image: url('assets/img/shopping-cart.png')">
                         <div class="notification notification--danger">
-                            {{addedProducts.length}}
+                          {{addedProducts.length}}
                         </div>
                     </div>
-                </ng-container>
-                <ng-container class="body">
+                </div>
+
+                <!-- body -->
+                <div class="dropdown__body">
                     <!-- items -->
                     <ul class="dropdown__items list list--vr-separator">
-                        <li *ngFor="let item of addedProducts " class="dropdown__item list__item">
+                        <li *ngFor="let item of addedProducts" class="dropdown__item list__item">
                             <!-- item small 2 -->
                             <div class="item-small-1">
                                 <!-- item data -->
                                 <div class="item-small-1__data">
                                     <!-- title -->
-                                    <a href="" class="item-small-1__title">{{item.data[0].name}} X {{item.price}}</a>
-                                    <!-- price   -->
-                                    <span class="item-small-1__description"> 
-                                        {{item.cartCounter}} X ${{item.price}}
+                                    <a href="" class="item-small-1__title">{{item.name}} X {{item.price}}</a>
+                                    <!-- price -->
+                                    <span class="item-small-1__description">
+                                      {{item.cartCounter}} X {{item.price}}
                                     </span>
                                 </div>
                                 <!-- item image -->
                                 <div class="item-small-1__image-box">
-                                    <a href="#" class="item-small-1__image image"
-                                        [style]="'background-image: url('+item.imgUrl+')'">
+                                    <a href="#" class="item-small-1__image image" [style]="'background-image: url('+ item.imagepath+')'">
                                     </a>
-                                    <a href="#" class="item-small-1__action">
+                                    <a href="#" class="item-small-1__action " (click)="delete(item)">
                                         <i class="fas fa-times"></i>
                                     </a>
                                 </div>
@@ -160,9 +161,8 @@
                         <a class="list-item btn btn--gray" href="">View Cart</a>
                         <a class="list-item btn btn--primary" href="">Checkout</a>
                     </div>
-                </ng-container>
-            </app-dropdown>
-
+                </div>
+            </div>
         </div>
     </div>
     <!-- lower header -->
@@ -172,7 +172,7 @@
             <ul class="nav__items list list--hr">
                 <!-- items -->
                 <li class="nav__item">
-                    <a class="nav__link" routerLink="home">Home</a>
+                    <a class="nav__link"routerLink="home">Home</a>
                 </li>
                 <li class="nav__item dropdown ">
                     <!-- title -->
@@ -183,10 +183,10 @@
                     <div class="dropdown__body">
                         <ul class=" list">
                             <li class="list__item">
-                                <a class="nav__inner-link" routerLink="product/listing">Product Listing</a>
+                                <a class="nav__inner-link" routerLink="">Product Listing</a>
                             </li>
                             <li class="list__item">
-                                <a class="nav__inner-link" routerLink="product/add">Add Product</a>
+                                <a class="nav__inner-link" routerLink="product-add">Add Product</a>
                             </li>
                         </ul>
                     </div>

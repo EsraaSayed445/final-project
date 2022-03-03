@@ -10,10 +10,10 @@ import { ProductService } from 'src/app/_services/product/product.service';
 export class ProductItemComponent implements OnInit {
   @Input()
     productItem!:Product;
-  
+
   @Output()
     itemAddToCart: EventEmitter<Product> = new EventEmitter<Product>();
-  
+
   constructor( private  productService:ProductService ) { }
 
   calculatePrice():number{
@@ -40,6 +40,6 @@ export class ProductItemComponent implements OnInit {
     this.productService.deleteProduct(id);
   }
 
-  
-  
+
+
 }
