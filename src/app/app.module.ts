@@ -14,6 +14,8 @@ import { ProductFormComponent } from './core/product-feature/product-form/produc
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { HomeComponent } from './core/product-feature/home/home.component';
+import { FooterComponent } from './layout/footer/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import {HttpClientModule} from '@angular/common/http';
     DropdownComponent,
     ProductDetailsComponent,
     ProductFormComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

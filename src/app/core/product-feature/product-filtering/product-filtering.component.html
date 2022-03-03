@@ -1,28 +1,28 @@
     <!-- search box -->
-    <div class="search-box">
+    <!-- <div class="search-box">
         <input class="search-box__input" placeholder="Search..." type="text" name="txt_search" id="">
         <button type="submit" class="search-box__btn">
             <i class="fas fa-search"></i>
         </button>
-    </div>
+    </div><br><br><br> -->
     <!-- filter list -->
     <div>
         <!-- filter header -->
-        <h5>Categories</h5>
+        <h3>Categories</h3><br>
         <!-- filter list -->
         <ul class="list list--vr-separator">
-            <li class="link list__item" *ngFor="let category of categoryArray; let i = index" (click)="getFilterCategory(i)"><i class="link__icon fas fa-angle-right"></i>{{category.name}}</li>
+            <li class="link list__item" *ngFor="let category of categoryArray; let i = index" (click)="getFilterCategory(i)"><h5><i class="link__icon fas fa-angle-right"></i>{{category.name}}</h5></li>
         </ul>
     </div>
     <!-- filter tags -->
-    <div>
+    <!-- <div> -->
         <!-- filter header -->
-        <h5>Tags</h5>
+        <!-- <h5>Tags</h5> -->
         <!-- filter tags -->
-        <div class="tags">
+        <!-- <div class="tags">
             <span class="tag" *ngFor="let tag of tagArray; let x = index" (click)="getFilterTag(x)">{{tag.name}} <br> </span>
-        </div>
-    </div>
+        </div> -->
+    <!-- </div> -->
     <!-- related items -->
     <div>
         <!-- title -->

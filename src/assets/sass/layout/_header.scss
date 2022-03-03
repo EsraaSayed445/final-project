@@ -1,22 +1,10 @@
 .header
 {
-    &__upper
-    {
-        border-top: 3px solid $color-primary;
-        border-bottom: $border-light;
-    }
-
-    &__middle
-    {
-        padding-bottom: 1.6rem;
-        padding-top: 1.6rem;
-    }
-
     &__logo-box
     {
         display: flex;
         align-items: center;
-        width:10rem;
+        width:5rem;
     }
 
     &__logo
@@ -31,7 +19,7 @@
     }
     &__lower
     {
-        background-color: $gray-100;
+        background-color: #D82148;
         padding: 0 1.5rem;
         margin-bottom: 4rem;
     }

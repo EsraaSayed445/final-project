@@ -77,12 +77,29 @@ export class ProductFormComponent implements OnInit {
    this.tagService.addTag();
   }
 
+  // image
+
+  // onFileChange(event: any): void {
+  //   this.product.imagepath = event;
+  // }
+
+  // onSelect(event: any){
+  //   if(event.target.files){
+  //     var reader= new FileReader()
+  //     reader.readAsDataURL(event.target.files[0])
+  //     reader.onload= (event: any)=>{
+  //       this.product.imagepath= event.target.result
+  //     }
+  //   }
+  // }
+
+
   onAddProduct(form: NgForm) {
     this.addProduct = form.value;
     
     this.productService.addProduct(this.addProduct);
     console.log(this.product);
-  //   this.router.navigateByUrl('home');
+    this.router.navigateByUrl('home');
   }
 
   getProductById(){
