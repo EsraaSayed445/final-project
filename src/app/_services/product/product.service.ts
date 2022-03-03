@@ -101,7 +101,9 @@ export class ProductService {
     return this.httpClient.get<AllProductResponse>(environment.baseUrl + 'foods')
   }
   getProductById(id: number) {
-    return this.productsArray.find((product) => product.id === id);
+    // const url = `${environment.baseUrl}/${id}`;
+    // return this.productsArray.find((product) => product.id === id);
+    return this.httpClient.get(environment.baseUrl +'foods/'+id)
   }
   addProduct(product: Product) {
     // this.productsArray.push(product);

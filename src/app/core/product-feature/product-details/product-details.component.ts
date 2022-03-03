@@ -25,11 +25,13 @@ export class ProductDetailsComponent implements OnInit {
     this.activatedRoute.params.subscribe(
       (params)=>{
         const id = +params['productId'];
-        this.product= this.productService.getProductById(id)!;
+        this.productService.getProductById(id);
       },
       (err)=>{},
       ()=>{},
     )
+
+    
   }
 
   calculatePrice():number{

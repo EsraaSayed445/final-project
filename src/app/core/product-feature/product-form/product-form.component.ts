@@ -104,7 +104,7 @@ export class ProductFormComponent implements OnInit {
 
   getProductById(){
     const id = +this.activatedRoute.snapshot.params['productId'];
-    this.product = this.productService.getProductById(id)!;
+    this.productService.getProductById(id)!;
   }
 
 }
