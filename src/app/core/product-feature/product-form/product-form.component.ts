@@ -99,7 +99,7 @@ export class ProductFormComponent implements OnInit {
     
     this.productService.addProduct(this.addProduct);
     console.log(this.product);
-    this.router.navigateByUrl('home');
+    this.router.navigateByUrl('/product/listing');
   }
 
   getProductById(){
