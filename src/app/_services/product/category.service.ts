@@ -9,13 +9,15 @@ export class CategoryService {
   constructor() { }
 
   categoryArray: Category[]=[
-    {id:1, name:'food'},
-    {id:2, name:'electrical'},
-    {id:3, name:'books'},
-    {id:4, name:'baby'},
-    {id:5, name:'clothes'},
-    {id:6, name:'sports'},
-    {id:7, name:'healthy'}
+    {id:1, name:'Offer'},
+    {id:2, name:'Beaf Sandwich'},
+    {id:3, name:'Chicken Sandwich'},
+    {id:4, name:'Pizza'},
+    {id:5, name:'Coffee'},
+    {id:6, name:'Natural Juices'},
+    {id:7, name:'Desserts'},
+    {id:8, name:'Bakery'},
+    {id:9, name:'Extra'}
   ];
   
   getAllCategories():Category[]{

@@ -3,9 +3,9 @@
         <!-- images slider -->
         <div class="slider">
             <div class="slider__items">
-                <div class="slider__item active" [style]="'background-image:url(' + product.imgUrl + ')'"></div>
-                <div class="slider__item" [style]="'background-image:url(' + product.imgUrl + ')'"></div>
-                <div class="slider__item" [style]="'background-image:url(' + product.imgUrl + ')'"></div>
+                <div class="slider__item active" [style]="'background-image:url(' + product.imagepath + ')'"></div>
+                <div class="slider__item" [style]="'background-image:url(' + product.imagepath + ')'"></div>
+                <div class="slider__item" [style]="'background-image:url(' + product.imagepath + ')'"></div>
             </div>
             <div class="slider__indicators">
                 <span class="slider__indicator active"></span>
@@ -15,7 +15,7 @@
         </div>
         <!-- product info -->
         <div class="product-details__info">
-            <h1> {{product.data[0].name}} </h1>
+            <h1> {{product.name}} </h1>
             <div class="rating">
                 <div class="rating__stars">
                     <i class="fas fa-star"></i>
@@ -32,7 +32,7 @@
                 {{calculatePrice() | currency:'EGP'}}
             </div>
             <p class="product-details__desc">
-             {{product.data[0].description}}
+             {{product.description}}
             </p>
             <div class="product-details__add">
                 <div class="increment-control">

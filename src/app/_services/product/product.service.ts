@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from "@angular/core";
-import { AllProductResponse, Product, ProductWithCounter } from "src/app/_models/product/product.model";
+import { AllProductResponse, Product} from "src/app/_models/product/product.model";
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
@@ -89,10 +89,10 @@ export class ProductService {
     // },
   ];
 
-  cartHasBeenChanged: EventEmitter<ProductWithCounter[]> = new EventEmitter<
-    ProductWithCounter[]
+  cartHasBeenChanged: EventEmitter<Product[]> = new EventEmitter<
+    Product[]
   >();
-  private cartArray: ProductWithCounter[] = [];
+  private cartArray: Product[] = [];
   errorMessage: any;
 
   constructor(private httpClient: HttpClient) {}
@@ -101,11 +101,12 @@ export class ProductService {
     return this.httpClient.get<AllProductResponse>(environment.baseUrl + 'foods')
   }
   getProductById(id: number) {
-    return this.productsArray.find((product) => product.id === id);
+    // const url = `${environment.baseUrl}/${id}`;
+    // return this.productsArray.find((product) => product.id === id);
+    return this.httpClient.get(environment.baseUrl +'foods/'+id)
   }
   addProduct(product: Product) {
     // this.productsArray.push(product);
-   
     const body = product;
     console.log(body);
     return this.httpClient.post<any>(environment.baseUrl + 'foods',body).subscribe({
@@ -119,22 +120,33 @@ export class ProductService {
 
   deleteProduct(id:number) {
     const deleteElement = id-1;
-    return this.productsArray.splice(deleteElement,1) 
+    return this.productsArray.splice(deleteElement,1)
   }
+
+
+
   addProductToCart(product: Product) {
     console.log(product);
-    const newProduct: ProductWithCounter = { ...product, cartCounter: 1 };
-    this.cartArray.push(newProduct);
-    this.cartHasBeenChanged.emit(this.cartArray);
-    // const doubleitem = this.cartArray.includes(product);
-    // if(!doubleitem ){
-    //     this.cartArray.push(product);
-    //     this.counter=1;
-    //     product.counter=1;
-    // }
-    // else{
-    //   product.counter=++this.counter;
-    //   console.log(this.counter);
-    // }
+
+    var found =  this.cartArray.find(function (element) {
+      return element.id == product.id ;
+  });
+
+  if(!found){
+     this.cartArray.push(product);
+    this.cartHasBeenChanged.emit(this.cartArray)
+    product.cartCounter++;
+    console.log(product.cartCounter);
+  }
+else{
+for(var i =0; i<this.cartArray.length;i++){
+  if(  this.cartArray[i].id==product.id )
+  product.cartCounter++;
+  console.log(product.cartCounter);
+  }
+}
+
+
+
   }
 }

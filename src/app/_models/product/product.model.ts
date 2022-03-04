@@ -17,6 +17,11 @@ export interface Product{
     tags:Tag[];
     paymentTypes:PaymentType[];
     description:string;
+  // numOfItem: number;
+  cartCounter :number;
+
+
+
 }
 export interface ProductWithCounter extends Product{
     cartCounter :number;
