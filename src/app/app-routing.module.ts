@@ -5,10 +5,13 @@ import { ProductFormComponent } from './core/product-feature/product-form/produc
 import { ProductListingComponent } from './core/product-feature/product-listing/product-listing.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { HomeComponent } from './core/product-feature/home/home.component';
+import { AboutUsComponent } from './core/product-feature/about-us/about-us.component';
 
-// lazy loading 
+
+// lazy loading
 const routes: Routes = [
   {path:'home',component:HomeComponent},
+  {path:'about',component:AboutUsComponent},
   {path:'',component:ProductListingComponent},
   // {path:'home',redirectTo: '',pathMatch:'full'},
   {path:'product',children:[

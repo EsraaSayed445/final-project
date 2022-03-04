@@ -31,9 +31,11 @@ onItemAdded(product:Product){
   }
  // deleted item from cart
  delete(myproduct:Product){
-
+if( myproduct.cartCounter!=0){myproduct.cartCounter--;}
+else{
   this.addedProducts.splice(this.addedProducts.indexOf(myproduct), 1);
  //  make it with 0 because when add it to cart start counter again from 0
-  myproduct.cartCounter=0
+  // myproduct.cartCounter=0
+}
           }
 }

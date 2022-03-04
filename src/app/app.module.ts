@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './core/product-feature/home/home.component';
 import { FooterComponent } from './layout/footer/footer/footer.component';
+import { AboutUsComponent } from './core/product-feature/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FooterComponent } from './layout/footer/footer/footer.component';
     ProductFormComponent,
     NotFoundComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
