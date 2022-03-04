@@ -13,7 +13,7 @@
             </div>
             
         </div>
-        <div class="add-product__data col-md-6">
+        <div class="add-product__data">
             <div class="form-controls">
                 <section class="tabs">
                     <div class="tabs__bodies">
@@ -74,7 +74,7 @@
                 </div>
 
                 <div class="add-product__actions">
-                    <button href="#" class="btn btn--gray">Cancel</button>
+                    <button class="btn btn--gray" [routerLink]="['/product/listing']">Cancel</button>
                     <!-- [disabled]="!productForm.valid" -->
                     <button (click)="onAddProduct(productForm)" [disabled]="productForm.invalid" class="btn btn--primary">{{editMode ? 'Edit' : 'Add'}}</button>
                 </div>
