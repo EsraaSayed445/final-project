@@ -23,7 +23,6 @@ export class ProductFormComponent implements OnInit {
   product= {} as Product;
   editMode=false;
   addProduct!: Product;
-
   constructor(
     private productService: ProductService,
     private router: Router, 
@@ -78,20 +77,15 @@ export class ProductFormComponent implements OnInit {
   }
 
   // image
-
-  // onFileChange(event: any): void {
-  //   this.product.imagepath = event;
-  // }
-
-  // onSelect(event: any){
-  //   if(event.target.files){
-  //     var reader= new FileReader()
-  //     reader.readAsDataURL(event.target.files[0])
-  //     reader.onload= (event: any)=>{
-  //       this.product.imagepath= event.target.result
-  //     }
-  //   }
-  // }
+  onSelect(event: any){
+    if(event.target.files){
+      var reader= new FileReader()
+      reader.readAsDataURL(event.target.files[0])
+      reader.onload= (event: any)=>{
+        this.product.imagepath= event.target.result
+      }
+    }
+  }
 
 
   onAddProduct(form: NgForm) {
