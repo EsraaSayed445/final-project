@@ -21,6 +21,7 @@ import { AboutUsComponent } from './core/product-feature/about-us/about-us.compo
 import { RegisterComponent } from './admin/register/register.component';
 import { ForgotPasswordComponent } from './admin/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './admin/reset-password/reset-password.component';
+import { ContactUsComponent } from './core/product-feature/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -41,8 +42,8 @@ import { ResetPasswordComponent } from './admin/reset-password/reset-password.co
     LoginComponent,
     RegisterComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
-
+    ResetPasswordComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
