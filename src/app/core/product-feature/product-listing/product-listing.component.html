@@ -22,12 +22,12 @@
         <!-- items -->
         <div class="item-listing__items item-listing--3items" style="width:100%">
             <!-- medium 8 item -->
-         <app-product-item class="item-medium-1" *ngFor="let item of productArray" [productItem]="item" >
-
-         </app-product-item>
-
+          <app-product-item class="item-medium-1"  *ngFor="let prod of productArray | paginate:{ itemsPerPage: 6, currentPage: p} "  [productItem]="prod" ></app-product-item>
         </div>
-        <!-- paging -->
-      <app-paging class="paging"></app-paging>
-    </section>
-</div>
+
+  <pagination-controls
+  (pageChange)="p = $event"
+  class="float-right d-block">
+  </pagination-controls>
+
+</section>

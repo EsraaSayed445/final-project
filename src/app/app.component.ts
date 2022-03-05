@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from './_models/product/product.model';
+import { AuthService }from './_services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,14 @@ import { Product } from './_models/product/product.model';
 export class AppComponent {
   title = 'my-app';
 
-
+  constructor(private auth: AuthService){}
   // addedProduct:ProductWithCounter[]=[];
   // counter=1;
 
   // onItemAdded(product:Product ){
-    
+
   // }
+  ngOnInit(){
+   
+  }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit, Output ,EventEmitter } from '@angular/core';
 import {AllProductResponse, Product} from 'src/app/_models/product/product.model';
 import { ProductService } from 'src/app/_services/product/product.service';
+import { AuthService }from 'src/app/_services/auth.service';
+
 
 @Component({
   selector: 'app-product-listing',
@@ -9,12 +11,19 @@ import { ProductService } from 'src/app/_services/product/product.service';
 })
 export class ProductListingComponent implements OnInit {
 
+
+
+
+
+
+
+  p:any;
   productArray!: Product[];
 
 
-  constructor(private productService: ProductService) { 
+  constructor(private productService: ProductService ,private auth:AuthService) {
   };
-  
+
   ngOnInit(): void {
       this.productService.getAllProducts().subscribe(
       (res)=>{
@@ -33,7 +42,7 @@ export class ProductListingComponent implements OnInit {
 
   //   console.log(product);
   //   this.itemAdded.emit(product);
-    
+
   //   this.productService.addProductToCart(product)
   // }
 
