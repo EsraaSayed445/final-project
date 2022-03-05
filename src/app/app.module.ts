@@ -17,6 +17,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './core/product-feature/home/home.component';
 import { FooterComponent } from './layout/footer/footer/footer.component';
 import { LoginComponent } from './admin/login/login.component';
+import { AboutUsComponent } from './core/product-feature/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { LoginComponent } from './admin/login/login.component';
     NotFoundComponent,
     HomeComponent,
     FooterComponent,
+    AboutUsComponent,
     LoginComponent
+
   ],
   imports: [
     BrowserModule,

@@ -6,10 +6,13 @@ import { ProductListingComponent } from './core/product-feature/product-listing/
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { HomeComponent } from './core/product-feature/home/home.component';
 import { LoginComponent } from './admin/login/login.component';
+import { AboutUsComponent } from './core/product-feature/about-us/about-us.component';
 
-// lazy loading 
+
+// lazy loading
 const routes: Routes = [
   {path:'home',component:HomeComponent},
+  {path:'about',component:AboutUsComponent},
   {path:'',component:ProductListingComponent},
   {path:'login',component:LoginComponent},
   // {path:'home',redirectTo: '',pathMatch:'full'},
