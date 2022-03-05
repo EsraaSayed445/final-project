@@ -7,6 +7,9 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { HomeComponent } from './core/product-feature/home/home.component';
 import { LoginComponent } from './admin/login/login.component';
 import { AboutUsComponent } from './core/product-feature/about-us/about-us.component';
+import { RegisterComponent } from './admin/register/register.component';
+import { ForgotPasswordComponent } from './admin/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './admin/reset-password/reset-password.component';
 
 
 // lazy loading
@@ -15,6 +18,10 @@ const routes: Routes = [
   {path:'about',component:AboutUsComponent},
   {path:'',component:ProductListingComponent},
   {path:'login',component:LoginComponent},
+  {path:'register',component:RegisterComponent},
+  {path:'forgot-password',component:ForgotPasswordComponent},
+  {path:'reset-password',component:ResetPasswordComponent},
+
   // {path:'home',redirectTo: '',pathMatch:'full'},
   {path:'product',children:[
     {path:'listing', component:ProductListingComponent},

@@ -18,6 +18,9 @@ import { HomeComponent } from './core/product-feature/home/home.component';
 import { FooterComponent } from './layout/footer/footer/footer.component';
 import { LoginComponent } from './admin/login/login.component';
 import { AboutUsComponent } from './core/product-feature/about-us/about-us.component';
+import { RegisterComponent } from './admin/register/register.component';
+import { ForgotPasswordComponent } from './admin/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './admin/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { AboutUsComponent } from './core/product-feature/about-us/about-us.compo
     HomeComponent,
     FooterComponent,
     AboutUsComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent
 
   ],
   imports: [
