@@ -17,8 +17,8 @@ export interface Product{
     tags:Tag[];
     paymentTypes:PaymentType[];
     description:string;
-  // numOfItem: number;
-  cartCounter :number;
+    // numOfItem: number;
+    cartCounter :number;
 
 
 

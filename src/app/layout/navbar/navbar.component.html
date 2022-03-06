@@ -33,25 +33,39 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav__link" >About us</a>
+            <a class="nav__link" routerLink="about">About</a>
           </li>
           <li class="nav-item">
             <a class="nav__link"routerLink="/contact-us">Contact Us</a>
           </li>
           <!-- <li>
                     <a href="#" class="nav__link">Login</a>
-
                   </li> -->
+                  <!-- *ngIf="loggedIn" -->
+                  <li>
+                    <div class="nav-item dropdown">
+                      <a class="nav__link dropdown-toggle" href="#" role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                      </a>
+                    
+                      <ul class="dropdown-menu log" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" routerLink="/product/listing">Dashboard</a></li>
+                        <div class="dropdown-divider"></div>
+                        <li><a class="dropdown-item" routerLink="/login">Login</a></li>
+                      </ul>
+                    </div>
+                  </li>
 
           <li class="nav-item">
             <a class="nav-link" [routerLink]>
               <app-dropdown>
                 <ng-container class="header">
-                  <div class="image image--small" style="background-image: url('assets/img/shopping-cart.png')">
-                    <div class="notification notification--danger">
+                  <!-- <div class="image image--small" style="background-image: url('assets/img/shopping-cart.png')"> -->
+                    <i class="fas fa-cart-arrow-down nav__link" style="font-size: 15px;"></i>
+                    <div class="notification notification--danger my-4">
                       {{addedProducts.length}}
                     </div>
-                  </div>
+                  <!-- </div> -->
                 </ng-container>
                 <ng-container class="body">
                   <!-- items -->
@@ -62,7 +76,7 @@
                         <!-- item data -->
                         <div class="item-small-1__data">
                           <!-- title -->
-                          <a href="" class="item-small-1__title">{{item.data[0].name}} X {{item.price}}</a>
+                          <a href="" class="item-small-1__title">{{item.name}} X {{item.price}}</a>
                           <!-- price   -->
                           <span class="item-small-1__description">
                             {{item.cartCounter}} X ${{item.price}}
@@ -71,9 +85,9 @@
                         <!-- item image -->
                         <div class="item-small-1__image-box">
                           <a href="#" class="item-small-1__image image"
-                            [style]="'background-image: url('+item.imgUrl+')'">
+                            [style]="'background-image: url('+item.imagepath+')'">
                           </a>
-                          <a href="#" class="item-small-1__action">
+                          <a href="#" class="item-small-1__action" (click)="delete(item)">
                             <i class="fas fa-times"></i>
                           </a>
                         </div>
@@ -85,7 +99,7 @@
                   <div class="separator"></div>
                   <div class="block">
                     <span class="lable">Total:</span>
-                    <span class="lable">$2870</span>
+                    <span class="lable">$0</span>
                   </div>
                   <!-- actions -->
                   <div class="block list list--hr">

@@ -14,5 +14,5 @@
     <div class="crud-actions">
         <a [routerLink] = "['/product','details',productItem.id]"><i class="far fa-eye"></i></a>
         <a [routerLink]="['/product','edit', productItem.id]"><i class="fas fa-edit"></i></a>
-        <a (click)="onItemDeleted(productItem.id!)"><i class="fas fa-trash-alt"></i></a>
+        <a href="#" (click)="onItemDeleted(productItem.id!)"><i class="fas fa-trash-alt"></i></a>
     </div>
