@@ -10,9 +10,11 @@
         <!-- filter header -->
         <h3>Categories</h3>
         <!-- filter list -->
-        <ul class="list list--vr-separator mt-3">
-            <li class="link list__item" *ngFor="let category of categoryArray; let i = index" (click)="getFilterCategory(i)"><h5><i class="link__icon fas fa-angle-right"></i>{{category.name}}</h5></li>
-        </ul>
+        <ul class="list list--vr-separator" *ngFor="let catg of categoryList">
+          <li class="link list__item"  [routerLink]="['/product','categories',catg.id]">
+              <i class="link__icon fas fa-angle-right"></i>{{catg.name}}</li>
+      </ul>
+
     </div>
     <!-- filter tags -->
     <!-- <div> -->

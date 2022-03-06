@@ -23,6 +23,8 @@ import { ForgotPasswordComponent } from './admin/forgot-password/forgot-password
 import { ResetPasswordComponent } from './admin/reset-password/reset-password.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { LogoutComponent } from './admin/logout/logout.component';
+import { ContactUsComponent } from './core/product-feature/contact-us/contact-us.component';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 
 @NgModule({
   declarations: [
@@ -45,14 +47,15 @@ import { LogoutComponent } from './admin/logout/logout.component';
     ForgotPasswordComponent,
     ResetPasswordComponent,
     DashboardComponent,
-    LogoutComponent
-
+    LogoutComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

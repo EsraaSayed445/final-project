@@ -5,6 +5,7 @@ import { ProductFormComponent } from './core/product-feature/product-form/produc
 import { ProductListingComponent } from './core/product-feature/product-listing/product-listing.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { HomeComponent } from './core/product-feature/home/home.component';
+
 import { LoginComponent } from './admin/login/login.component';
 import { AboutUsComponent } from './core/product-feature/about-us/about-us.component';
 import { RegisterComponent } from './admin/register/register.component';
@@ -12,6 +13,7 @@ import { ForgotPasswordComponent } from './admin/forgot-password/forgot-password
 import { ResetPasswordComponent } from './admin/reset-password/reset-password.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { LogoutComponent } from './admin/logout/logout.component';
+import { ContactUsComponent } from './core/product-feature/contact-us/contact-us.component';
 
 
 // lazy loading
@@ -25,13 +27,14 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'forgot-password',component:ForgotPasswordComponent},
   {path:'reset-password',component:ResetPasswordComponent},
-
+  {path:'contact-us',component:ContactUsComponent},
   // {path:'home',redirectTo: '',pathMatch:'full'},
   {path:'product',children:[
     {path:'listing', component:ProductListingComponent},
     {path:'details/:productId',component:ProductDetailsComponent},
     {path:'add',component:ProductFormComponent},
     {path:'edit/:productId',component:ProductFormComponent},
+    {path:'categories/:categoryId',component: ProductListingComponent},
     {path:'**',component:NotFoundComponent},
   ]},
   {path:'**',component:NotFoundComponent},

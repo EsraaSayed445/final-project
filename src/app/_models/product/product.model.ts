@@ -19,8 +19,7 @@ export interface Product{
     description:string;
     // numOfItem: number;
     cartCounter :number;
-
-
+    category_id:number;
 
 }
 export interface ProductWithCounter extends Product{
