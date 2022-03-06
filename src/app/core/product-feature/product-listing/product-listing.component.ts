@@ -2,6 +2,7 @@ import { Component, OnInit, Output ,EventEmitter } from '@angular/core';
 import {AllProductResponse, Product} from 'src/app/_models/product/product.model';
 import { ProductService } from 'src/app/_services/product/product.service';
 import { AuthService }from 'src/app/_services/auth.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -11,32 +12,31 @@ import { AuthService }from 'src/app/_services/auth.service';
 })
 export class ProductListingComponent implements OnInit {
 
-
-
-
-
-
-
   p:any;
-  productArray!: Product[];
+  productArr!: Product[];
 
+  @Output()
+  itemAdded: EventEmitter<Product> =new EventEmitter<Product>();
 
-  constructor(private productService: ProductService ,private auth:AuthService) {
+  constructor(private productService: ProductService , private route:ActivatedRoute,private auth:AuthService) {
   };
 
   ngOnInit(): void {
-      this.productService.getAllProducts().subscribe(
-      (res)=>{
-        this.productArray=res.data;
-        console.log( this.productArray);
-      },
-      (err)=>{},
-      ()=>{}
-    );
-  }
+    this.productService.getAllProducts().subscribe(
+      (res)=>{console.log(res)
+      this.productArr=res.data});
+    this.route.params.subscribe(params=>{
+      if(params['categoryId']){
+       this.productService.getAllProducts().subscribe((res)=>{
+        console.log(res.data ,'my proooooddddddddduuuuuuctsssss')
 
-  @Output()
-  itemAdded: EventEmitter<Product>= new EventEmitter<Product>();
+         this.productArr=res.data.filter(prod=> prod.category_id  == params['categoryId'])
+         console.log(this.productArr);
+
+        });
+    }
+
+  })
 
   // onItemAddedToCart(product : Product){
 
@@ -46,4 +46,5 @@ export class ProductListingComponent implements OnInit {
   //   this.productService.addProductToCart(product)
   // }
 
+  }
 }
