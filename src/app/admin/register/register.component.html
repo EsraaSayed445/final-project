@@ -12,23 +12,30 @@
   
         <div class="col-lg-12 login-form">
           <div class="col-lg-12 login-form">
-            <form>
+            <form (ngSubmit)="onSubmit(registerForm)" #registerForm="ngForm">
                 <div class="form-group">
                     <label class="form-control-label w-50 mx-auto"><span class="fas fa-user"></span> Full Name</label>
-                    <input type="text" class="form-control w-50 mx-auto" ngModel>
+                    <input type="text" class="form-control w-50 mx-auto" name="name" ngModel>
                   </div>
+                  <!-- <p class="text-danger pl-1" *ngIf="errors.name">{{errors.name}}</p> -->
+
 
               <div class="form-group">
                 <label class="form-control-label w-50 mx-auto"><span class="fas fa-envelope"></span> Email</label>
-                <input type="text" class="form-control w-50 mx-auto" ngModel>
+                <input type="text" class="form-control w-50 mx-auto" name="email" ngModel>
               </div>
+              <!-- <p class="text-danger pl-1" *ngIf="errors.email">{{errors.email}}</p> -->
+
+
               <div class="form-group">
                 <label class="form-control-label w-50 mx-auto"><span class="fas fa-lock"></span> Password</label>
-                <input type="password" class="form-control w-50 mx-auto" ngModel>
+                <input type="password" class="form-control w-50 mx-auto" name="password" ngModel>
               </div>
+              <!-- <p class="text-danger pl-1" *ngIf="errors.password">{{errors.password}}</p> -->
+
               <div class="form-group">
                 <label class="form-control-label w-50 mx-auto"><span class="fas fa-lock"></span> Retype Password</label>
-                <input type="password" class="form-control w-50 mx-auto" ngModel>
+                <input type="password" class="form-control w-50 mx-auto" name="password_confirmation" ngModel>
               </div>
               <button type="submit" class="btn login">Register</button><br><br>
               <h5 class="text-white text-center">- or -</h5>

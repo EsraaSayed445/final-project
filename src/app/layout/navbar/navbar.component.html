@@ -49,9 +49,10 @@
                       </a>
                     
                       <ul class="dropdown-menu log" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" routerLink="/product/listing">Dashboard</a></li>
-                        <div class="dropdown-divider"></div>
-                        <li><a class="dropdown-item" routerLink="/login">Login</a></li>
+                        <li><a class="dropdown-item" routerLink="/product/listing" *ngIf="loggedIn">Dashboard</a></li>
+                        <div class="dropdown-divider" *ngIf="loggedIn"></div>
+                        <li><a class="dropdown-item" routerLink="/login" *ngIf="!loggedIn">Login</a></li>
+                        <li><a class="dropdown-item" routerLink="/logout" *ngIf="loggedIn">Logout</a></li>
                       </ul>
                     </div>
                   </li>

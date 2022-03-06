@@ -10,14 +10,18 @@ import { AboutUsComponent } from './core/product-feature/about-us/about-us.compo
 import { RegisterComponent } from './admin/register/register.component';
 import { ForgotPasswordComponent } from './admin/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './admin/reset-password/reset-password.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { LogoutComponent } from './admin/logout/logout.component';
 
 
 // lazy loading
 const routes: Routes = [
   {path:'home',component:HomeComponent},
+  {path: 'dashboard',component:DashboardComponent},
   {path:'about',component:AboutUsComponent},
   {path:'',component:ProductListingComponent},
   {path:'login',component:LoginComponent},
+  {path:'logout',component:LogoutComponent},
   {path:'register',component:RegisterComponent},
   {path:'forgot-password',component:ForgotPasswordComponent},
   {path:'reset-password',component:ResetPasswordComponent},
