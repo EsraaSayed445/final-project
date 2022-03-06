@@ -22,6 +22,7 @@ import { RegisterComponent } from './admin/register/register.component';
 import { ForgotPasswordComponent } from './admin/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './admin/reset-password/reset-password.component';
 import { ContactUsComponent } from './core/product-feature/contact-us/contact-us.component';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ContactUsComponent } from './core/product-feature/contact-us/contact-us
     ContactUsComponent
   ],
   imports: [
+    NgxPaginationModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

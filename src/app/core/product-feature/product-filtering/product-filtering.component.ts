@@ -5,6 +5,8 @@ import { Tag } from 'src/app/_models/product/tags.model';
 import { CategoryService } from 'src/app/_services/product/category.service';
 import { ProductService } from 'src/app/_services/product/product.service';
 import { TagService } from 'src/app/_services/product/tag.service';
+import { ActivatedRoute , Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-product-filtering',
@@ -13,39 +15,46 @@ import { TagService } from 'src/app/_services/product/tag.service';
 })
 export class ProductFilteringComponent implements OnInit {
 
-  categoryArray!: Category[];
+  categoryList:Category[]=[];
   tagArray:Tag[] = [];
   filterdedProducts!: Product[];
-  
+
   constructor(
-    private categoryService: CategoryService,
+    private category:CategoryService,
     private tagService: TagService,
-    private productService:ProductService
-    ) { 
-    
+    private productService:ProductService,
+    private route:ActivatedRoute ,
+    private router:Router
+    ) {
+
   }
 
   ngOnInit(): void {
-    this.getAllCategories();
+    // this.getAllCategories();
     this.getAllTags();
     this.getFilterCategory;
+    this.category.getAllCategories().subscribe((res)=>{
+      console.log(res,"categoryyyyyyyyy")
+     this.categoryList=res
+    });
   }
 
-  getAllCategories(){
-    this.categoryArray = this.categoryService.getAllCategories();
-  }
+  // getAllCategories(){
+  //   this.categoryArray = this.categoryService.getAllCategories();
+  // }
+
   getAllTags(){
     this.tagArray = this.tagService.getAllTags();
   }
 
   getFilterCategory(i:number){
-    const id= i+1;    
+    const id= i+1;
     // this.filterdedProducts = this.productService.getAllProducts().filter((ele)=>ele.category.id===id);
     console.log(this.filterdedProducts);
   }
 
   getFilterTag(x:number){
-  const id= x+1;    
+  const id= x+1;
   // this.filterdedProducts = this.productService.getAllProducts().filter((ele)=>ele.tags[0].id===id);
   console.log(this.filterdedProducts);
 }

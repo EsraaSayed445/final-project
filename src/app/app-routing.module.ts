@@ -30,6 +30,7 @@ const routes: Routes = [
     {path:'details/:productId',component:ProductDetailsComponent},
     {path:'add',component:ProductFormComponent},
     {path:'edit/:productId',component:ProductFormComponent},
+    {path:'categories/:categoryId',component: ProductListingComponent},
     {path:'**',component:NotFoundComponent},
   ]},
   {path:'**',component:NotFoundComponent},
