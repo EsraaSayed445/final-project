@@ -32,13 +32,13 @@ export class ProductFormComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private router: Router, 
+    private router: Router,
     private activatedRoute: ActivatedRoute,
     private paymentTypeService: PaymentTypeService,
     private categoryService: CategoryService ,
     private tagService: TagService,
     private imageService: ImageServiceService,
-    
+
     ) { }
 
     processFile(imageInput: any) {
@@ -71,7 +71,7 @@ export class ProductFormComponent implements OnInit {
     if(this.activatedRoute.snapshot.url[0].path=='edit'){
       this.editMode=true;
     }
-    
+
     if(this.editMode){
       this.getProductById();
     }
@@ -81,13 +81,19 @@ export class ProductFormComponent implements OnInit {
   }
 
   getAllCategories(){
-    this.categoryArray = this.categoryService.getAllCategories();
+    this.categoryService.getAllCategories().subscribe((res)=>{
+      console.log(res,"categoryyyyyyyyy")
+     this.categoryArray=res
+    });
+
+
   }
+
   getAllTags(){
     this.tagArray = this.tagService.getAllTags();
   }
   onCheckBoxChanged(index:number){
-    if(this.product.paymentTypes){ 
+    if(this.product.paymentTypes){
       this.product.paymentTypes=[
         ...this.product.paymentTypes,
         this.paymentTypes[index]
@@ -118,7 +124,7 @@ export class ProductFormComponent implements OnInit {
 
   onAddProduct(form: NgForm) {
     this.addProduct = form.value;
-    
+
     this.productService.addProduct(this.addProduct);
     console.log(this.product);
     this.router.navigateByUrl('/product/listing');
