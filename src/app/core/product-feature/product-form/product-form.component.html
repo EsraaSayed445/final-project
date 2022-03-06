@@ -47,10 +47,17 @@
                                 <label for="">Description</label>
                                 <textarea class="form-control" name="description" ngModel id="" cols="30" rows="4"[(ngModel)]="product.description"></textarea>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="">Image Path</label>
                                 <input class="form-control" name="imagepath" ngModel id="" [(ngModel)]="product.imagepath">
-                            </div>
+                            </div> -->
+                            <label class="image-upload-container btn btn-bwm">
+                                <span>Select Image</span>
+                                <input #imageInput
+                                       type="file"
+                                       accept="image/*"
+                                       (change)="processFile(imageInput)">
+                              </label>
                         </div>
                         <div class="tabs__body ">
                             <div class="form-group invalid">
