@@ -39,7 +39,6 @@ export class CategoryService {
   {//return this.categoryArray
     console.log(this.httpClient.get<Category[]>(environment.baseUrl + 'categories'))
     return this.httpClient.get<Category[]>(environment.baseUrl + 'categories');
-
   }
 
 }

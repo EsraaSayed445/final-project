@@ -47,11 +47,11 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
     ContactUsComponent
   ],
   imports: [
-    NgxPaginationModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
