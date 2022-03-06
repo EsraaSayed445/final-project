@@ -20,8 +20,6 @@ export interface Product{
     // numOfItem: number;
     cartCounter :number;
 
-
-
 }
 export interface ProductWithCounter extends Product{
     cartCounter :number;
