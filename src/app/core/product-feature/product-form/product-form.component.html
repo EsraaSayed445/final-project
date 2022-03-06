@@ -3,15 +3,13 @@
         <div class="add-product__images slider">
             <div class="add-product__image-actions">
                 <div class="add-product__image-action">
-                    <label for="files" class="btn">Select New Image</label>
-                    <input id="files" type="file" style="visibility:hidden;" (change)="onSelect($event)" accept="image/*">
-
+                     <label for="files" class="btn">Select New Image</label>
+                    <input id="files" type="file" style="visibility:hidden;" (change)="onSelect($event)" accept="image/*">               
                 </div>
             </div>
             <div class="slider__items">
                 <div class="slider__item active" [style]="'background-image:url(' + product.imagepath + ')'"></div>
             </div>
-            
         </div>
         <div class="add-product__data col-md-6">
             <div class="form-controls">
