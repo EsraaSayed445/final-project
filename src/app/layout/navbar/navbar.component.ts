@@ -18,9 +18,9 @@ dropdownOpened= false
 myproduct!:Product
 
 
-onItemAdded(product:Product){
-  console.log(product)
-  this.addedProducts.push(product);}
+// onItemAdded(product:Product){
+//   console.log(product)
+//   this.addedProducts.push(product);}
 
   constructor(private productService: ProductService, private auth:AuthenticationService) {
    }
@@ -44,11 +44,15 @@ onItemAdded(product:Product){
   }
  // deleted item from cart
  delete(myproduct:Product){
-if( myproduct.cartCounter>1){myproduct.cartCounter--;}
-else{
-  this.addedProducts.splice(this.addedProducts.indexOf(myproduct), 1);
- //  make it with 0 because when add it to cart start counter again from 0
-  // myproduct.cartCounter=0
+if( myproduct.cartCounter>1)
+{
+  myproduct.cartCounter--;
 }
+else if(myproduct.cartCounter==1)
+{
+  myproduct.cartCounter--;
+  this.addedProducts.splice(this.addedProducts.indexOf(myproduct), 1);
+}
+
           }
 }
