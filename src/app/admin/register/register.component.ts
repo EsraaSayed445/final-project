@@ -29,13 +29,13 @@ export class RegisterComponent implements OnInit {
 
     // console.log(form.value);
 
-    this.auth.register(name,email,password,password_confirmation).subscribe((res)=>{
+    this.auth.register(name,email,password,password_confirmation).subscribe((res:any)=>{
     // console.log(res);
 
     // redirection
        this.router.navigate(['/login']);
     },
-    (err)=>{
+    (err:any)=>{
       this.errors = err.error.errors;
       // console.log(err.error.errors);
     })

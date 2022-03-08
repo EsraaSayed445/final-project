@@ -131,8 +131,6 @@ export class ProductService {
     return this.productsArray.splice(deleteElement,1)
   }
 
-
-
   addProductToCart(product: Product) {
     console.log(product);
 

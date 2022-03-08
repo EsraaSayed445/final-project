@@ -49,7 +49,7 @@
                       </a>
 
                       <ul class="dropdown-menu log" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" routerLink="/product/listing" *ngIf="loggedIn">Dashboard</a></li>
+                        <li><a class="dropdown-item" routerLink="/dashboard">Dashboard</a></li>
                         <div class="dropdown-divider" *ngIf="loggedIn"></div>
                         <li><a class="dropdown-item" routerLink="/login" *ngIf="!loggedIn">Login</a></li>
                         <li><a class="dropdown-item" routerLink="/logout" *ngIf="loggedIn">Logout</a></li>
@@ -85,10 +85,10 @@
                         </div>
                         <!-- item image -->
                         <div class="item-small-1__image-box">
-                          <a href="#" class="item-small-1__image image"
+                          <a class="item-small-1__image image"
                             [style]="'background-image: url('+item.imagepath+')'">
                           </a>
-                          <a href="#" class="item-small-1__action" (click)="delete(item)">
+                          <a class="item-small-1__action" (click)="delete(item)">
                             <i class="fas fa-times"></i>
                           </a>
                         </div>
