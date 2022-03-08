@@ -92,6 +92,9 @@ export class ProductService {
   cartHasBeenChanged: EventEmitter<Product[]> = new EventEmitter<
     Product[]
   >();
+
+
+
   private cartArray: Product[] = [];
   errorMessage: any;
 
@@ -152,6 +155,12 @@ for(var i =0; i<this.cartArray.length;i++){
 }
 
 
+  }
+
+  getproductsfromcart():Product[]{
+return this.cartArray;
 
   }
+
+
 }

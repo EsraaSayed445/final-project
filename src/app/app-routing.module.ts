@@ -14,7 +14,8 @@ import { ResetPasswordComponent } from './admin/reset-password/reset-password.co
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { LogoutComponent } from './admin/logout/logout.component';
 import { ContactUsComponent } from './core/product-feature/contact-us/contact-us.component';
-
+import { ViewCartComponent } from './core/product-feature/view-cart/view-cart.component';
+import { CheckoutComponent } from './core/product-feature/checkout/checkout.component';
 
 // lazy loading
 const routes: Routes = [
@@ -28,6 +29,10 @@ const routes: Routes = [
   {path:'forgot-password',component:ForgotPasswordComponent},
   {path:'reset-password',component:ResetPasswordComponent},
   {path:'contact-us',component:ContactUsComponent},
+  {path:'view-cart',component:ViewCartComponent},
+  {path:'checkout',component:CheckoutComponent},
+
+
   // {path:'home',redirectTo: '',pathMatch:'full'},
   {path:'product',children:[
     {path:'listing', component:ProductListingComponent},
