@@ -19,15 +19,11 @@ const routes: Routes = [
   {path:'home',component:HomeComponent},
   {path:'about',component:AboutUsComponent},
   {path:'',component:ProductListingComponent},
-<<<<<<< HEAD
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'forgot-password',component:ForgotPasswordComponent},
   {path:'reset-password',component:ResetPasswordComponent},
   {path:'contact-us',component:ContactUsComponent},
-=======
-
->>>>>>> 633ed65b2eae39a8f7faf5fd31171327b182b6b5
   // {path:'home',redirectTo: '',pathMatch:'full'},
   {path:'product',children:[
     {path:'listing', component:ProductListingComponent},

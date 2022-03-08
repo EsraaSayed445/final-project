@@ -18,14 +18,12 @@ import { HomeComponent } from './core/product-feature/home/home.component';
 import { FooterComponent } from './layout/footer/footer/footer.component';
 import { LoginComponent } from './admin/login/login.component';
 import { AboutUsComponent } from './core/product-feature/about-us/about-us.component';
-<<<<<<< HEAD
 import { RegisterComponent } from './admin/register/register.component';
 import { ForgotPasswordComponent } from './admin/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './admin/reset-password/reset-password.component';
 import { ContactUsComponent } from './core/product-feature/contact-us/contact-us.component';
-=======
-import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
->>>>>>> 633ed65b2eae39a8f7faf5fd31171327b182b6b5
+import {NgxPaginationModule} from 'ngx-pagination';
+
 
 @NgModule({
   declarations: [
