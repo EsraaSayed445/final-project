@@ -1,6 +1,6 @@
     <div class="item-medium-1__alert" *ngIf="productItem.discount">Sale</div>
     <div class="item-medium-1__image image" [style]="'background-image:url( ' + productItem.imagepath + ')'">
-        <a href="#" class="item-medium-1__action" (click)="onItemAdded()">Add to Cart</a>
+        <a class="item-medium-1__action" (click)="onItemAdded()">Add to Cart</a>
     </div>
     <a href="#">
         <h4>{{productItem.name}}</h4>

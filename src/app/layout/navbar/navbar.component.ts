@@ -54,5 +54,5 @@ else if(myproduct.cartCounter==1)
   this.addedProducts.splice(this.addedProducts.indexOf(myproduct), 1);
 }
 
-          }
+}
 }
