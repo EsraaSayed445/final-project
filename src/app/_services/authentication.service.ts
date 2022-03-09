@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 export class AuthenticationService {
   
   private isLoggedIn = new BehaviorSubject<boolean>(false);
+  // errorMessage: any;
   errorMessage: any;
 
   constructor(private http: HttpClient) { }
@@ -80,6 +81,7 @@ export class AuthenticationService {
       password:password,
       password_confirmation:password_confirmation,
     }
+    // console.log(data);
     console.log(data);
     return this.http.post(environment.baseUrl+'register', data);
   }

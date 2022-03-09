@@ -1,57 +1,57 @@
 <div class="container">
-    <div class="row col-md-12 mb-5">
-      <div class="col-lg-3 col-md-2"></div>
-      <div class="col-lg-6 col-md-8 login-box">
-        <div class="col-lg-12 login-key">
-          <i class="fas fa-user-circle"></i>
-        </div>
-        <div class="col-lg-12 login-title">
-          Create an account
-        </div>
-  
-        <div class="col-lg-12 login-form">
-          <div class="col-lg-12 login-form">
-            <form (ngSubmit)="onSubmit(registerForm)" #registerForm="ngForm">
-                <div class="form-group">
-                    <label class="form-control-label w-50 mx-auto"><span class="fas fa-user"></span> Full Name</label>
-                    <input type="text" class="form-control w-50 mx-auto" name="name" ngModel>
-                  </div>
-                  <!-- <p class="text-danger pl-1" *ngIf="errors.name">{{errors.name}}</p> -->
-
-
-              <div class="form-group">
-                <label class="form-control-label w-50 mx-auto"><span class="fas fa-envelope"></span> Email</label>
-                <input type="text" class="form-control w-50 mx-auto" name="email" ngModel>
-              </div>
-              <!-- <p class="text-danger pl-1" *ngIf="errors.email">{{errors.email}}</p> -->
-
-
-              <div class="form-group">
-                <label class="form-control-label w-50 mx-auto"><span class="fas fa-lock"></span> Password</label>
-                <input type="password" class="form-control w-50 mx-auto" name="password" ngModel>
-              </div>
-              <!-- <p class="text-danger pl-1" *ngIf="errors.password">{{errors.password}}</p> -->
-
-              <div class="form-group">
-                <label class="form-control-label w-50 mx-auto"><span class="fas fa-lock"></span> Retype Password</label>
-                <input type="password" class="form-control w-50 mx-auto" name="password_confirmation" ngModel>
-              </div>
-              <button type="submit" class="btn login">Register</button><br><br>
-              <h5 class="text-white text-center">- or -</h5>
-            </form>
-          </div>
-        </div>
-  
-        <!-- <a href="#" class="btn my-5 mx-2">
-          <i class="fab fa-facebook mx-2"></i> Sign up using Facebook
-        </a>
-        <a href="#" class="btn">
-          <i class="fab fa-google-plus mx-2"></i> Sign up using Google+
-        </a> -->
-        <br>
-            <h4 class="text-white mb-5">Already have an account? <a routerLink="/login" class="text-center links">Login</a>
-            </h4>  
-  
+  <div class="row col-md-12 mb-5">
+    <div class="col-lg-3 col-md-2"></div>
+    <div class="col-lg-6 col-md-8 login-box">
+      <div class="col-lg-12 login-key">
+        <i class="fas fa-user-circle"></i>
       </div>
+      <div class="col-lg-12 login-title">
+        Create an account
+      </div>
+
+      <div class="col-lg-12 login-form">
+        <div class="col-lg-12 login-form">
+          <form (ngSubmit)="onSubmit(registerForm)" #registerForm="ngForm">
+              <div class="form-group">
+                  <label class="form-control-label w-50 mx-auto"><span class="fas fa-user"></span> Full Name</label>
+                  <input type="text" class="form-control w-50 mx-auto" name="name" ngModel>
+                  <p class="text-danger text-center fs-5" *ngIf="errors.name">{{errors.name}}</p>
+                </div>
+
+
+            <div class="form-group">
+              <label class="form-control-label w-50 mx-auto"><span class="fas fa-envelope"></span> Email</label>
+              <input type="text" class="form-control w-50 mx-auto" name="email" ngModel>
+              <p class="text-danger text-center fs-5 " *ngIf="errors.email">{{errors.email}}</p>
+            </div>
+
+
+            <div class="form-group">
+              <label class="form-control-label w-50 mx-auto"><span class="fas fa-lock"></span> Password</label>
+              <input type="password" class="form-control w-50 mx-auto" name="password" ngModel>
+              <p class="text-danger text-center fs-5" *ngIf="errors.password">{{errors.password}}</p>
+            </div>
+
+            <div class="form-group">
+              <label class="form-control-label w-50 mx-auto"><span class="fas fa-lock"></span> Retype Password</label>
+              <input type="password" class="form-control w-50 mx-auto" name="password_confirmation" ngModel>
+            </div>
+
+            <button type="submit" class="btn login">Register</button><br><br>
+            <h5 class="text-white text-center">- or -</h5>
+          </form>
+        </div>
+      </div>
+
+      <!-- <a href="#" class="btn my-5 mx-2">
+        <i class="fab fa-facebook mx-2"></i> Sign up using Facebook
+      </a>
+      <a href="#" class="btn">
+        <i class="fab fa-google-plus mx-2"></i> Sign up using Google+
+      </a> -->
+      <br>
+          <h4 class="text-white mb-5">Already have an account? <a routerLink="/login" class="text-center links">Login</a>
+          </h4>  
+
     </div>
-  
+  </div>

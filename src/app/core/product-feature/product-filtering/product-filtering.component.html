@@ -10,7 +10,7 @@
         <!-- filter header -->
         <h3>Categories</h3>
         <!-- filter list -->
-        <ul class="list list--vr-separator" *ngFor="let catg of categoryList">
+        <ul class="list list--vr-separator text-white fs-4" *ngFor="let catg of categoryList">
           <li class="link list__item"  [routerLink]="['/product','categories',catg.id]">
               <i class="link__icon fas fa-angle-right"></i>{{catg.name}}</li>
       </ul>
