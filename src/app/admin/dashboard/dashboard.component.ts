@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
   }
 
   onItemDeleted(id:any){
-    // this.productService.deleteProduct(id);
-
+    this.productService.deleteProduct(id);
+    console.log("delete");
     }
 }

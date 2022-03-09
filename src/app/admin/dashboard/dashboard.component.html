@@ -30,7 +30,7 @@
         <td>{{prod.price}}</td>
         <td><button class="btn btn-primary " [routerLink]="['/product','details',prod.id]">Show</button></td>
         <td><button class="btn btn-warning " [routerLink]="['/product','edit', prod.id]">Edit</button></td>
-        <td><button class="btn btn-danger " (click)="onItemDeleted(prod.id!)">Delete</button></td>
+        <td><button class="btn btn-danger "  (click)="onItemDeleted(prod.id!)">Delete</button></td>
       </tr>
     </tbody>
   </table>

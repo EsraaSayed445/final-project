@@ -121,14 +121,12 @@ export class ProductService {
   })
    }
 
-
-
-
   updateProduct() {}
 
-  deleteProduct(id:number) {
+  deleteProduct(id:number){
     const deleteElement = id-1;
-    return this.productsArray.splice(deleteElement,1)
+    // return this.productsArray.splice(deleteElement,1)
+    return this.httpClient.delete(environment.baseUrl +'foods/'+id) 
   }
 
   addProductToCart(product: Product) {
