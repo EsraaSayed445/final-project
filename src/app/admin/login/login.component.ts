@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('user', JSON.stringify(res))
 
       // redirect to dashboard
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/product/listing']);
     },
     err=>{
       console.log(err);

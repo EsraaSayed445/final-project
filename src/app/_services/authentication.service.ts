@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,7 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthenticationService {
   
   private isLoggedIn = new BehaviorSubject<boolean>(false);
+  // errorMessage: any;
 
   constructor(private http: HttpClient) { }
 
@@ -38,7 +40,7 @@ export class AuthenticationService {
 
    // Login
    login(email: string, password: string) {
-    return this.http.post('http://localhost:8000/api/login', {
+    return this.http.post(environment.baseUrl+'login', {
       email: email,
       password: password,
     });
@@ -54,7 +56,7 @@ export class AuthenticationService {
       Authorization: `Bearer ${token}`,
     });
 
-    return this.http.get('http://localhost:8000/api/user', {
+    return this.http.get(environment.baseUrl+'user', {
       headers: headers});
   }
 
@@ -67,7 +69,7 @@ export class AuthenticationService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });
-    return this.http.post('http://localhost:8000/api/logout', {allDevice:allDevice}, {headers:headers});
+    return this.http.post(environment.baseUrl+'logout', {allDevice:allDevice}, {headers:headers});
   }
 
    // Register
@@ -78,7 +80,8 @@ export class AuthenticationService {
       password:password,
       password_confirmation:password_confirmation,
     }
-    return this.http.post('http://localhost:8000/api/register', data);
+    // console.log(data);
+    return this.http.post(environment.baseUrl+'register', data);
   }
 
 }
