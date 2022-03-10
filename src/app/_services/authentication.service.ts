@@ -27,14 +27,17 @@ export class AuthenticationService {
          console.log('User not logged in !!');
       } else {
         const userObj = JSON.parse(localData);
-        const token_expires_at = new Date(userObj.token_expires_at);
-        const current_date = new Date();
-        if (token_expires_at > current_date) {
+        // const token_expires_at = new Date(userObj.token_expires_at);
+        // const current_date = new Date();
+        // console.log(token_expires_at);
+        // console.log(current_date);
+
+        // if (token_expires_at > current_date) {
           this.isLoggedIn.next(true);
-        } else {
-          this.isLoggedIn.next(false);
-           console.log('Token Expires!!');
-        }
+      //   } else {
+      //     this.isLoggedIn.next(false);
+      //      console.log('you are in :)');
+      //   }
       }
       return this.isLoggedIn.asObservable();
     }

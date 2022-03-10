@@ -22,7 +22,6 @@ import { RegisterComponent } from './admin/register/register.component';
 import { ForgotPasswordComponent } from './admin/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './admin/reset-password/reset-password.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
-import { LogoutComponent } from './admin/logout/logout.component';
 import { ContactUsComponent } from './core/product-feature/contact-us/contact-us.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ViewCartComponent } from './core/product-feature/view-cart/view-cart.component';
@@ -49,7 +48,6 @@ import { CheckoutComponent } from './core/product-feature/checkout/checkout.comp
     ForgotPasswordComponent,
     ResetPasswordComponent,
     DashboardComponent,
-    LogoutComponent,
     ContactUsComponent,
     ViewCartComponent,
     CheckoutComponent

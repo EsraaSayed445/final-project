@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
     // console.log(res);
 
     // redirection
-       this.router.navigate(['/product/listing']);
+       this.router.navigate(['/login']);
     },
     (err:any)=>{
       this.errors = err.error.errors;

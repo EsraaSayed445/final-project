@@ -4,7 +4,6 @@
         <img class="header__logo image--circle" src="/assets/img/reslogo.jpg" alt="logo">
       </a>
 
-      <!-- <h2 class="navbar-brand mx-5 flex-grow-1" href="#home">X GROUP</h2> -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -36,37 +35,32 @@
             <a class="nav__link" routerLink="about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav__link"routerLink="/contact-us">Contact Us</a>
+            <a class="nav__link" routerLink="/contact-us">Contact Us</a>
           </li>
-          <!-- <li>
-                    <a href="#" class="nav__link">Login</a>
-                  </li> -->
-                  <!-- *ngIf="loggedIn" -->
-                  <li>
-                    <div class="nav-item dropdown">
-                      <a class="nav__link dropdown-toggle" href="#" role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                      </a>
+          <li>
+            <div class="nav-item dropdown">
+              <a class="nav__link dropdown-toggle" href="#" role="button" id="navbarDropdown" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <i class="fa fa-user" aria-hidden="true"></i>
+              </a>
 
-                      <ul class="dropdown-menu log" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" routerLink="/dashboard">Dashboard</a></li>
-                        <div class="dropdown-divider" *ngIf="loggedIn"></div>
-                        <li><a class="dropdown-item" routerLink="/login" *ngIf="!loggedIn">Login</a></li>
-                        <li><a class="dropdown-item" routerLink="/logout" *ngIf="loggedIn">Logout</a></li>
-                      </ul>
-                    </div>
-                  </li>
+              <ul class="dropdown-menu log" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" routerLink="/dashboard" *ngIf="loggedIn">Dashboard</a></li>
+                <div class="dropdown-divider" *ngIf="loggedIn"></div>
+                <li><a class="dropdown-item" routerLink="/login" *ngIf="!loggedIn">Login</a></li>
+                <li><a class="dropdown-item" type="button" (click)="openModal()" *ngIf="loggedIn">Logout</a></li>
+              </ul>
+            </div>
+          </li>
 
           <li class="nav-item">
             <a class="nav-link" [routerLink]>
               <app-dropdown>
                 <ng-container class="header">
-                  <!-- <div class="image image--small" style="background-image: url('assets/img/shopping-cart.png')"> -->
-                    <i class="fas fa-cart-arrow-down nav__link" style="font-size: 15px;"></i>
-                    <div class="notification notification--danger my-4">
-                      {{addedProducts.length}}
-                    </div>
-                  <!-- </div> -->
+                  <i class="fas fa-cart-arrow-down nav__link" style="font-size: 15px;"></i>
+                  <div class="notification notification--danger my-4">
+                    {{addedProducts.length}}
+                  </div>
                 </ng-container>
                 <ng-container class="body">
                   <!-- items -->
@@ -85,8 +79,7 @@
                         </div>
                         <!-- item image -->
                         <div class="item-small-1__image-box">
-                          <a class="item-small-1__image image"
-                            [style]="'background-image: url('+item.imagepath+')'">
+                          <a class="item-small-1__image image" [style]="'background-image: url('+item.imagepath+')'">
                           </a>
                           <a class="item-small-1__action" (click)="delete(item)">
                             <i class="fas fa-times"></i>
@@ -99,14 +92,39 @@
                   <!-- actions -->
                   <div class="block list list--hr">
                     <a class="list-item btn gray" routerLink="/view-cart">View Cart</a>
-                    <a class="list-item btn gray"  routerLink="/checkout">Checkout</a>
+                    <a class="list-item btn gray" routerLink="/checkout">Checkout</a>
                   </div>
                 </ng-container>
               </app-dropdown>
-
             </a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
+  <!-- logout Modal -->
+  <div class="modal fs-4" tabindex="-1" [ngStyle]="{'display':display}">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title text-primary"><i class="fas fa-sign-out-alt"></i> Logout</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            (click)="onCloseHandled()"></button>
+        </div>
+        <div class="modal-body ">
+          <p class="card-text">Logged out From All Device ?</p>
+          <div class="row mb-3">
+            <div class="col">
+              <input type="checkbox" name="allDevices" [(ngModel)]="checkbox"> All Devices
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary fs-4" (click)="logout()">Logout</button>
+          <button type="button" class="btn btn-secondary fs-4" (click)="onCloseHandled()">Close</button>
+
+        </div>
+      </div>
+    </div>
+  </div>

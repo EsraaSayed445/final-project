@@ -2,6 +2,7 @@ import { Component, OnInit , Input } from '@angular/core';
 import { Product } from 'src/app/_models/product/product.model';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
 import{ ProductService} from 'src/app/_services/product/product.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,12 +18,17 @@ addedProducts :Product[]=[];
 dropdownOpened= false
 myproduct!:Product
 
+  // for modal
+  display = "none";
+
+  checkbox:boolean = false;
+
 
 // onItemAdded(product:Product){
 //   console.log(product)
 //   this.addedProducts.push(product);}
 
-  constructor(private productService: ProductService, private auth:AuthenticationService) {
+  constructor(private productService: ProductService, private auth:AuthenticationService, private router:Router) {
    }
 
   ngOnInit(): void {
@@ -55,4 +61,30 @@ else if(myproduct.cartCounter==1)
 }
 
 }
+
+// modal for add product
+openModal() {
+  this.display = "block";
+}
+onCloseHandled() {
+  this.display = "none";
+}
+
+logout(){
+  // console.log(this.checkbox);
+  this.auth.logout(this.checkbox).subscribe((res)=>{
+    console.log(res);
+    localStorage.removeItem('user');
+
+    this.auth.toggleLogin(false);
+
+    // Redirect
+        this.display = "none";
+this.router.navigate(['/login']);
+
+  }, (err) =>{
+    console.log(err)
+  })
+}
+
 }
