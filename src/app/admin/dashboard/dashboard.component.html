@@ -1,0 +1,41 @@
+
+<p class="text-center fw-bold my-5">Welcome back .. Have a nice day :)</p>
+
+    <div class="container justify-content-center my-5" >
+        <button class="btn btn-success" [routerLink]="['/product/add']">Add Product</button>
+        <button  class="btn btn-success mx-3" [routerLink]="['/order']">Orders </button>
+        <button class="btn btn-success " [routerLink]="['/product/listing']">Menu</button>
+     <!-- <router-outlet></router-outlet> -->
+    </div>
+
+
+<table class="table table-bordered text-center w-75 mx-auto mb-5">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Image</th>
+        <!-- <th scope="col">category</th> -->
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prod of productArr | paginate:{ itemsPerPage: 5, currentPage: p}">
+        <td>{{prod.id}}</td>
+        <td>{{prod.name}}</td>
+        <td><img src="{{prod.imagepath}}" style="width: 80px; height: 80px;" alt=""></td>
+        <!-- <td>{{prod.category}}</td> -->
+        <td>{{prod.description}}</td>
+        <td>{{prod.price}}</td>
+        <td><button class="btn btn-primary " [routerLink]="['/product','details',prod.id]">Show</button></td>
+        <td><button class="btn btn-warning " [routerLink]="['/product','edit', prod.id]">Edit</button></td>
+        <td><button class="btn btn-danger " (click)="onItemDeleted(prod.id!)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls
+  (pageChange)="p = $event"
+  class="d-flex justify-content-end fs-4 me-5">
+  </pagination-controls>
+

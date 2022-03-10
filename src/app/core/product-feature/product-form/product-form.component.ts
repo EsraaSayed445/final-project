@@ -6,13 +6,10 @@ import { PaymentType } from 'src/app/_models/product/payment-type.model';
 import { Product } from 'src/app/_models/product/product.model';
 import { Tag } from 'src/app/_models/product/tags.model';
 import { CategoryService } from 'src/app/_services/product/category.service';
-import { ImageServiceService } from 'src/app/_services/product/image-service.service';
 import { PaymentTypeService } from 'src/app/_services/product/payment-type.service';
 import { ProductService } from 'src/app/_services/product/product.service';
 import { TagService } from 'src/app/_services/product/tag.service';
-class ImageSnippet {
-  constructor(public src: string, public file: File) {}
-}
+
 
 @Component({
   selector: 'app-product-form',
@@ -27,8 +24,7 @@ export class ProductFormComponent implements OnInit {
   product= {} as Product;
   editMode=false;
   addProduct!: Product;
-
-  selectedFile!: ImageSnippet;
+  
 
   constructor(
     private productService: ProductService,
@@ -37,31 +33,10 @@ export class ProductFormComponent implements OnInit {
     private paymentTypeService: PaymentTypeService,
     private categoryService: CategoryService ,
     private tagService: TagService,
-    private imageService: ImageServiceService,
+   
 
     ) { }
 
-    processFile(imageInput: any) {
-      const file: File = imageInput.files[0];
-      const reader = new FileReader();
-  
-      reader.addEventListener('load', (event: any) => {
-  
-        this.selectedFile = new ImageSnippet(event.target.result, file);
-  
-        this.imageService.uploadImage(this.selectedFile.file).subscribe(
-          (res) => {
-            console.log("weeeeeeeeeee");
-            
-            return "done";
-          },
-          (err) => {
-          
-          })
-      });
-  
-      reader.readAsDataURL(file);
-    }
 
   ngOnInit(): void {
     this.getAllProductTypes();
@@ -114,6 +89,7 @@ export class ProductFormComponent implements OnInit {
   onSelect(event: any){
     if(event.target.files){
       var reader= new FileReader()
+      console.log(reader);
       reader.readAsDataURL(event.target.files[0])
       reader.onload= (event: any)=>{
         this.product.imagepath= event.target.result
@@ -127,7 +103,7 @@ export class ProductFormComponent implements OnInit {
 
     this.productService.addProduct(this.addProduct);
     console.log(this.product);
-    this.router.navigateByUrl('/product/listing');
+  //  this.router.navigateByUrl('/product/listing');
   }
 
   getProductById(){

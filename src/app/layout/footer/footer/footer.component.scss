@@ -112,7 +112,7 @@ ul {
 	ul {
 		li {
 			display: inline-block;
-			float: left;
+			// float: left;
 			width: 50%;
 			margin-bottom: 12px;
 			a {
@@ -178,3 +178,8 @@ ul {
 		}
 	}
 }
+
+table{
+    text-align: center;
+    color: #878787;
+  }
