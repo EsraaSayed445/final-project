@@ -1,0 +1,95 @@
+<header>
+    <h1 class="text-center my-5">Checkout</h1>
+</header>
+
+<main class="">
+    <div class="row justify-content-evenly">
+
+    <section class="checkout-details col-md-5 mt-3">
+        <div class="cart_section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1">
+                        <div class="cart_container">
+                            <div class="cart_title">Shopping Cart</div>
+                            <div class="cart_items"  *ngFor="let item of foods ">
+                                <ul class="cart_list">
+                                    <li class="cart_item clearfix">
+                                        <div class="cart_item_image"><img src={{item.imagepath}} alt=""></div>
+                                        <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
+                                            <div class="cart_item_name cart_info_col">
+                                                <div class="cart_item_title">Name</div>
+                                                <div class="cart_item_text">{{item.name}}</div>
+                                            </div>
+                                            <div class="cart_item_name cart_info_col">
+                                                <div class="cart_item_title">Description</div>
+                                                <div class="cart_item_text">{{item.description}}</div>
+                                            </div>
+                                            <div class="cart_item_quantity cart_info_col">
+                                                <div class="cart_item_title">Quantity</div>
+                                                <div class="cart_item_text">{{item.cartCounter}}</div>
+                                            </div>
+                                            <div class="cart_item_price cart_info_col">
+                                                <div class="cart_item_title">Price</div>
+                                                <div class="cart_item_text">{{item.price}}</div>
+                                            </div>
+                                            <div class="cart_item_total cart_info_col">
+                                                <div class="cart_item_title">Total</div>
+                                                <div class="cart_item_text">{{item.totalPriceFoodType}}</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="order_total">
+                                <div class="order_total_content text-md-right">
+                                    <div class="order_total_title">Order Total:</div>
+                                    <div class="order_total_amount">{{totalPrice}}</div>
+                                </div>
+                            </div>
+                            <div class="cart_buttons"> <button type="button" class="button cart_button_clear" routerLink="/product/listing">Continue Shopping</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+    </section>
+    <section class="checkout-form col-md-5 mt-3">
+
+        <div class="w-100">
+            <div class="row">
+                <div class="col-lg-12 login-form">
+
+                    <form method="post" action="/pay" [formGroup]="myForm" (ngSubmit)="formSubmit(myForm)">
+                        <div class="form-group ">
+                            <label class="form-control-label w-50 mx-start"><span class="fas fa-user"></span> Full Name</label>
+                            <input type="text" class="form-control form-control-lg w-100 mx-auto" formControlName="name">
+                          </div>
+
+                      <div class="form-group mt-3">
+                        <label class="form-control-label w-50 mx-start"><span class="fas fa-envelope"></span> Email</label>
+                        <input type="text" class="form-control form-control-lg w-100 mx-auto"  formControlName="email" >
+                      </div>
+
+                      <div class="form-group mt-3">
+                        <label class="form-control-label w-50 mx-start"><span class="fas fa-phone me-1"></span>Phone Number</label>
+                        <input type="number" class="form-control form-control-lg w-100 mx-auto"  formControlName="phone" ngModel>
+                      </div>
+                      <div class="text-end mt-5">
+                        <button type="submit" class="button cart_button_checkout float-right"  routerLink="/checkout">Check Out</button>
+<p>hello from here</p>
+                      </div>
+                    </form>
+
+                </div>
+
+              </div>
+
+        </div>
+    </section>
+
+</div>
+
+</main>
+
