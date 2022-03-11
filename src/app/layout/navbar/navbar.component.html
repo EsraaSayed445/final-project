@@ -36,22 +36,37 @@
             <a class="nav__link" routerLink="about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav__link" href="#portfolio">Contact Us</a>
+            <a class="nav__link"routerLink="/contact-us">Contact Us</a>
           </li>
           <!-- <li>
                     <a href="#" class="nav__link">Login</a>
-
                   </li> -->
+                  <!-- *ngIf="loggedIn" -->
+                  <li>
+                    <div class="nav-item dropdown">
+                      <a class="nav__link dropdown-toggle" href="#" role="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                      </a>
+
+                      <ul class="dropdown-menu log" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" routerLink="/product/listing" *ngIf="loggedIn">Dashboard</a></li>
+                        <div class="dropdown-divider" *ngIf="loggedIn"></div>
+                        <li><a class="dropdown-item" routerLink="/login" *ngIf="!loggedIn">Login</a></li>
+                        <li><a class="dropdown-item" routerLink="/logout" *ngIf="loggedIn">Logout</a></li>
+                      </ul>
+                    </div>
+                  </li>
 
           <li class="nav-item">
             <a class="nav-link" [routerLink]>
               <app-dropdown>
                 <ng-container class="header">
-                  <div class="image image--small" style="background-image: url('assets/img/shopping-cart.png')">
-                    <div class="notification notification--danger">
+                  <!-- <div class="image image--small" style="background-image: url('assets/img/shopping-cart.png')"> -->
+                    <i class="fas fa-cart-arrow-down nav__link" style="font-size: 15px;"></i>
+                    <div class="notification notification--danger my-4">
                       {{addedProducts.length}}
                     </div>
-                  </div>
+                  <!-- </div> -->
                 </ng-container>
                 <ng-container class="body">
                   <!-- items -->
@@ -81,16 +96,10 @@
                     </li>
 
                   </ul>
-                  <!-- totals -->
-                  <div class="separator"></div>
-                  <div class="block">
-                    <span class="lable">Total:</span>
-                    <span class="lable">$0</span>
-                  </div>
                   <!-- actions -->
                   <div class="block list list--hr">
-                    <a class="list-item btn btn-primary" href="">View Cart</a>
-                    <a class="list-item btn btn-danger" href="">Checkout</a>
+                    <a class="list-item btn gray" routerLink="/view-cart">View Cart</a>
+                    <a class="list-item btn gray"  routerLink="/checkout">Checkout</a>
                   </div>
                 </ng-container>
               </app-dropdown>

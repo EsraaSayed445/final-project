@@ -11,7 +11,8 @@
         <h3>Categories</h3>
         <!-- filter list -->
         <ul class="list list--vr-separator" *ngFor="let catg of categoryList">
-          <li class="link list__item"  [routerLink]="['/product','categories',catg.id]"><i class="link__icon fas fa-angle-right"></i>{{catg.name}}</li>
+          <li class="link list__item"  [routerLink]="['/product','categories',catg.id]">
+              <i class="link__icon fas fa-angle-right"></i>{{catg.name}}</li>
       </ul>
 
     </div>

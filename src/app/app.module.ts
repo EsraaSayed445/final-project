@@ -16,8 +16,20 @@ import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './core/product-feature/home/home.component';
 import { FooterComponent } from './layout/footer/footer/footer.component';
+import { LoginComponent } from './admin/login/login.component';
 import { AboutUsComponent } from './core/product-feature/about-us/about-us.component';
-import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import { RegisterComponent } from './admin/register/register.component';
+import { ForgotPasswordComponent } from './admin/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './admin/reset-password/reset-password.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { LogoutComponent } from './admin/logout/logout.component';
+import { ContactUsComponent } from './core/product-feature/contact-us/contact-us.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { ViewCartComponent } from './core/product-feature/view-cart/view-cart.component';
+import { CheckoutComponent } from './core/product-feature/checkout/checkout.component'; // <-- import the module
+import { ReactiveFormsModule } from '@angular/forms';
+import { OrderComponent } from './admin/dashboard/order/order.component';
+
 
 @NgModule({
   declarations: [
@@ -34,14 +46,25 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
     NotFoundComponent,
     HomeComponent,
     FooterComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    LoginComponent,
+    RegisterComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
+    DashboardComponent,
+    LogoutComponent,
+    ContactUsComponent,
+    ViewCartComponent,
+    CheckoutComponent,
+    OrderComponent
   ],
   imports: [
-    NgxPaginationModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

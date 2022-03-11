@@ -1,0 +1,21 @@
+.contact-Us{
+    background-image: url('../../../../assets/img/waterColorPaper.jpg');
+    background-size: cover;
+    background-position: center;
+}
+h1{
+    font-size: 55px;
+    line-height: 1.2;
+    font-weight: 600;
+    font-family: Gilroy,-apple-system,BlinkMacSystemFont,Raleway,sans-serif;
+}
+.btn{
+    background-color:#FF5E14 ;
+    color: white;
+    
+}
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
+    border-color: #FF5E14;
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6);
+    outline: 0 none;
+}

@@ -92,6 +92,9 @@ export class ProductService {
   cartHasBeenChanged: EventEmitter<Product[]> = new EventEmitter<
     Product[]
   >();
+
+
+
   private cartArray: Product[] = [];
   errorMessage: any;
 
@@ -105,6 +108,7 @@ export class ProductService {
     // return this.productsArray.find((product) => product.id === id);
     return this.httpClient.get(environment.baseUrl +'foods/'+id)
   }
+
   addProduct(product: Product) {
     // this.productsArray.push(product);
     const body = product;
@@ -116,6 +120,10 @@ export class ProductService {
       }
   })
    }
+
+
+
+
   updateProduct() {}
 
   deleteProduct(id:number) {
@@ -147,6 +155,12 @@ for(var i =0; i<this.cartArray.length;i++){
 }
 
 
+  }
+
+  getproductsfromcart():Product[]{
+return this.cartArray;
 
   }
+
+
 }

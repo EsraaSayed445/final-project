@@ -10,6 +10,7 @@ import { PaymentTypeService } from 'src/app/_services/product/payment-type.servi
 import { ProductService } from 'src/app/_services/product/product.service';
 import { TagService } from 'src/app/_services/product/tag.service';
 
+
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
@@ -23,6 +24,7 @@ export class ProductFormComponent implements OnInit {
   product= {} as Product;
   editMode=false;
   addProduct!: Product;
+  
 
   constructor(
     private productService: ProductService,
@@ -31,9 +33,9 @@ export class ProductFormComponent implements OnInit {
     private paymentTypeService: PaymentTypeService,
     private categoryService: CategoryService ,
     private tagService: TagService,
+   
 
     ) { }
-
 
 
   ngOnInit(): void {
@@ -84,20 +86,16 @@ export class ProductFormComponent implements OnInit {
   }
 
   // image
-
-  // onFileChange(event: any): void {
-  //   this.product.imagepath = event;
-  // }
-
-  // onSelect(event: any){
-  //   if(event.target.files){
-  //     var reader= new FileReader()
-  //     reader.readAsDataURL(event.target.files[0])
-  //     reader.onload= (event: any)=>{
-  //       this.product.imagepath= event.target.result
-  //     }
-  //   }
-  // }
+  onSelect(event: any){
+    if(event.target.files){
+      var reader= new FileReader()
+      console.log(reader);
+      reader.readAsDataURL(event.target.files[0])
+      reader.onload= (event: any)=>{
+        this.product.imagepath= event.target.result
+      }
+    }
+  }
 
 
   onAddProduct(form: NgForm) {
@@ -105,7 +103,7 @@ export class ProductFormComponent implements OnInit {
 
     this.productService.addProduct(this.addProduct);
     console.log(this.product);
-    this.router.navigateByUrl('home');
+  //  this.router.navigateByUrl('/product/listing');
   }
 
   getProductById(){
