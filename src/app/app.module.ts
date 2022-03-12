@@ -26,6 +26,7 @@ import { ContactUsComponent } from './core/product-feature/contact-us/contact-us
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ViewCartComponent } from './core/product-feature/view-cart/view-cart.component';
 import { CheckoutComponent } from './core/product-feature/checkout/checkout.component'; // <-- import the module
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { CheckoutComponent } from './core/product-feature/checkout/checkout.comp
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
