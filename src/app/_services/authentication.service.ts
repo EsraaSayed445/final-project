@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  
+
   private isLoggedIn = new BehaviorSubject<boolean>(false);
   // errorMessage: any;
   errorMessage: any;
@@ -19,32 +19,32 @@ export class AuthenticationService {
     this.isLoggedIn.next(state);
   }
 
-    // Status
-    status() {
-      const localData: any = localStorage.getItem('user');
-      if (!localData) {
-        this.isLoggedIn.next(false);
-         console.log('User not logged in !!');
-      } else {
-        const userObj = JSON.parse(localData);
-        // const token_expires_at = new Date(userObj.token_expires_at);
-        // const current_date = new Date();
-        // console.log(token_expires_at);
-        // console.log(current_date);
+  // Status
+  status() {
+    const localData: any = localStorage.getItem('user');
+    if (!localData) {
+      this.isLoggedIn.next(false);
+      console.log('User not logged in !!');
+    } else {
+      const userObj = JSON.parse(localData);
+      // const token_expires_at = new Date(userObj.token_expires_at);
+      // const current_date = new Date();
+      // console.log(token_expires_at);
+      // console.log(current_date);
 
-        // if (token_expires_at > current_date) {
-          this.isLoggedIn.next(true);
+      // if (token_expires_at > current_date) {
+      this.isLoggedIn.next(true);
       //   } else {
       //     this.isLoggedIn.next(false);
       //      console.log('you are in :)');
       //   }
-      }
-      return this.isLoggedIn.asObservable();
     }
+    return this.isLoggedIn.asObservable();
+  }
 
-   // Login
-   login(email: string, password: string) {
-    return this.http.post(environment.baseUrl+'login', {
+  // Login
+  login(email: string, password: string) {
+    return this.http.post(environment.baseUrl + 'login', {
       email: email,
       password: password,
     });
@@ -60,12 +60,13 @@ export class AuthenticationService {
       Authorization: `Bearer ${token}`,
     });
 
-    return this.http.get(environment.baseUrl+'user', {
-      headers: headers});
+    return this.http.get(environment.baseUrl + 'user', {
+      headers: headers
+    });
   }
 
   // Logout
-  logout(allDevice: boolean){
+  logout(allDevice: boolean) {
     const user: any = localStorage.getItem('user');
     const userObj = JSON.parse(user);
 
@@ -73,20 +74,36 @@ export class AuthenticationService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });
-    return this.http.post(environment.baseUrl+'logout', {allDevice:allDevice}, {headers:headers});
+    return this.http.post(environment.baseUrl + 'logout', { allDevice: allDevice }, { headers: headers });
   }
 
-   // Register
-   register(name:string, email:string, password:string, password_confirmation:string){
-    const data={
-      name:name,
-      email:email,
-      password:password,
-      password_confirmation:password_confirmation,
+  // Register
+  register(name: string, email: string, password: string, password_confirmation: string) {
+    const data = {
+      name: name,
+      email: email,
+      password: password,
+      password_confirmation: password_confirmation,
     }
     // console.log(data);
     console.log(data);
-    return this.http.post(environment.baseUrl+'register', data);
+    return this.http.post(environment.baseUrl + 'register', data);
+  }
+
+  // Forgot Pass
+  forgot(email: string) {
+    return this.http.post(environment.baseUrl + 'forgot-password', { email: email });
+  }
+
+  // Reset Pass
+  reset(token: string, password: string, password_confirmation: string) {
+
+    const data = {
+      token: token,
+      password: password,
+      password_confirmation: password_confirmation
+    }
+    return this.http.post(environment.baseUrl + 'reset-password', data);
   }
 
 }
