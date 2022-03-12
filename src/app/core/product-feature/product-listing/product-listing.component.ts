@@ -1,7 +1,7 @@
 import { Component, OnInit, Output ,EventEmitter } from '@angular/core';
 import {AllProductResponse, Product} from 'src/app/_models/product/product.model';
 import { ProductService } from 'src/app/_services/product/product.service';
-import { AuthService }from 'src/app/_services/auth.service';
+import { AuthenticationService } from 'src/app/_services/authentication.service';
 import { ActivatedRoute } from '@angular/router';
 
 
@@ -18,7 +18,7 @@ export class ProductListingComponent implements OnInit {
   @Output()
   itemAdded: EventEmitter<Product> =new EventEmitter<Product>();
 
-  constructor(private productService: ProductService , private route:ActivatedRoute,private auth:AuthService) {
+  constructor(private productService: ProductService , private route:ActivatedRoute,private auth:AuthenticationService) {
   };
 
   ngOnInit(): void {
