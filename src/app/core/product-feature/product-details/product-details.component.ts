@@ -22,16 +22,16 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   getProductById(){
+    
     this.activatedRoute.params.subscribe(
       (params)=>{
         const id = +params['productId'];
-        this.productService.getProductById(id);
+        console.log (id)
+        
       },
       (err)=>{},
       ()=>{},
     )
-
-    
   }
 
   calculatePrice():number{

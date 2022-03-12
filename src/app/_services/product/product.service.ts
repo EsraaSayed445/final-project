@@ -103,10 +103,10 @@ export class ProductService {
   getAllProducts():Observable<AllProductResponse>{
     return this.httpClient.get<AllProductResponse>(environment.baseUrl + 'foods')
   }
-  getProductById(id: number) {
+  getProductById(id: number):Observable<AllProductResponse>{
     // const url = `${environment.baseUrl}/${id}`;
     // return this.productsArray.find((product) => product.id === id);
-    return this.httpClient.get(environment.baseUrl +'foods/'+id)
+    return this.httpClient.get<AllProductResponse>(environment.baseUrl +'foods/'+id)
   }
 
   addProduct(product: Product) {
