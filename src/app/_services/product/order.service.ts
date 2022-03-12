@@ -13,23 +13,45 @@ export class OrderService {
 
   constructor(private _httpClient: HttpClient) { }
 
-  getAllProducts():Observable<AllOrderResponse>{
-    return this._httpClient.get<AllOrderResponse>(environment.baseUrl + 'food_order');
+  getAllFoodsOrders():Observable<any>{
+    return this._httpClient.get<any>(environment.baseUrl + 'food_order');
 
 
   }
 
-  addProduct(product: any) {
+  getAllOrders():Observable<AllOrderResponse>{
+    return this._httpClient.get<AllOrderResponse>(environment.baseUrl + 'orders');
+
+
+  }
+  addOrder(order: any) {
+
+    
     // this.productsArray.push(product);
-    const body = product;
+    const body = order;
     console.log(body);
     console.log("addedorder item")
-    return this._httpClient.post<any>(environment.baseUrl + 'food_order',body).subscribe({
+
+   
+    this._httpClient.post<any>(environment.baseUrl + 'orders',2).subscribe({
       error: error => {
           this.errorMessage = error.message;
-          console.error('There was an error!', error);
+          console.error('There was an error on order!', error);
       }
   })
+
+    for(let myOrder of body){
+     
+       this._httpClient.post<any>(environment.baseUrl + 'food_order',myOrder).subscribe({
+        error: error => {
+            this.errorMessage = error.message;
+            console.error('There was an error on food-order!', error);
+        }
+    })
+
+
+    }
+    return 1;
    }
 
 

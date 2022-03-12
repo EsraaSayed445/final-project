@@ -18,7 +18,7 @@ export class OrderComponent implements OnInit {
   constructor(private _OrderService: OrderService , private _ProductService: ProductService) { }
 
   ngOnInit(): void {
-    this._OrderService.getAllProducts().subscribe(
+    this._OrderService.getAllFoodsOrders().subscribe(
       (res)=>{
          this.orderDetail=res.data;
          for (let i = 0; i < this.orderDetail.length; i++) {

@@ -9,3 +9,10 @@ export interface Food_Order{
 export interface AllOrderResponse{
   data:Food_Order[];
 }
+
+export interface LastOrder{
+  quantity:number[],
+  food_id:number[],
+  order_id:number[]
+}
+
