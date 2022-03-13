@@ -10,6 +10,7 @@ import { PaymentTypeService } from 'src/app/_services/product/payment-type.servi
 import { ProductService } from 'src/app/_services/product/product.service';
 import { TagService } from 'src/app/_services/product/tag.service';
 
+
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
@@ -23,6 +24,7 @@ export class ProductFormComponent implements OnInit {
   product= {} as Product;
   editMode=false;
   addProduct!: Product;
+  
 
   constructor(
     private productService: ProductService,
@@ -31,8 +33,9 @@ export class ProductFormComponent implements OnInit {
     private paymentTypeService: PaymentTypeService,
     private categoryService: CategoryService ,
     private tagService: TagService,
-    ) { }
+   
 
+    ) { }
 
 
   ngOnInit(): void {

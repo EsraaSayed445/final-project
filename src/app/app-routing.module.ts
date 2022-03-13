@@ -15,6 +15,8 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { ContactUsComponent } from './core/product-feature/contact-us/contact-us.component';
 import { ViewCartComponent } from './core/product-feature/view-cart/view-cart.component';
 import { CheckoutComponent } from './core/product-feature/checkout/checkout.component';
+import { OrderComponent } from './admin/dashboard/order/order.component';
+import { ContactComponent } from './admin/dashboard/contact/contact.component';
 
 // lazy loading
 const routes: Routes = [
@@ -29,8 +31,10 @@ const routes: Routes = [
   {path:'contact-us',component:ContactUsComponent},
   {path:'view-cart',component:ViewCartComponent},
   {path:'checkout',component:CheckoutComponent},
+  {path:'order',component:OrderComponent},
+  {path:'contact',component:ContactComponent},
 
-
+  
   // {path:'home',redirectTo: '',pathMatch:'full'},
   {path:'product',children:[
     {path:'listing', component:ProductListingComponent},

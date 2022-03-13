@@ -27,6 +27,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { ViewCartComponent } from './core/product-feature/view-cart/view-cart.component';
 import { CheckoutComponent } from './core/product-feature/checkout/checkout.component'; // <-- import the module
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ReactiveFormsModule } from '@angular/forms';
+import { OrderComponent } from './admin/dashboard/order/order.component';
+import { ContactComponent } from './admin/dashboard/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     DashboardComponent,
     ContactUsComponent,
     ViewCartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    OrderComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +64,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

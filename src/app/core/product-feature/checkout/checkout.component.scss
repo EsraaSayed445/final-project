@@ -47,7 +47,6 @@ ul {
 
 .cart_section {
   width: 100%;
-  padding-top: 93px;
   padding-bottom: 111px;
   // background-image: url("../../../../assets/img/home2.jpg");
   // background-size: cover;
@@ -191,4 +190,12 @@ ul {
   outline: none;
   cursor: pointer;
   vertical-align: top
+}
+header h1{
+font-size: 55px !important;
+}
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
+  border-color: #FF5E14;
+  box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(245, 104, 17, 0.966);
+  outline: 0 none;
 }
