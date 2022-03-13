@@ -16,7 +16,9 @@ export class OrderComponent implements OnInit {
     this._OrderService.getAllProducts().subscribe(
       (res)=>{
         this.orderDetail.push(res);
-        console.log(this.orderDetail);
+        console.log("hellooooooo");
+        
+        console.log(this.orderDetail[0])
         
       },
       (err)=>{
