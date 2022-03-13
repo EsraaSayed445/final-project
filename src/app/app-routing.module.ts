@@ -17,30 +17,32 @@ import { ViewCartComponent } from './core/product-feature/view-cart/view-cart.co
 import { CheckoutComponent } from './core/product-feature/checkout/checkout.component';
 import { OrderComponent } from './admin/dashboard/order/order.component';
 import { ContactComponent } from './admin/dashboard/contact/contact.component';
+import { AuthGuard } from './_services/auth.guard';
+import { AuthRoleGuard } from './_services/auth-role.guard';
 
 // lazy loading
 const routes: Routes = [
   {path:'home',component:HomeComponent},
-  {path: 'dashboard',component:DashboardComponent},
+  {path: 'dashboard',component:DashboardComponent, canActivate:[AuthGuard, AuthRoleGuard],data:{role:"admin"}},
   {path:'about',component:AboutUsComponent},
   {path:'',component:ProductListingComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'forgot-password',component:ForgotPasswordComponent},
   {path:'reset-password',component:ResetPasswordComponent},
-  {path:'contact-us',component:ContactUsComponent},
+  {path:'contact-us',component:ContactUsComponent, canActivate:[AuthGuard]},
   {path:'view-cart',component:ViewCartComponent},
-  {path:'checkout',component:CheckoutComponent},
-  {path:'order',component:OrderComponent},
-  {path:'contact',component:ContactComponent},
+  {path:'checkout',component:CheckoutComponent, canActivate:[AuthGuard]},
+  {path:'order',component:OrderComponent, canActivate:[AuthGuard, AuthRoleGuard],data:{role:"admin"}},
+  {path:'contact',component:ContactComponent, canActivate:[AuthGuard]},
 
   
   // {path:'home',redirectTo: '',pathMatch:'full'},
   {path:'product',children:[
     {path:'listing', component:ProductListingComponent},
     {path:'details/:productId',component:ProductDetailsComponent},
-    {path:'add',component:ProductFormComponent},
-    {path:'edit/:productId',component:ProductFormComponent},
+    {path:'add',component:ProductFormComponent, canActivate:[AuthGuard, AuthRoleGuard],data:{role:"admin"}},
+    {path:'edit/:productId',component:ProductFormComponent, canActivate:[AuthGuard, AuthRoleGuard],data:{role:"admin"}},
     {path:'categories/:categoryId',component: ProductListingComponent},
     {path:'**',component:NotFoundComponent},
   ]},

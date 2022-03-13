@@ -9,7 +9,8 @@ import { environment } from 'src/environments/environment';
 export class AuthenticationService {
 
   private isLoggedIn = new BehaviorSubject<boolean>(false);
-  // errorMessage: any;
+  isLoggedIn$ = this.isLoggedIn.asObservable();
+
   errorMessage: any;
 
   constructor(private http: HttpClient) { }
