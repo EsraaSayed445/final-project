@@ -15,13 +15,7 @@ totalPrice:number=0;
 addedOrder:any;
  orders:any[]=[];
  order_id:number=0;
- //  orderDetail:any[]=[];
-//  myOrders:any[]=[];
-// quantity:any[]=[];
-// food_id:any[]=[];
-// order_id:any[]=[];
-// order_id:number=1;
-// lastOrder:{quantity:number,food_id:number,order_id:number}[]=[];
+ 
   constructor(private productService: ProductService , private orderService: OrderService) { }
 
   ngOnInit(): void {
@@ -29,33 +23,6 @@ addedOrder:any;
    for(var i=0; i< (this.productService.getproductsfromcart()).length ;i++){
      this.foods.push(this.productService.getproductsfromcart()[i]);
    }
-  //  this.orders[0][0]="99";
-  //  console.log(this.orders);
-
-  //  for(var i=0; i< this.foods.length ;i++){
-  //   this.orders[i][0]=this.foods[i].id;
-  //   this.orders[i][1]=this.foods[i].cartCounter;
-  //   this.orders[i][2]=1;
-
-
-  //    console.log(this.orders[i]);
-     
-  //   //  this.food_id[i]=this.foods[i].id;
-  //   //  this.order_id[i]=1;
-
-
-     
-  //   // this.food_orders[i].food[i].cartCounter=this.foods[i].cartCounter;
-  // }
-  // console.log(this.lastOrder);
-  // this.lastOrder[0].quantity[0]="5";
-  // console.log(this.lastOrder);
-
-  // console.log("hena");
-  // console.log(this.quantity);
-  // console.log(this.food_id);
-  // console.log(this.order_id);
-
   
 
     this.calculateTotalPrice();

@@ -29,6 +29,7 @@ import { ViewCartComponent } from './core/product-feature/view-cart/view-cart.co
 import { CheckoutComponent } from './core/product-feature/checkout/checkout.component'; // <-- import the module
 import { ReactiveFormsModule } from '@angular/forms';
 import { OrderComponent } from './admin/dashboard/order/order.component';
+import { ContactComponent } from './admin/dashboard/contact/contact.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { OrderComponent } from './admin/dashboard/order/order.component';
     ContactUsComponent,
     ViewCartComponent,
     CheckoutComponent,
-    OrderComponent
+    OrderComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
