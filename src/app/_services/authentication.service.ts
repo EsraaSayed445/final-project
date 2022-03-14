@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  
+
   private isLoggedIn = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient) { }
@@ -48,7 +48,7 @@ export class AuthenticationService {
   user() {
     const user: any = localStorage.getItem('user');
     const userObj: any = JSON.parse(user);
-
+console.log(user);
     const token = userObj.token;
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
@@ -71,13 +71,16 @@ export class AuthenticationService {
   }
 
    // Register
-   register(name:string, email:string, password:string, password_confirmation:string){
+   register(name:string, email:string, password:string, password_confirmation:string , phone:string ,address:string){
     const data={
       name:name,
       email:email,
       password:password,
       password_confirmation:password_confirmation,
+      phone:phone,
+      address:address
     }
+    
     return this.http.post('http://localhost:8000/api/register', data);
   }
 
