@@ -121,12 +121,28 @@ export class ProductService {
   })
    }
 
-  updateProduct() {}
+  updateProduct(id: number,product:Product){
+    const body = product;
+    console.log(body);
+    console.log(id);
+    return this.httpClient.post<any>(environment.baseUrl +'foods/'+id,body).subscribe({
+      error: error => {
+          this.errorMessage = error.message;
+          console.error('There was an error!', error);
+      }
+  })
+  }
 
   deleteProduct(id:number){
-    const deleteElement = id-1;
+    console.log(id);
     // return this.productsArray.splice(deleteElement,1)
-    return this.httpClient.delete(environment.baseUrl +'foods/'+id) 
+    return this.httpClient.delete(environment.baseUrl +'foods/'+id).subscribe({
+      error: error => {
+          this.errorMessage = error.message;
+          console.error('There was an error!', error);
+      }
+  })
+   
   }
 
   addProductToCart(product: Product) {

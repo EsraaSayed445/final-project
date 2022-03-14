@@ -25,7 +25,8 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { ContactUsComponent } from './core/product-feature/contact-us/contact-us.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ViewCartComponent } from './core/product-feature/view-cart/view-cart.component';
-import { CheckoutComponent } from './core/product-feature/checkout/checkout.component'; // <-- import the module
+import { CheckoutComponent } from './core/product-feature/checkout/checkout.component';
+import { OrderDetailsComponent } from './order-details/order-details.component'; // <-- import the module
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { CheckoutComponent } from './core/product-feature/checkout/checkout.comp
     DashboardComponent,
     ContactUsComponent,
     ViewCartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    OrderDetailsComponent
   ],
   imports: [
     BrowserModule,

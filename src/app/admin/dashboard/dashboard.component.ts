@@ -5,6 +5,7 @@ import { AllProductResponse, Product } from 'src/app/_models/product/product.mod
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/_services/product/product.service';
 import { environment } from 'src/environments/environment';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -41,17 +42,25 @@ export class DashboardComponent implements OnInit {
   }
 
   getProductById(id:number){
-  console.log(id)
-  this.productService.getProductById(id).subscribe((res)=>{
-    this.pro=res.data;
-     console.log(res)
-    //this.router.navigateByUrl('/product/details/'+id);
-  })
+    console.log(id)
+    this.productService.getProductById(id).subscribe((res)=>{
+      this.pro=res.data;
+      console.log(res)
+    })
   }
 
+  onSubmit(form: NgForm) {
+  this.pro.description=form.value.description;
+  this.pro.name=form.value.name;
+  this.pro.price=form.value.price;
+  this.pro.imagepath=form.value.imagepath;
 
-  onItemDeleted(id:any){
+  this.productService.updateProduct(this.pro.id,this.pro);
+}
+
+  onItemDeleted(id:number){
     this.productService.deleteProduct(id);
     console.log("delete");
-    }
+  }
+
 }

@@ -28,26 +28,27 @@
         <!-- <td>{{prod.category}}</td> -->
         <td>{{prod.description}}</td>
         <td>{{prod.price}}</td>
-        <td><button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getProductById(prod.id!)">Show</button></td>
-        <td><button class="btn btn-warning " [routerLink]="['/product','edit', prod.id]">Edit</button></td>
-        <td><button class="btn btn-danger "  (click)="onItemDeleted(prod.id!)">Delete</button></td>
+        <td><button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#show" (click)="getProductById(prod.id!)">Show</button></td>
+        <td><button class="btn btn-warning " data-bs-toggle="modal" data-bs-target="#edit" (click)="getProductById(prod.id!)">Edit</button></td>
+        <td><button class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#delete"(click)="getProductById(prod.id!)">Delete</button></td>
       </tr>
     </tbody>
   </table>
 
-<!-- Modal -->
+<!--show  Modal -->
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="show" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Product</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Show Product</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body text-center">
         <ng-template [ngIf]="pro">
             <h2>{{pro.name}}</h2>
             <img src="{{pro.imagepath}}" style="width: 200px; height: 200px;" alt="">
+            <p>{{pro.price}}</p>
             <p>{{pro.description}}</p>
       </ng-template>
       </div>
@@ -60,6 +61,58 @@
 </div>
 
 
+<!--edit   Modal --> 
+<div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form #myform = "ngForm" (ngSubmit) = "onSubmit(myform)" >
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Product</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <ng-template [ngIf]="pro">
+         
+            <input type = "text" name = "name"  [(ngModel)]="pro.name">
+            <br/>
+    
+            <input type = "text" name = "imagepath" [(ngModel)]="pro.imagepath">
+            <br/>
+            
+            <input type = "number" name = "price" [(ngModel)]="pro.price">
+            <br/>
+          
+            <textarea name = "description" [(ngModel)]="pro.description"></textarea>
+            <br/>         
+      </ng-template>
+      </div>
+      <div class="modal-footer">
+        <input type = "submit" class="btn btn-primary" data-bs-dismiss="modal" value = "Save changes">
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> Delete Product</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <ng-template [ngIf]="pro">
+            <p>Are you sure to delete this {{pro.name}} food</p>
+      </ng-template>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" (click)="onItemDeleted(pro.id)"> Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
   <pagination-controls
   (pageChange)="p = $event"
   class="d-flex justify-content-end fs-4 me-5">
