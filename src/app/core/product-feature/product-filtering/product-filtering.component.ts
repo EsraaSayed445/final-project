@@ -31,7 +31,7 @@ export class ProductFilteringComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getAllCategories();
-    this.getAllTags();
+    // this.getAllTags();
     this.getFilterCategory;
     this.category.getAllCategories().subscribe((res)=>{
       console.log(res,"categoryyyyyyyyy")
@@ -43,9 +43,9 @@ export class ProductFilteringComponent implements OnInit {
   //   this.categoryArray = this.categoryService.getAllCategories();
   // }
 
-  getAllTags(){
-    this.tagArray = this.tagService.getAllTags();
-  }
+  // getAllTags(){
+  //   this.tagArray = this.tagService.getAllTags();
+  // }
 
   getFilterCategory(i:number){
     const id= i+1;

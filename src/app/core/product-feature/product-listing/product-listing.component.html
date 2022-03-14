@@ -1,5 +1,9 @@
 <section>
     <h2 class="text-center p-5 m-2">WELCOME TO OUR RESTAURANT</h2>
+    <form class="d-flex">
+        <input  class="form-control me-2 search mx-auto fs-4 me-5" name="search" [(ngModel)]="searchInput" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
 
 </section>
 
@@ -23,12 +27,12 @@
         <!-- items -->
         <div class="item-listing__items item-listing--3items" style="width:100%">
             <!-- medium 8 item -->
-          <app-product-item class="item-medium-1"  *ngFor="let prod of productArr | paginate:{ itemsPerPage: 6, currentPage: p} "  [productItem]="prod" ></app-product-item>
+          <app-product-item class="item-medium-1"  *ngFor="let prod of productArr | filter: searchInput | paginate:{ itemsPerPage: 6, currentPage: p}"  [productItem]="prod" ></app-product-item>
         </div>
 
   <pagination-controls
   (pageChange)="p = $event"
-  class="float-right d-block">
+  class="d-flex justify-content-end fs-5 me-5 mb-5">
   </pagination-controls>
 
 </section>

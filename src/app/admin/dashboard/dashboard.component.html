@@ -5,6 +5,10 @@
         <button class="btn btn-success" [routerLink]="['/product/add']">Add Product</button>
         <button  class="btn btn-success mx-3" [routerLink]="['/order']">Orders </button>
         <button class="btn btn-success " [routerLink]="['/product/listing']">Menu</button>
+        <form class="d-flex">
+          <input  class="form-control me-2 search fs-4 mx-3" name="search" [(ngModel)]="searchInput" type="search" placeholder="Search" aria-label="Search">
+        </form>
+
         <button class="btn btn-success " [routerLink]="['/contact']">feedbacks</button>
 
      <!-- <router-outlet></router-outlet> -->
@@ -23,7 +27,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let prod of productArr | paginate:{ itemsPerPage: 5, currentPage: p}">
+      <tr *ngFor="let prod of productArr | filter: searchInput | paginate:{ itemsPerPage: 5, currentPage: p}">
         <td>{{prod.id}}</td>
         <td>{{prod.name}}</td>
         <td><img src="{{prod.imagepath}}" style="width: 80px; height: 80px;" alt=""></td>

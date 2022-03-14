@@ -18,6 +18,8 @@ export class DashboardComponent implements OnInit {
   user:any;
   productArr!: Product[];
   p:any;
+  searchInput:any;
+
 
   ngOnInit(): void {
 
