@@ -5,7 +5,6 @@ import { ProductFormComponent } from './core/product-feature/product-form/produc
 import { ProductListingComponent } from './core/product-feature/product-listing/product-listing.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { HomeComponent } from './core/product-feature/home/home.component';
-
 import { LoginComponent } from './admin/login/login.component';
 import { AboutUsComponent } from './core/product-feature/about-us/about-us.component';
 import { RegisterComponent } from './admin/register/register.component';
@@ -15,29 +14,34 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { ContactUsComponent } from './core/product-feature/contact-us/contact-us.component';
 import { ViewCartComponent } from './core/product-feature/view-cart/view-cart.component';
 import { CheckoutComponent } from './core/product-feature/checkout/checkout.component';
+import { OrderComponent } from './admin/dashboard/order/order.component';
+import { ContactComponent } from './admin/dashboard/contact/contact.component';
+import { AuthGuard } from './_services/auth.guard';
+import { AuthRoleGuard } from './_services/auth-role.guard';
 
 // lazy loading
 const routes: Routes = [
   {path:'home',component:HomeComponent},
-  {path: 'dashboard',component:DashboardComponent},
+  {path: 'dashboard',component:DashboardComponent, canActivate:[AuthGuard, AuthRoleGuard],data:{role:"admin"}},
   {path:'about',component:AboutUsComponent},
   {path:'',component:ProductListingComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'forgot-password',component:ForgotPasswordComponent},
   {path:'reset-password',component:ResetPasswordComponent},
-  {path:'contact-us',component:ContactUsComponent},
+  {path:'contact-us',component:ContactUsComponent, canActivate:[AuthGuard]},
   {path:'view-cart',component:ViewCartComponent},
-  {path:'checkout',component:CheckoutComponent},
+  {path:'checkout',component:CheckoutComponent, canActivate:[AuthGuard]},
+  {path:'order',component:OrderComponent, canActivate:[AuthGuard, AuthRoleGuard],data:{role:"admin"}},
+  {path:'contact',component:ContactComponent, canActivate:[AuthGuard]},
 
-
+  
   // {path:'home',redirectTo: '',pathMatch:'full'},
   {path:'product',children:[
     {path:'listing', component:ProductListingComponent},
     {path:'details/:productId',component:ProductDetailsComponent},
-    {path:'add',component:ProductFormComponent},
-    {path:'edit/:productId',component:ProductFormComponent},
-    {path:'delete/:productId',component:ProductListingComponent},
+    {path:'add',component:ProductFormComponent, canActivate:[AuthGuard, AuthRoleGuard],data:{role:"admin"}},
+    {path:'edit/:productId',component:ProductFormComponent, canActivate:[AuthGuard, AuthRoleGuard],data:{role:"admin"}},
     {path:'categories/:categoryId',component: ProductListingComponent},
     {path:'**',component:NotFoundComponent},
   ]},

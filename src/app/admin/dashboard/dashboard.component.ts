@@ -24,6 +24,8 @@ export class DashboardComponent implements OnInit {
   productArr!: Product[];
   p:any;
   pro:any; 
+  searchInput:any;
+
   ngOnInit(): void {
 
     this.productService.getAllProducts().subscribe(
