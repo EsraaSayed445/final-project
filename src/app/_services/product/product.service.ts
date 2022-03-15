@@ -23,10 +23,10 @@ export class ProductService {
   getAllProducts():Observable<AllProductResponse>{
     return this.httpClient.get<AllProductResponse>(environment.baseUrl + 'foods')
   }
-  getProductById(id: number) {
+  getProductById(id: number):Observable<AllProductResponse>{
     // const url = `${environment.baseUrl}/${id}`;
     // return this.productsArray.find((product) => product.id === id);
-    return this.httpClient.get(environment.baseUrl +'foods/'+id)
+    return this.httpClient.get<AllProductResponse>(environment.baseUrl +'foods/'+id)
   }
 
   addProduct(product: Product) {
@@ -41,14 +41,28 @@ export class ProductService {
   })
    }
 
+  updateProduct(id: number,product:Product){
+    const body = product;
+    console.log(body);
+    console.log(id);
+    return this.httpClient.post<any>(environment.baseUrl +'foods/'+id,body).subscribe({
+      error: error => {
+          this.errorMessage = error.message;
+          console.error('There was an error!', error);
+      }
+  })
+  }
 
-
-
-  updateProduct() {}
-
-  deleteProduct(id:number) {
-    const deleteElement = id-1;
-    return this.productsArray.splice(deleteElement,1)
+  deleteProduct(id:number){
+    console.log(id);
+    // return this.productsArray.splice(deleteElement,1)
+    return this.httpClient.delete(environment.baseUrl +'foods/'+id).subscribe({
+      error: error => {
+          this.errorMessage = error.message;
+          console.error('There was an error!', error);
+      }
+  })
+   
   }
 
   addProductToCart(product: Product) {

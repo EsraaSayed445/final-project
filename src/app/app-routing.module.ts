@@ -5,7 +5,6 @@ import { ProductFormComponent } from './core/product-feature/product-form/produc
 import { ProductListingComponent } from './core/product-feature/product-listing/product-listing.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { HomeComponent } from './core/product-feature/home/home.component';
-
 import { LoginComponent } from './admin/login/login.component';
 import { AboutUsComponent } from './core/product-feature/about-us/about-us.component';
 import { RegisterComponent } from './admin/register/register.component';

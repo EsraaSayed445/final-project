@@ -9,7 +9,7 @@ import { ProductService } from 'src/app/_services/product/product.service';
 })
 export class ProductItemComponent implements OnInit {
   @Input()
-    productItem!:Product;
+    productItem!:any;
 
   @Output()
     itemAddToCart: EventEmitter<Product> = new EventEmitter<Product>();
@@ -24,7 +24,7 @@ export class ProductItemComponent implements OnInit {
     else{
       result = this.productItem.price
     }
-    return result;
+    return result!;
   }
 
   ngOnInit(): void {
@@ -36,10 +36,13 @@ export class ProductItemComponent implements OnInit {
     this.productService.addProductToCart(this.productItem)
   }
 
-  onItemDeleted(id:number){
-    this.productService.deleteProduct(id);
+
+  getProductById(id:number){
+    console.log(id)
+    this.productService.getProductById(id).subscribe((res)=>{
+      this.productItem = res.data;
+      console.log(this.productItem)
+    })
   }
-
-
 
 }

@@ -12,26 +12,35 @@ export class ProductDetailsComponent implements OnInit {
 
   product= {} as Product;
   relatedProducts!: Product[];
+  pro:any;
   constructor(private activatedRoute: ActivatedRoute, private productService: ProductService) { }
 
   ngOnInit(): void {
 
-    this.getProductById();
+    // this.getProductById(i);
     this.getRelatedProduct();
   }
 
-  getProductById(){
-    this.activatedRoute.params.subscribe(
-      (params)=>{
-        const id = +params['productId'];
-        this.productService.getProductById(id);
-      },
-      (err)=>{},
-      ()=>{},
-    )
-
+  // getProductById(){
     
+  //   this.activatedRoute.params.subscribe(
+  //     (params)=>{
+  //       const id = +params['productId'];
+  //       console.log (id)
+        
+  //     },
+  //     (err)=>{},
+  //     ()=>{},
+  //   )
+  // }
+  getProductById(id:number){
+    console.log(id)
+    this.productService.getProductById(id).subscribe((res)=>{
+      this.pro =res.data;
+      console.log(this.pro)
+    })
   }
+
 
   calculatePrice():number{
     let result;

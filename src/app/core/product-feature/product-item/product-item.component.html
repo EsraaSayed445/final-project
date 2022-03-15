@@ -12,11 +12,28 @@
         </div>
     </a>
     <div class="crud-actions">
-        <a [routerLink] = "['/product','details',productItem.id]"><i class="far fa-eye"></i></a>
-        <a [routerLink]="['/product','edit', productItem.id]"><i class="fas fa-edit"></i></a>
-
-        <!-- <a href="#" (click)="onItemDeleted(productItem.id!)"><i class="fas fa-trash-alt"></i></a> -->
-
-        <a (click)="onItemDeleted(productItem.id!)"><i class="fas fa-trash-alt"></i></a>
-
+        <a data-bs-toggle="modal" data-bs-target="#show" (click)="getProductById(productItem.id!)" ><i class="far fa-eye"></i></a>
     </div>
+    
+<div class="modal fade" id="show" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Show Product</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <ng-template [ngIf]="this.productItem">
+              <h2>{{productItem.name}}</h2>
+              <img src="{{productItem.imagepath}}" style="width: 200px; height: 200px;" alt="">
+              <p>{{productItem.price}}</p>
+              <p>{{productItem.description}}</p>
+        </ng-template>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

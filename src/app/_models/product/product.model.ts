@@ -11,16 +11,14 @@ export interface Product{
     imgUrl?:string;
     imagepath?:string;
     supplier?: Supplier;
-    data:ProductLang[];
     name?:string;
     category:Category;
-    tags:Tag[];
     paymentTypes:PaymentType[];
     description:string;
     // numOfItem: number;
     cartCounter :number;
     category_id:number;
-     totalPriceFoodType:number;
+    totalPriceFoodType:number;
 
 }
 export interface ProductWithCounter extends Product{
