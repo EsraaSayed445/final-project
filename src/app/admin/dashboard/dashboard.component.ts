@@ -56,9 +56,11 @@ export class DashboardComponent implements OnInit {
   this.pro.name=form.value.name;
   this.pro.price=form.value.price;
   this.pro.imagepath=form.value.imagepath;
-
   this.productService.updateProduct(this.pro.id,this.pro);
 }
+  redirecttodash(){
+    window.location.reload();
+  }
 
   onItemDeleted(id:number){
     this.productService.deleteProduct(id);

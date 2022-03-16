@@ -40,6 +40,8 @@
                     <label for="">Price</label>
                     <input class="form-control" type="number" ngModel name="price" id="" [(ngModel)]="product.price" required #priceInputElement= ngModel />
                 </div>
+
+
                 <span *ngIf="priceInputElement.touched && priceInputElement.invalid && priceInputElement.control.errors?.['required']">this faild is required </span>
                 
                 <!-- <div class="add-product__discount">
@@ -58,7 +60,7 @@
                 </div> -->
                 <div class="form-group">
                     <label for="">Category</label>
-                    <select class="form-control" ngModel name="category" id="" [ngModel]="editMode ? product.category.id:''">
+                    <select class="form-control" ngModel name="category_id" id="" [ngModel]="editMode ? product.category.id:''">
                         <option  *ngFor="let category of categoryArray" [value]="category.id">{{category.name}}</option>
                     </select>
                 </div>

@@ -99,11 +99,12 @@ export class ProductFormComponent implements OnInit {
 
 
   onAddProduct(form: NgForm) {
+    console.log (form.value.category_id);
     this.addProduct = form.value;
 
-    this.productService.addProduct(this.addProduct);
+   this.productService.addProduct(this.addProduct);
     console.log(this.product);
-  //  this.router.navigateByUrl('/product/listing');
+    //this.router.navigateByUrl('/dashboard');
   }
 
   getProductById(){

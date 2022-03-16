@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ContactService } from 'src/app/_services/product/contact.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ContactService } from 'src/app/_services/product/contact.service';
 })
 export class ContactUsComponent implements OnInit {
 
-  constructor(private contactService:ContactService) { }
+  constructor(private contactService:ContactService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -17,9 +18,11 @@ export class ContactUsComponent implements OnInit {
   onAddFeedback(feedback:any) {
         console.log(feedback);
         console.log("added feedback");
-       this.contactService.addContact(feedback);   
+       this.contactService.addContact(feedback);  
+       window.alert("thanks for your message"); 
+       this.router.navigateByUrl('/product/listing');
+      
  }
-
 
 
 }

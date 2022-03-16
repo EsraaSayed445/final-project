@@ -60,7 +60,6 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
@@ -68,7 +67,7 @@
 
 
 <!--edit   Modal --> 
-<div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" > 
   <div class="modal-dialog">
     <div class="modal-content">
       <form #myform = "ngForm" (ngSubmit) = "onSubmit(myform)" >
@@ -93,7 +92,8 @@
       </ng-template>
       </div>
       <div class="modal-footer">
-        <input type = "submit" class="btn btn-primary" data-bs-dismiss="modal" value = "Save changes">
+        <input type = "submit" class="btn btn-primary"  value = "Save changes">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="redirecttodash()">Close</button>
       </div>
     </form>
     </div>
@@ -113,12 +113,14 @@
       </ng-template>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger" (click)="onItemDeleted(pro.id)"> Delete</button>
+        <button type="button" class="btn btn-danger" (click)="onItemDeleted(pro.id)">Confirm</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="redirecttodash()">close</button>
+        
       </div>
     </div>
   </div>
 </div>
+
   <pagination-controls
   (pageChange)="p = $event"
   class="d-flex justify-content-end fs-4 me-5">

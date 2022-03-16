@@ -32,7 +32,7 @@
 
               <ul class="dropdown-menu log" aria-labelledby="navbarDropdown">
                 <!-- *ngIf="loggedIn" -->
-                <li><a class="dropdown-item" routerLink="/dashboard" >Dashboard</a></li>
+                <li><a class="dropdown-item"  *ngIf="loggedIn" routerLink="/dashboard" >Dashboard</a></li>
                 <div class="dropdown-divider" *ngIf="loggedIn"></div>
                 <li><a class="dropdown-item" routerLink="/login" *ngIf="!loggedIn">Login</a></li>
                 <li><a class="dropdown-item" type="button" (click)="openModal()" *ngIf="loggedIn">Logout</a></li>
