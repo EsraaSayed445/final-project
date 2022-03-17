@@ -21,11 +21,12 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(form:any){
+  onSubmit(form:NgForm){
     const name = form.value.name;
     const email = form.value.email;
     const password = form.value.password;
     const password_confirmation = form.value.password_confirmation;
+  
 
     // console.log(form.value);
 

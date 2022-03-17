@@ -1,15 +1,87 @@
-.carouselSt{
-    background: rgba(0, 0, 0, 0.7);
-    position: absolute;
-    height: 100%;
-    width: 100%;
-}
-.carousel img{
-    height:600px !important;
-}
 h2{
     font-size: 50px;
+    font-family: "Brush Script MT" !important;
 }
-h4{
-    color:#ff5e14;
+#myhome {
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
+    position: relative;
+    
 }
+#myhome::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 130%;
+    height: 95%;
+    background: rgba(0, 0, 0, 0.7);
+    background-image:url("../../../../assets/img/home1.jpg");
+    background-blend-mode: multiply;
+    z-index: -111;
+    border-radius: 0 0 50% 50%;
+    transform: translateX(-50%) rotate(0deg);
+}
+.title{
+    color: #ffb03b;
+    margin-top: 15%;
+    
+
+}
+.btn{
+font-weight: 600;
+font-size: 13px;
+letter-spacing: 1px;
+text-transform: uppercase;
+display: inline-block;
+padding: 12px 30px;
+border-radius: 50px;
+transition: 0.5s;
+line-height: 1;
+margin: 0 10px;
+-webkit-animation-delay: 0.8s;
+animation-delay: 0.8s;
+color: #fff;
+border: 2px solid #ffb03b;
+}
+.btn:hover {
+background: #ffb03b;
+color: #fff;
+}
+
+
+.why-us .box {
+    padding: 50px 30px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    transition: all ease-in-out 0.3s;
+    height: 100%;
+  }
+  .why-us .box span {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffcf88;
+  }
+  .why-us .box h4 {
+    font-size: 24px;
+    font-weight: 600;
+    padding: 0;
+    margin: 20px 0;
+    color: #6c665c;
+  }
+  .why-us .box p {
+    color: #aaaaaa;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+  }
+  .why-us .box:hover {
+    background: #ffb03b;
+    padding: 30px 30px 70px 30px;
+    box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
+  }
+  .why-us .box:hover span, .why-us .box:hover h4, .why-us .box:hover p {
+    color: #fff;
+  }
+  

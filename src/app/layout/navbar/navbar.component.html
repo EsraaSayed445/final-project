@@ -1,117 +1,116 @@
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-75">
-    <div class="container-fluid">
-      <a routerLink="home" class="header__logo-box mx-5">
-        <img class="header__logo image--circle" src="/assets/img/reslogo.jpg" alt="logo">
-      </a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-25 fixed-top container">
+  <div class="container-fluid">
+    <a routerLink="home" class="header__logo-box mx-5">
+      <img class="header__logo image--circle" src="/assets/img/reslogo.jpg" alt="logo">
+    </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end mx-4" id="navbarSupportedContent">
-        <ul class="navbar-nav ">
-          <li class="nav__item">
-            <a class="nav__link " aria-current="page" routerLink="home">Home</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link " aria-current="page" routerLink="product/listing">Menu</a>
-          </li>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end mx-4" id="navbarSupportedContent">
+      <ul class="navbar-nav ">
+        <li class="nav__item">
+          <a class="nav__link active" aria-current="page" routerLink="home">Home</a>
+        </li>
+        <li class="nav__item">
+          <a class="nav__link " aria-current="page" routerLink="product/listing">Menu</a>
+        </li>
 
-          <li class="nav-item">
-            <a class="nav__link" routerLink="about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav__link" routerLink="/contact-us">Contact Us</a>
-          </li>
-          <li>
-            <div class="nav-item dropdown">
-              <a class="nav__link dropdown-toggle" href="#" role="button" id="navbarDropdown" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                <i class="fa fa-user" aria-hidden="true"></i>
-              </a>
-
-              <ul class="dropdown-menu log" aria-labelledby="navbarDropdown">
-                <!-- *ngIf="loggedIn" -->
-                <li><a class="dropdown-item"  *ngIf="loggedIn" routerLink="/dashboard" >Dashboard</a></li>
-                <div class="dropdown-divider" *ngIf="loggedIn"></div>
-                <li><a class="dropdown-item" routerLink="/login" *ngIf="!loggedIn">Login</a></li>
-                <li><a class="dropdown-item" type="button" (click)="openModal()" *ngIf="loggedIn">Logout</a></li>
-              </ul>
-            </div>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]>
-              <app-dropdown>
-                <ng-container class="header">
-                  <i class="fas fa-cart-arrow-down nav__link" style="font-size: 15px;"></i>
-                  <div class="notification notification--danger my-4">
-                    {{addedProducts.length}}
-                  </div>
-                </ng-container>
-                <ng-container class="body">
-                  <!-- items -->
-                  <ul class="dropdown__items list list--vr-separator">
-                    <li *ngFor="let item of addedProducts " class="dropdown__item list__item">
-                      <!-- item small 2 -->
-                      <div class="item-small-1">
-                        <!-- item data -->
-                        <div class="item-small-1__data">
-                          <!-- title -->
-                          <a href="" class="item-small-1__title">{{item.name}} X {{item.price}}</a>
-                          <!-- price   -->
-                          <span class="item-small-1__description">
-                            {{item.cartCounter}} X ${{item.price}}
-                          </span>
-                        </div>
-                        <!-- item image -->
-                        <div class="item-small-1__image-box">
-                          <a class="item-small-1__image image" [style]="'background-image: url('+item.imagepath+')'">
-                          </a>
-                          <a class="item-small-1__action" (click)="delete(item)">
-                            <i class="fas fa-times"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-
-                  </ul>
-                  <!-- actions -->
-                  <div class="block list list--hr">
-                    <a class="list-item btn gray" routerLink="/view-cart">View Cart</a>
-                    <a class="list-item btn gray" routerLink="/checkout">Checkout</a>
-                  </div>
-                </ng-container>
-              </app-dropdown>
+        <li class="nav-item">
+          <a class="nav__link" routerLink="about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav__link" routerLink="/contact-us">Contact Us</a>
+        </li>
+        <li>
+          <div class="nav-item dropdown">
+            <a class="nav__link dropdown-toggle" href="#" role="button" id="navbarDropdown" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i class="fa fa-user" aria-hidden="true"></i>
             </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
-  <!-- logout Modal -->
-  <div class="modal fs-4" tabindex="-1" [ngStyle]="{'display':display}">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3 class="modal-title text-primary"><i class="fas fa-sign-out-alt"></i> Logout</h3>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-            (click)="onCloseHandled()"></button>
-        </div>
-        <div class="modal-body ">
-          <p class="card-text">Logged out From All Device ?</p>
-          <div class="row mb-3">
-            <div class="col">
-              <input type="checkbox" name="allDevices" [(ngModel)]="checkbox"> All Devices
-            </div>
+            <ul class="dropdown-menu log" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" *ngIf="loggedIn" routerLink="/dashboard">Dashboard</a></li>
+              <div class="dropdown-divider" *ngIf="loggedIn"></div>
+              <li><a class="dropdown-item" routerLink="/login" *ngIf="!loggedIn">Login</a></li>
+              <li><a class="dropdown-item" type="button" (click)="openModal()" *ngIf="loggedIn">Logout</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]>
+            <app-dropdown>
+              <ng-container class="header">
+                <i class="fas fa-cart-arrow-down nav__link" style="font-size: 15px;"></i>
+                <div class="notification notification--danger my-4">
+                  {{addedProducts.length}}
+                </div>
+              </ng-container>
+              <ng-container class="body">
+                <!-- items -->
+                <ul class="dropdown__items list list--vr-separator">
+                  <li *ngFor="let item of addedProducts " class="dropdown__item list__item">
+                    <!-- item small 2 -->
+                    <div class="item-small-1">
+                      <!-- item data -->
+                      <div class="item-small-1__data">
+                        <!-- title -->
+                        <a href="" class="item-small-1__title">{{item.name}} X {{item.price}}</a>
+                        <!-- price   -->
+                        <span class="item-small-1__description">
+                          {{item.cartCounter}} X ${{item.price}}
+                        </span>
+                      </div>
+                      <!-- item image -->
+                      <div class="item-small-1__image-box">
+                        <a class="item-small-1__image image" [style]="'background-image: url('+item.imagepath+')'">
+                        </a>
+                        <a class="item-small-1__action" (click)="delete(item)">
+                          <i class="fas fa-times"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </li>
+
+                </ul>
+                <!-- actions -->
+                <div class="block list list--hr">
+                  <a class="list-item btn gray" routerLink="/view-cart">View Cart</a>
+                  <a class="list-item btn gray" routerLink="/checkout">Checkout</a>
+                </div>
+              </ng-container>
+            </app-dropdown>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- logout Modal -->
+<div class="modal fs-4" tabindex="-1" [ngStyle]="{'display':display}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title text-primary"><i class="fas fa-sign-out-alt"></i> Logout</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="onCloseHandled()"></button>
+      </div>
+      <div class="modal-body ">
+        <p class="card-text">Logged out From All Device ?</p>
+        <div class="row mb-3">
+          <div class="col">
+            <input type="checkbox" name="allDevices" [(ngModel)]="checkbox"> All Devices
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary fs-4" (click)="logout()">Logout</button>
-          <button type="button" class="btn btn-secondary fs-4" (click)="onCloseHandled()">Close</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary fs-4" (click)="logout()">Logout</button>
+        <button type="button" class="btn btn-secondary fs-4" (click)="onCloseHandled()">Close</button>
 
-        </div>
       </div>
     </div>
   </div>
+</div>

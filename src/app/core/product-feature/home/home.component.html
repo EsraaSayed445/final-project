@@ -1,57 +1,53 @@
-<section id="home" class="w-100">
-  <div id="carouselExampleCaptions" class="carousel slide mx-auto my-auto" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-        aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-        aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-        aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="carouselSt"></div>
-        <img src="./assets/img/home1.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block position-absolute top-50 start-50 translate-middle">
-            <h2 class="my-5">Life is too short for boring food</h2>
-            <h4>Taste the difference</h4>
-            <button class="btn btn-primary btn-lg mx-2 my-5 p-3" [routerLink]="['/login']">Login</button>
-            <button class="btn btn-danger btn-lg p-3" [routerLink]="['/register']" >Register</button>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="carouselSt"></div>
-        <img src="./assets/img/home2.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block position-absolute top-50 start-50 translate-middle">
-          <h2 class="my-5">Make us part of your special day.</h2>
-          <button class="btn btn-primary mx-2 my-5 p-3 btn-lg" [routerLink]="['/login']" >Login</button>
-          <button class="btn btn-danger p-3 btn-lg"[routerLink]="['/register']" >Register</button>
+<section id="myhome">
 
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="carouselSt"></div>
-        <img src="./assets/img/home3.png" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block position-absolute top-50 start-50 translate-middle">
-          <h2 class="my-5">Here You Will Find The Dessert You Deserve.</h2>
-          <h4>A Slice Of Happiness & The Taste Of Love </h4>
-          <button class="btn btn-primary mx-2 my-5 p-3 btn-lg" [routerLink]="['/login']" >Login</button>
-          <button class="btn btn-danger p-3 btn-lg" [routerLink]="['/register']">Register</button>
-
-        </div>
-      </div>
-    </div>
-
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+  <div class="text-center">
+    <h2 class=" title text-center mb-5"><span>Pick Click Restaurant</span></h2><br>
+    <h3 class="text-center text-white mb-5">.. Taste The Difference ..</h3><br>
+    <button class="btn" [routerLink]="['/product/listing']">Menu</button>
+    <button class="btn" [routerLink]="['/login']" *ngIf="!loggedIn">Login</button>
   </div>
-  <div>
-      <img src="./assets/img/home4).png" alt="order" class="w-100 p-2">
-  </div>
+
 </section>
+
+<section id="why-us" class="why-us mb-5" >
+  <div class="container">
+
+    <div class="me-4">
+      <h2>Why choose Our Restaurant</h2>
+    </div>
+
+    <div class="row">
+
+      <div class="col-lg-4">
+        <div class="box">
+          <span>1</span>
+          <h4>High-Quality Food</h4>
+          <p>we set a high standard for our food quality and ensures that guests receive the same quality with every meal.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 mt-4 mt-lg-0">
+        <div class="box">
+          <span>2</span>
+          <h4>Free & fast food delivery</h4>
+          <p>We will reach you wherever you are as fast as we can.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 mt-4 mt-lg-0">
+        <div class="box">
+          <span>3</span>
+          <h4>Open 7 days a week</h4>
+          <p>Our restaurant is open 7 days a week!!</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  
+
+</section><!-- End Whu Us Section -->
+
+<button class="btn text-black d-flex mx-auto mb-5" [routerLink]="['/product/listing']">Order Now</button>
