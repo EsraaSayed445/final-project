@@ -31,10 +31,9 @@ export class ProductFilteringComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getAllCategories();
-    // this.getAllTags();
     this.getFilterCategory;
     this.category.getAllCategories().subscribe((res)=>{
-      console.log(res,"categoryyyyyyyyy")
+      // console.log(res,"categoryyyyyyyyy")
      this.categoryList=res
     });
   }
@@ -43,19 +42,10 @@ export class ProductFilteringComponent implements OnInit {
   //   this.categoryArray = this.categoryService.getAllCategories();
   // }
 
-  // getAllTags(){
-  //   this.tagArray = this.tagService.getAllTags();
-  // }
-
   getFilterCategory(i:number){
     const id= i+1;
     // this.filterdedProducts = this.productService.getAllProducts().filter((ele)=>ele.category.id===id);
     console.log(this.filterdedProducts);
   }
 
-  getFilterTag(x:number){
-  const id= x+1;
-  // this.filterdedProducts = this.productService.getAllProducts().filter((ele)=>ele.tags[0].id===id);
-  console.log(this.filterdedProducts);
-}
 }

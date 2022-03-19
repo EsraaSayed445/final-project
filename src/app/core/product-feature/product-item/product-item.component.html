@@ -1,39 +1,46 @@
-    <div class="item-medium-1__alert" *ngIf="productItem.discount">Sale</div>
-    <div class="item-medium-1__image image" [style]="'background-image:url( ' + productItem.imagepath + ')'">
-        <a class="item-medium-1__action" (click)="onItemAdded()">Add to Cart</a>
+<div class="item-medium-1__alert" *ngIf="productItem.discount">Sale</div>
+<div class="item-medium-1__image image image--circle" [style]="'background-image:url( ' + productItem.imagepath + ')'">
+  <a class="item-medium-1__action" (click)="onItemAdded()">Add to Cart</a>
+</div>
+<div class="text-center">
+  <h4>{{productItem.name}}</h4>
+  <div>
+    <div>
+      <!-- <del *ngIf="productItem.discount">{{productItem.price | currency:'EGP'}}</del> -->
+      <span class="lable">{{calculatePrice() | currency:'EGP'}}</span>
     </div>
-    <a href="#">
-        <h4>{{productItem.name}}</h4>
-        <div class="flex-row">
-            <div>
-                <del *ngIf="productItem.discount">{{productItem.price | currency:'EGP'}}</del>
-                <span class="lable">{{calculatePrice() | currency:'EGP'}}</span>
-            </div>
-        </div>
-    </a>
-    <div class="crud-actions">
-        <a data-bs-toggle="modal" data-bs-target="#show" (click)="getProductById(productItem.id!)" ><i class="far fa-eye"></i></a>
-    </div>
-    
-<div class="modal fade" id="show" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Show Product</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body text-center">
-          <ng-template [ngIf]="pro">
-              <h2>{{pro.name}}</h2>
-              <img src="{{pro.imagepath}}" style="width: 200px; height: 200px;" alt="">
-              <p>{{pro.price}}</p>
-              <p>{{pro.description}}</p>
+  </div>
+
+  <textarea cols="50" rows="3" class="bg-transparent border-0 text-center text-white fs-6" disabled maxlength="20"
+    style="overflow:hidden">
+    {{productItem.description}}
+  </textarea>
+</div>
+
+<!-- <div class="crud-actions">
+  <a data-bs-toggle="modal" data-bs-target="#show" (click)="getProductById(productItem.id!)"><i
+      class="far fa-eye"></i></a>
+</div> -->
+
+<!-- <div class="modal fade" id="show" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Show Product</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <ng-template [ngIf]="this.productItem">
+          <h2>{{productItem.name}}</h2>
+          <img src="{{productItem.imagepath}}" style="width: 200px; height: 200px;" alt="">
+          <p>{{productItem.price}}</p>
+          <p>{{productItem.description}}</p>
         </ng-template>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
+</div> -->

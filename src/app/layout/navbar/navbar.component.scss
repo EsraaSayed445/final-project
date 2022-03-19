@@ -1,19 +1,24 @@
-.navbar a{
-    color: white !important;
+.navbar a {
+  color: white !important;
 }
-.navbar li :hover{
-color: #ffb03b !important;
+
+.navbar li :hover {
+  color: #ffb03b !important;
 }
-.log{
-    font-size: 15px;
-    background-color: #cfc8c5;
-}
-.gray{
+
+.log {
+  font-size: 15px;
   background-color: #cfc8c5;
 }
-.modal{
-  background: rgba(0,0,0, .5);
+
+.gray {
+  background-color: #cfc8c5;
 }
+
+.modal {
+  background: rgba(0, 0, 0, .5);
+}
+
 .navbar {
   padding: 0;
   font-size: 15px;
@@ -25,22 +30,24 @@ color: #ffb03b !important;
   color: #ffb03b;
   line-height: 0;
 }
+
 .navbar i span {
   color: #fff;
   font-style: normal;
   padding-left: 5px;
 }
 
-.navbar i:hover{
+.navbar i:hover {
   color: #ffb03b !important;
-  }
-  .navbar a:focus {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 15px;
-    font-weight: 500;
-    color: #ffb03b !important;
-    white-space: nowrap;
-    transition: 0.3s;
-  }
+}
+
+.navbar a:focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffb03b !important;
+  white-space: nowrap;
+  transition: 0.3s;
+}

@@ -1,38 +1,27 @@
-<section>
-    <h2 class="text-center p-5 m-2">WELCOME TO OUR RESTAURANT</h2>
+<section class="menu-bg text-white">
+
+  <div>
+    <h2 class="text-center p-5 m-5">CHECK OUR MENU</h2>
     <form class="d-flex">
-        <input  class="form-control me-2 search mx-auto fs-4 me-5" name="search" [(ngModel)]="searchInput" type="search" placeholder="Search" aria-label="Search">
-      </form>
+      <input class="form-control me-2 search mx-auto fs-4 me-5" name="search" [(ngModel)]="searchInput" type="search"
+        placeholder="Search" aria-label="Search">
+    </form>
+  </div>
 
+  <div class="container">
+    <!-- categories -->
+    <app-product-filtering class="filters mt-5 me-3"></app-product-filtering>
 
-</section>
+    <section class="item-listing pt-5">
 
-<div class="container">
-    <!-- filters -->
-  <app-product-filtering  class="filters"></app-product-filtering>
-    <!-- Items -->
-    <section class="item-listing pt-5" >
-        <!-- tools (sorting , change view , exporting) -->
-        <!-- <div class="item-listing__tools">
-            <select class="form-control" name="" id="">
-                <option value="1">Featured</option>
-                <option value="2">Price low to high</option>
-                <option value="3">Price high to low</option>
-                <option value="4">Name</option>
-            </select>
-            <a class="action-btn" routerLink="product-add">
-                <i class="fas fa-plus"></i>
-            </a>
-        </div> -->
-        <!-- items -->
-        <div class="item-listing__items item-listing--3items" style="width:100%">
-            <!-- medium 8 item -->
-          <app-product-item class="item-medium-1"  *ngFor="let prod of productArr | filter: searchInput | paginate:{ itemsPerPage: 6, currentPage: p}"  [productItem]="prod" ></app-product-item>
-        </div>
+      <!-- items -->
+      <div class="item-listing__items item-listing--3items" style="width:100%">
+        <app-product-item class="item-medium-1 col-md-4"
+          *ngFor="let prod of productArr | filter: searchInput | paginate:{ itemsPerPage: 6, currentPage: p}"
+          [productItem]="prod"></app-product-item>
+      </div>
 
-  <pagination-controls
-  (pageChange)="p = $event"
-  class="d-flex justify-content-end fs-5 me-5 mb-5">
-  </pagination-controls>
+      <pagination-controls (pageChange)="p = $event" class="d-flex justify-content-end fs-5 me-5 mb-5">
+      </pagination-controls>
 
-</section>
+    </section>
