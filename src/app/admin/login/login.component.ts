@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('user', JSON.stringify(result))
 
       //   // redirect to dashboard
-      this.router.navigate(['/product/listing'])
+      this.router.navigate(['/home'])
         .then(() => {
           window.location.reload();
 
