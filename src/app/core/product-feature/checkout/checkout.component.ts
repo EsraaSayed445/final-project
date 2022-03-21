@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/_models/product/product.model';
 import { ProductService } from 'src/app/_services/product/product.service';
-import { FormControl, FormGroup ,Validators } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { environment } from 'src/environments/environment';
-
+import { HttpClient} from '@angular/common/http'
+import { TransactionService } from 'src/app/_services/product/transaction.service';
+import { OrderService } from 'src/app/_services/product/order.service';
 
 @Component({
   selector: 'app-checkout',
@@ -12,38 +11,48 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
+InvoiceUrl!:string;
 foods:Product[]=[];
 totalPrice:number=0;
 errorMessage: any;
-// myForm!: FormGroup;
-  constructor(private productService: ProductService,private httpClient: HttpClient) { }
+orderId!:number;
+
+  constructor(private productService: ProductService,
+    private _TransactionService:TransactionService,
+    private _OrderService:OrderService
+ ) { }
 
   ngOnInit(): void {
-
+   
    for(var i=0; i< (this.productService.getproductsfromcart()).length ;i++){
      this.foods.push(this.productService.getproductsfromcart()[i]);
    }
-   console.log(this.foods);
     this.calculateTotalPrice();
     this.calculateTotalPriceFoodType();
   }
 
-  myForm = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-    email:new FormControl ('', [Validators.required, Validators.email]),
-    phone:new FormControl ('', [Validators.required, Validators.minLength(15)]),
-  });
 
-  formSubmit(myForm:FormGroup){
-    console.log(myForm.value);
-    const body = myForm.value;
-    return this.httpClient.post<any>(environment.baseUrl + 'pay',body).subscribe({
-      error: error => {
-          this.errorMessage = error.message;
-          console.error('There was an error!', error);
-      }
-  })
-  }
+
+// send form to post in db 
+ onAddTransactionInfo(transData:any,totalPrice:number) {
+  var obj=transData;
+  obj.total_price=totalPrice;
+  // obj.status='paid';
+  obj.order_id= this.getOrderId();
+  this._TransactionService.postAllTransactionData(obj); 
+  setTimeout(()=>{       
+    window.location.href =this._TransactionService.response.InvoiceURL;  
+}, 3000);  
+
+}
+
+
+// get order id
+getOrderId(){
+ this.orderId= this._OrderService.orderId;
+ console.log(this.orderId);
+ return this.orderId;
+}
 
   // calculate total price for all types of foods
   calculateTotalPrice(){
@@ -64,4 +73,6 @@ errorMessage: any;
     }
    }
 
+
 }
+

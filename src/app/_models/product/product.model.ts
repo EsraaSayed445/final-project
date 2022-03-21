@@ -1,5 +1,5 @@
 import { Category } from "./category.model";
-import { PaymentType } from "./payment-type.model";
+// import { PaymentType } from "./payment-type.model";
 import { ProductLang } from "./product-lang.model";
 import {Supplier } from "./supplier.model";
 import { Tag } from "./tags.model";
@@ -15,7 +15,7 @@ export interface Product{
     name?:string;
     category:Category;
     tags:Tag[];
-    paymentTypes:PaymentType[];
+    // paymentTypes:PaymentType[];
     description:string;
     // numOfItem: number;
     cartCounter :number;

@@ -32,6 +32,7 @@
                                 <input class="form-control" name="imagepath" ngModel id="" [(ngModel)]="product.imagepath">
                             </div>
 
+<<<<<<< HEAD
                         </div>
                         <div class="tabs__body ">
                             <div class="form-group invalid">
@@ -42,6 +43,8 @@
                                 <label for="">Description</label>
                                 <textarea class="form-control" name="" id="" cols="30" rows="4"></textarea>
                             </div>
+=======
+>>>>>>> c47908de6ae3212b313453ab3006e3e80f5abeef
                         </div>
                     </div>
                 </section>
@@ -52,19 +55,20 @@
                 </div>
                 <span *ngIf="priceInputElement.touched && priceInputElement.invalid && priceInputElement.control.errors?.['required']">this faild is required </span>
                 
-                <div class="add-product__discount">
+                <!-- <div class="add-product__discount">
                     <div class="form-group">
                         <label for="">Discount</label>
                         <input class="form-control" type="number" ngModel name="discount" id="" [(ngModel)]="product.discount" >
                     </div>
-                </div>
-                <div class="form-group">
+                </div> -->
+
+                <!-- <div class="form-group">
                     <label for="">Payment Types</label>
                     <div class="form-group__checkboxs">
                         <div  *ngFor="let paymentType of paymentTypes; let i = index" class="form-group__checkbox"><input    type="checkbox" (change)="onCheckBoxChanged(i)"  ngModel  [name]="'checkbox_'+paymentType.id" id="">
                             <span>{{paymentType.name}}</span></div>
                     </div>
-                </div>
+                </div> -->
                 <div class="form-group">
                     <label for="">Category</label>
                     <select class="form-control" ngModel name="category" id="" [ngModel]="editMode ? product.category.id:''">

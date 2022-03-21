@@ -22,14 +22,15 @@ import { RegisterComponent } from './admin/register/register.component';
 import { ForgotPasswordComponent } from './admin/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './admin/reset-password/reset-password.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
-import { LogoutComponent } from './admin/logout/logout.component';
 import { ContactUsComponent } from './core/product-feature/contact-us/contact-us.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ViewCartComponent } from './core/product-feature/view-cart/view-cart.component';
-import { CheckoutComponent } from './core/product-feature/checkout/checkout.component'; // <-- import the module
+import { CheckoutComponent } from './core/product-feature/checkout/checkout.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OrderComponent } from './admin/dashboard/order/order.component';
-
+import { ContactComponent } from './admin/dashboard/contact/contact.component';
+import { PaidComponent } from './core/product-feature/paid/paid.component';
 
 @NgModule({
   declarations: [
@@ -52,11 +53,12 @@ import { OrderComponent } from './admin/dashboard/order/order.component';
     ForgotPasswordComponent,
     ResetPasswordComponent,
     DashboardComponent,
-    LogoutComponent,
     ContactUsComponent,
     ViewCartComponent,
     CheckoutComponent,
-    OrderComponent
+    OrderComponent,
+    ContactComponent,
+    PaidComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +66,7 @@ import { OrderComponent } from './admin/dashboard/order/order.component';
     FormsModule,
     HttpClientModule,
     NgxPaginationModule,
+    Ng2SearchPipeModule,
     ReactiveFormsModule
   ],
   providers: [],

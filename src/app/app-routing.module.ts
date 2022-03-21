@@ -12,11 +12,12 @@ import { RegisterComponent } from './admin/register/register.component';
 import { ForgotPasswordComponent } from './admin/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './admin/reset-password/reset-password.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
-import { LogoutComponent } from './admin/logout/logout.component';
 import { ContactUsComponent } from './core/product-feature/contact-us/contact-us.component';
 import { ViewCartComponent } from './core/product-feature/view-cart/view-cart.component';
 import { CheckoutComponent } from './core/product-feature/checkout/checkout.component';
 import { OrderComponent } from './admin/dashboard/order/order.component';
+import { ContactComponent } from './admin/dashboard/contact/contact.component';
+import { PaidComponent } from './core/product-feature/paid/paid.component';
 
 // lazy loading
 const routes: Routes = [
@@ -25,7 +26,6 @@ const routes: Routes = [
   {path:'about',component:AboutUsComponent},
   {path:'',component:ProductListingComponent},
   {path:'login',component:LoginComponent},
-  {path:'logout',component:LogoutComponent},
   {path:'register',component:RegisterComponent},
   {path:'forgot-password',component:ForgotPasswordComponent},
   {path:'reset-password',component:ResetPasswordComponent},
@@ -33,6 +33,9 @@ const routes: Routes = [
   {path:'view-cart',component:ViewCartComponent},
   {path:'checkout',component:CheckoutComponent},
   {path:'order',component:OrderComponent},
+  {path:'contact',component:ContactComponent},
+  {path:'paid',component:PaidComponent},
+
   
   // {path:'home',redirectTo: '',pathMatch:'full'},
   {path:'product',children:[
