@@ -20,6 +20,7 @@ import { ContactComponent } from './admin/dashboard/contact/contact.component';
 import { AuthGuard } from './_services/auth.guard';
 import { AuthRoleGuard } from './_services/auth-role.guard';
 import { PaidComponent } from './core/product-feature/paid/paid.component';
+import { ThanksPageComponent } from './core/product-feature/thanks-page/thanks-page.component';
 
 // lazy loading
 const routes: Routes = [
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path:'order',component:OrderComponent},
   {path:'contact',component:ContactComponent},
   {path:'paid',component:PaidComponent},
+  {path:'thanks-for-contact-us',component:ThanksPageComponent},
 
 
   // {path:'home',redirectTo: '',pathMatch:'full'},
