@@ -34,7 +34,4 @@ console.log(this.order);
     )
 
   }
-
-
-
 }

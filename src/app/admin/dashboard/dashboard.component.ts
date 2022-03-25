@@ -15,17 +15,15 @@ import {NgForm} from '@angular/forms';
 export class DashboardComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
-     private productService: ProductService,
-      private auth:AuthenticationService, 
-      private http: HttpClient,
-      private router: Router) { }
+              private productService: ProductService,
+              private auth:AuthenticationService,
+              private http: HttpClient) { }
 
   user:any;
   productArr!: Product[];
   p:any;
-  pro:any; 
+  pro:any;
   searchInput:any;
-
   ngOnInit(): void {
 
     this.productService.getAllProducts().subscribe(
@@ -35,7 +33,7 @@ export class DashboardComponent implements OnInit {
    this.auth.status().subscribe((res)=>{
     console.log(res);
   })
-  
+
   this.auth.user().subscribe((res)=>{
     this.user = res;
   }, (err) =>{

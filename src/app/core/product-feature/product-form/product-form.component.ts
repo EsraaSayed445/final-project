@@ -2,11 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router,ActivatedRoute } from '@angular/router';
 import { Category } from 'src/app/_models/product/category.model';
-import { PaymentType } from 'src/app/_models/product/payment-type.model';
 import { Product } from 'src/app/_models/product/product.model';
 import { Tag } from 'src/app/_models/product/tags.model';
 import { CategoryService } from 'src/app/_services/product/category.service';
-import { PaymentTypeService } from 'src/app/_services/product/payment-type.service';
 import { ProductService } from 'src/app/_services/product/product.service';
 import { TagService } from 'src/app/_services/product/tag.service';
 
@@ -18,7 +16,7 @@ import { TagService } from 'src/app/_services/product/tag.service';
 })
 export class ProductFormComponent implements OnInit {
 
-  paymentTypes!: PaymentType[];
+  /* paymentTypes!: PaymentType[];*/
   tagArray:Tag[] = [];
   categoryArray!: Category[];
   product= {} as Product;
@@ -30,7 +28,6 @@ export class ProductFormComponent implements OnInit {
     private productService: ProductService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private paymentTypeService: PaymentTypeService,
     private categoryService: CategoryService ,
     private tagService: TagService,
    
@@ -39,7 +36,7 @@ export class ProductFormComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getAllProductTypes();
+    // this.getAllProductTypes();
     this.getAllCategories();
     this.getAllTags();
 
@@ -51,9 +48,9 @@ export class ProductFormComponent implements OnInit {
       this.getProductById();
     }
   }
-  getAllProductTypes() {
-    this.paymentTypes = this.paymentTypeService.getAllPaymentTypes();
-  }
+  // getAllProductTypes() {
+  //   this.paymentTypes = this.paymentTypeService.getAllPaymentTypes();
+  // }
 
   getAllCategories(){
     this.categoryService.getAllCategories().subscribe((res)=>{
@@ -68,17 +65,17 @@ export class ProductFormComponent implements OnInit {
     this.tagArray = this.tagService.getAllTags();
   }
   onCheckBoxChanged(index:number){
-    if(this.product.paymentTypes){
-      this.product.paymentTypes=[
-        ...this.product.paymentTypes,
-        this.paymentTypes[index]
-      ];
-    }
-    else{
-      this.product.paymentTypes=[this.paymentTypes[index]]
-    }
+    // if(this.product.paymentTypes){
+    //   this.product.paymentTypes=[
+    //     ...this.product.paymentTypes,
+    //     // this.paymentTypes[index]
+    //   ];
+    // }
+    // else{
+    //   this.product.paymentTypes=[this.paymentTypes[index]]
+    // }
 
-    console.log(this.product)
+    // console.log(this.product)
   }
 
   addtag(){

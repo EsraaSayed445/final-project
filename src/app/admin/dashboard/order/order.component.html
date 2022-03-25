@@ -1,92 +1,92 @@
 <div class="cart_section">
     <div class="container-fluid">
-        <div class="row  ">
-            <div class="col-lg-10 offset-lg-1">
-              <div class="cart_title">View Orders</div>
-              <div class="cart_container d-flex justify-content-between">
-            <div class="col-lg-5  ">
+        <div class="row ">
+            <div class="col-lg-12">
+                <!-- <div class="cart_title text-center text-muted pb-5">Orders</div> -->
+                <div class="cart_container d-flex justify-content-between">
+                    <div class="col-lg-6">
 
-                    <div class="cart_items"  *ngFor="let item of food"  >
-                        <ul class="cart_list">
-                            <li class="cart_item  d-flex justify-content-start clearfix ">
-                                <div class="cart_item_image"><img src={{item.imagepath}} alt="food image"></div>
-                                <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
-                                    <div class="cart_item_name cart_info_col">
-                                        <div class="cart_item_title">Name</div>
-                                        <div class="cart_item_text">{{item.name}}</div>
+                         <div class="cart_items"  *ngFor="let item of food"  >
+                            <ul class="cart_list">
+                                <li class="cart_item clearfix">
+                                    <div class="cart_item_image "><img src={{item.imagepath}} alt="food image"></div>
+                                    <div class="cart_item_info d-flex flex-md-row flex-column justify-content-start">
+                                        <div class="cart_item_name cart_info_col text-center">
+                                            <div class="cart_item_title">Name</div>
+                                            <div class="cart_item_text">{{item.name}}</div>
+                                        </div>
+                                        <div class="cart_item_name cart_info_col ms-5 text-center">
+                                            <div class="cart_item_title">Description</div>
+                                            <div class="cart_item_text">{{item.description}}</div>
+                                        </div>
+                                        <div class="cart_item_quantity cart_info_col ms-5 text-center">
+                                            <div class="cart_item_title">Quantity</div>
+                                            <div class="cart_item_text">{{item.cartCounter}}</div>
+                                        </div>
+                                        <div class="cart_item_price cart_info_col mx-4 text-center">
+                                            <div class="cart_item_title">Price</div>
+                                            <div class="cart_item_text">{{item.price}}</div>
+                                        </div>
+
+    <!--
+                                        <div class="cart_item_total cart_info_col">
+                                            <div class="cart_item_title">Total</div>
+                                            <div class="cart_item_text"></div>
+                                        </div> -->
+
+
+
+
                                     </div>
-                                    <div class="cart_item_name cart_info_col">
-                                        <div class="cart_item_title">Description</div>
-                                        <div class="cart_item_text">{{item.description}}</div>
-                                    </div>
-                                    <div class="cart_item_quantity cart_info_col">
-                                        <div class="cart_item_title">Quantity</div>
-                                        <div class="cart_item_text">{{item.cartCounter}}</div>
-                                    </div>
-                                    <div class="cart_item_price cart_info_col">
-                                        <div class="cart_item_title">Price</div>
-                                        <div class="cart_item_text">{{item.price}}</div>
-                                    </div>
+                                </li>
+                            </ul>
+                          </div>
 
-<!--
-                                    <div class="cart_item_total cart_info_col">
-                                        <div class="cart_item_title">Total</div>
-                                        <div class="cart_item_text"></div>
-                                    </div> -->
-
-
-
-
-                                </div>
-                            </li>
-                        </ul>
                     </div>
+                    <div class="col-lg-6">
 
-</div>
-<div class="col-lg-7">
-
-                    <div class="cart_items"  *ngFor="let ordr of order"  >
-                      <ul class="cart_list">
-                          <li class="cart_item  d-flex justify-content-end clearfix">
-                              <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between ">
-                                  <div class="cart_item_name cart_info_col">
-                                      <div class="cart_item_title">Created at</div>
-                                      <div class="cart_item_text">{{ordr.created_at}}</div>
-                                  </div>
-                                  <div class="cart_item_name cart_info_col">
-                                      <div class="cart_item_title">Updated at</div>
-                                      <div class="cart_item_text">{{ordr.updated_at}}</div>
-                                  </div>
-                                  <div class="cart_item_quantity cart_info_col">
-                                      <div class="cart_item_title">status</div>
-                                      <div class="cart_item_text">{{ordr.PaymentStatus.status}}</div>
-                                  </div>
-                                  <div class="cart_item_quantity cart_info_col ">
-                                    <div class="cart_item_title">userName</div>
-                                    <div class="cart_item_text">{{ordr.User.User_Name}}</div>
-                                </div>
-                                <div class="cart_item_quantity cart_info_col ">
-                                    <div class="cart_item_title">userAddress</div>
-                                    <div class="cart_item_text">{{ordr.User.User_Address}}</div>
-                                </div>
-                                <div class="cart_item_quantity cart_info_col ">
-                                    <div class="cart_item_title">userPhone</div>
-                                    <div class="cart_item_text">{{ordr.User.User_Phone}}</div>
-                                </div>
-                              </div>
-                          </li>
-                      </ul>
-                  </div>
-</div>
-
-                    <!-- <div class="order_total">
-                        <div class="order_total_content text-md-right">
-                            <div class="order_total_title">Order Total:</div>
-                            <div class="order_total_amount"></div>
+                        <div class="cart_items"  *ngFor="let ordr of order"  >
+                            <ul class="cart_list">
+                                <li class="cart_item clearfix">
+                                    <div class="cart_item_info d-flex flex-md-row flex-column justify-content-evenly">
+                                        <div class="cart_item_name cart_info_col text-center">
+                                            <div class="cart_item_title">Created at</div>
+                                            <div class="cart_item_text">{{ordr.created_at}}</div>
+                                        </div>
+                                        <div class="cart_item_name cart_info_col text-center">
+                                            <div class="cart_item_title">Updated at</div>
+                                            <div class="cart_item_text">{{ordr.updated_at}}</div>
+                                        </div>
+                                        <div class="cart_item_quantity cart_info_col me-5 text-center">
+                                            <div class="cart_item_title">status</div>
+                                            <div class="cart_item_text">{{ordr.PaymentStatus.status}}</div>
+                                        </div>
+                                        <div class="cart_item_quantity cart_info_col me-5 text-center">
+                                            <div class="cart_item_title">userName</div>
+                                            <div class="cart_item_text">{{ordr.User.User_Name}}</div>
+                                        </div>
+                                        <div class="cart_item_quantity cart_info_col me-5 text-center">
+                                            <div class="cart_item_title">userAddress</div>
+                                            <div class="cart_item_text">{{ordr.User.User_Address}}</div>
+                                        </div>
+                                        <div class="cart_item_quantity cart_info_col me-5 text-center">
+                                            <div class="cart_item_title">userPhone</div>
+                                            <div class="cart_item_text">{{ordr.User.User_Phone}}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
+<!--
+                          <div class="order_total">
+                                <div class="order_total_content text-md-right">
+                                    <div class="order_total_title">Order Total:</div>
+                                    <div class="order_total_amount"></div>
+                                </div>
+                            </div>  -->
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
-  </div>
+</div>
