@@ -31,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { OrderComponent } from './admin/dashboard/order/order.component';
 import { ContactComponent } from './admin/dashboard/contact/contact.component';
 import { PaidComponent } from './core/product-feature/paid/paid.component';
+import { ThanksPageComponent } from './core/product-feature/thanks-page/thanks-page.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { PaidComponent } from './core/product-feature/paid/paid.component';
     CheckoutComponent,
     OrderComponent,
     ContactComponent,
-    PaidComponent
+    PaidComponent,
+    ThanksPageComponent
   ],
   imports: [
     BrowserModule,
