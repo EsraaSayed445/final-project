@@ -13,6 +13,7 @@ export class OrderService {
   errorMessage: any;
 user:any;
 myuser:any[]=[];
+orderId!:number;
   constructor(private _httpClient: HttpClient,private _auth:AuthenticationService) { }
 
   getAllFoodsOrders():Observable<any>{
@@ -22,17 +23,19 @@ myuser:any[]=[];
   
   getFoodsOrdersById(id:number):Observable<any>{
     return this._httpClient.get<any>(environment.baseUrl + 'food_order'+id);
+
   }
 
   getAllOrders():Observable<AllOrderResponse>{
     return this._httpClient.get<AllOrderResponse>(environment.baseUrl + 'orders');
-
-
   }
   addOrder(order: any) {
 
     // this.productsArray.push(product);
     const body = order;
+    this.orderId=body[0].order_id;
+    console.log(this.orderId);
+    
     console.log(body);
     console.log("addedorder item")
    this._auth.user().subscribe(
@@ -76,6 +79,4 @@ myuser:any[]=[];
 
     return 1;
    }
-
-
 }

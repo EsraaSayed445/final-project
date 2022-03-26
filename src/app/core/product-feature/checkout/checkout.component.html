@@ -44,7 +44,7 @@
                           <div class="order_total">
                               <div class="order_total_content text-md-right">
                                   <div class="order_total_title">Order Total:</div>
-                                  <div class="order_total_amount">{{totalPrice}}</div>
+                                  <div  class="order_total_amount">{{totalPrice}}</div>
                               </div>
                           </div>
                           <div class="cart_buttons"> <button type="button" class="button cart_button_clear" routerLink="/product/listing">Continue Shopping</button></div>
@@ -61,23 +61,24 @@
           <div class="row">
               <div class="col-lg-12 login-form">
 
-                  <form method="post" action="/pay" [formGroup]="myForm" (ngSubmit)="formSubmit(myForm)">
+                  <form method="post" action="" target="_blank"  #myForm = "ngForm" (ngSubmit)="onAddTransactionInfo(myForm.value,totalPrice)">
                       <div class="form-group ">
                           <label class="form-control-label w-50 mx-start"><span class="fas fa-user"></span> Full Name</label>
-                          <input type="text" class="form-control form-control-lg w-100 mx-auto" formControlName="name">
+                          <input type="text" name="user_name" class="form-control form-control-lg w-100 mx-auto"  ngModel>
                         </div>
 
                     <div class="form-group mt-3">
                       <label class="form-control-label w-50 mx-start"><span class="fas fa-envelope"></span> Email</label>
-                      <input type="text" class="form-control form-control-lg w-100 mx-auto"  formControlName="email" >
+                      <input type="text" name="email" class="form-control form-control-lg w-100 mx-auto"  ngModel>
                     </div>
 
                     <div class="form-group mt-3">
                       <label class="form-control-label w-50 mx-start"><span class="fas fa-phone me-1"></span>Phone Number</label>
-                      <input type="number" class="form-control form-control-lg w-100 mx-auto"  formControlName="phone" ngModel>
+                      <input type="number" name="phone" class="form-control form-control-lg w-100 mx-auto"  ngModel>
                     </div>
+                    <input type="hidden" name="total_price" class="form-control form-control-lg w-100 mx-auto"  ngModel>
                     <div class="text-end mt-5">
-                      <button type="submit" class="button cart_button_checkout float-right"  routerLink="/checkout">Check Out</button>
+                      <button type="submit" class="button cart_button_checkout float-right" >Pay Order</button>
 
                     </div>
                   </form>

@@ -26,6 +26,7 @@ export class DashboardComponent implements OnInit {
   pro:any; 
   searchInput:any;
 
+  
   ngOnInit(): void {
 
     this.productService.getAllProducts().subscribe(
