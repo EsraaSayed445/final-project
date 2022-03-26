@@ -31,6 +31,7 @@ export class DashboardComponent implements OnInit {
   myArray:any[]=[];
 
 
+  
   ngOnInit(): void {
 
     this.getAllProducts();

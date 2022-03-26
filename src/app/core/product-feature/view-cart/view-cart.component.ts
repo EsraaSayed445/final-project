@@ -13,21 +13,19 @@ export class ViewCartComponent implements OnInit {
 foods:Product[]=[];
 totalPrice:number=0;
 addedOrder:any;
- orders:any[]=[];
- order_id:number=0;
- 
+orders:any[]=[];
+order_id:number=0;
   constructor(private productService: ProductService , private orderService: OrderService) { }
 
   ngOnInit(): void {
 
-   for(var i=0; i< (this.productService.getproductsfromcart()).length ;i++){
-     this.foods.push(this.productService.getproductsfromcart()[i]);
-   }
+  for(var i=0; i< (this.productService.getproductsfromcart()).length ;i++){
+    this.foods.push(this.productService.getproductsfromcart()[i]);
+  }
   
 
     this.calculateTotalPrice();
     this.calculateTotalPriceFoodType();
-
 
   }
   

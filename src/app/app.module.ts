@@ -31,6 +31,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OrderComponent } from './admin/dashboard/order/order.component';
 import { ContactComponent } from './admin/dashboard/contact/contact.component';
+import { PaidComponent } from './core/product-feature/paid/paid.component';
+import { ThanksPageComponent } from './core/product-feature/thanks-page/thanks-page.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { ContactComponent } from './admin/dashboard/contact/contact.component';
     CheckoutComponent,
     OrderDetailsComponent,
     OrderComponent,
-    ContactComponent
+    ContactComponent,
+    PaidComponent,
+    ThanksPageComponent
   ],
   imports: [
     BrowserModule,
