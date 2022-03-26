@@ -21,7 +21,6 @@
         <th scope="col">Id</th>
         <th scope="col">Name</th>
         <th scope="col">Image</th>
-        <!-- <th scope="col">category</th> -->
         <th scope="col">Description</th>
         <th scope="col">Price</th>
       </tr>
@@ -31,7 +30,6 @@
         <td>{{prod.id}}</td>
         <td>{{prod.name}}</td>
         <td><img src="{{prod.imagepath}}" style="width: 80px; height: 80px;" alt=""></td>
-        <!-- <td>{{prod.category}}</td> -->
         <td>{{prod.description}}</td>
         <td>{{prod.price}}</td>
         <td><button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#show" (click)="getProductById(prod.id!)">Show</button></td>
@@ -51,11 +49,12 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body text-center">
-        <ng-template [ngIf]="pro">
+        <ng-template [ngIf]="pro && category">
             <h2>{{pro.name}}</h2>
             <img src="{{pro.imagepath}}" style="width: 200px; height: 200px;" alt="">
             <p>{{pro.price}}</p>
             <p>{{pro.description}}</p>
+            <p>{{category.name}}</p>
       </ng-template>
       </div>
       <div class="modal-footer">
@@ -76,13 +75,17 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body text-center">
-        <ng-template [ngIf]="pro">
+        <ng-template [ngIf]="pro && category">
          
             <input type = "text" name = "name"  [(ngModel)]="pro.name">
             <br/>
     
             <input type = "text" name = "imagepath" [(ngModel)]="pro.imagepath">
             <br/>
+
+            <input type = "text" name = "category_name" [(ngModel)]="category.name">
+            <br/>
+            <select></select>
             
             <input type = "number" name = "price" [(ngModel)]="pro.price">
             <br/>

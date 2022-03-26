@@ -26,7 +26,9 @@ export class CategoryService {
   // getAllCategories():Category[]{
   //   return this.categoryArray;
   // }
-  getById(){}
+  getCategoryById(id:number):Observable<any>{
+    return this.httpClient.get<any>(environment.baseUrl + 'categories/'+id);
+  }
   add(){}
   edit(){}
   delete(){}
