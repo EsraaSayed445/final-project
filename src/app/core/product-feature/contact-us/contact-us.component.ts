@@ -19,9 +19,9 @@ export class ContactUsComponent implements OnInit {
         console.log(feedback);
         console.log("added feedback");
        this.contactService.addContact(feedback);  
-       window.alert("thanks for your message"); 
-       this.router.navigateByUrl('/product/listing');
-      
+       
+      //  window.alert("thanks for your message"); 
+      this.router.navigateByUrl('/thanks-for-contact-us');   
  }
 
 

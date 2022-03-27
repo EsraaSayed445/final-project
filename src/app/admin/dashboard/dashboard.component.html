@@ -41,7 +41,33 @@
 
 <!--show  Modal -->
 
-<div class="modal fade" id="show" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="product__list">
+  <img class="product__img" src="https://i.ibb.co/68H9LJb/img2.jpg" alt="">
+  <span class="product__viewBtn">view details</span>
+</div>
+
+<div class="modal"></div>
+
+<div class="modal__content">
+
+  <i class="modal__close far fa-times-circle"></i>
+
+  <div class="modal__left">
+    <img class="modal__img" src="" alt="">
+  </div>
+
+  <div class="modal__right">
+    <div class="detail">
+      <h2 class="detail__title"></h2>
+      <p class="detail__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, labore quaerat
+        magni ad dolores libero culpa ipsa fugit voluptates ipsam!</p>
+      <p class="detail__price"></p>
+      <p class="detail__bagBtn">add to bag</p>
+    </div>
+  </div>
+</div> -->
+
+ <div class="modal fade" id="show" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -62,7 +88,11 @@
       </div>
     </div>
   </div>
-</div>
+</div> 
+
+
+
+
 
 
 <!--edit   Modal --> 
@@ -129,3 +159,39 @@
   class="d-flex justify-content-end fs-4 me-5">
   </pagination-controls>
 
+
+  <script>
+    const modal = document.querySelector('.modal');
+  const modalContent = document.querySelector('.modal__content');
+  const close = document.querySelector('.modal__close');
+  const modalImg = document.querySelector('.modal__img');
+  const productList = document.querySelectorAll('.product__list');
+  const title = document.querySelector('.detail__title');
+  const cost = document.querySelector('.detail__price');
+  
+  const productCost = ['£395', '£245', '£195', '£295', '£345', '£455'];
+  
+  productList.forEach((list, index) => {
+    const view = list.querySelector('.product__viewBtn');
+    const productImg = list.querySelector('.product__img').getAttribute('src');
+  
+    view.addEventListener('click', () => {
+      modal.classList.add('modal--bg');
+      modalContent.classList.add('modal__content--show');
+      modalImg.setAttribute('src', productImg);
+      title.innerText = `product title ${index + 1}`;
+      cost.innerText = productCost[index];
+    });
+  });
+  
+  close.addEventListener('click', () => {
+    modal.classList.remove('modal--bg');
+    modalContent.classList.remove('modal__content--show');
+  });
+  
+  modal.addEventListener('click', () => {
+    modal.classList.remove('modal--bg');
+    modalContent.classList.remove('modal__content--show');
+  });
+  
+  </script>
