@@ -1,92 +1,89 @@
+
 <div class="cart_section">
-    <div class="container-fluid">
-        <div class="row ">
-            <div class="col-lg-12">
-                <!-- <div class="cart_title text-center text-muted pb-5">Orders</div> -->
-                <div class="cart_container d-flex justify-content-between">
-                    <div class="col-lg-6">
-
-                         <div class="cart_items"  *ngFor="let item of food"  >
-                            <ul class="cart_list">
-                                <li class="cart_item clearfix">
-                                    <div class="cart_item_image "><img src={{item.imagepath}} alt="food image"></div>
-                                    <div class="cart_item_info d-flex flex-md-row flex-column justify-content-start">
-                                        <div class="cart_item_name cart_info_col text-center">
-                                            <div class="cart_item_title">Name</div>
-                                            <div class="cart_item_text">{{item.name}}</div>
-                                        </div>
-                                        <div class="cart_item_name cart_info_col ms-5 text-center">
-                                            <div class="cart_item_title">Description</div>
-                                            <div class="cart_item_text">{{item.description}}</div>
-                                        </div>
-                                        <div class="cart_item_quantity cart_info_col ms-5 text-center">
-                                            <div class="cart_item_title">Quantity</div>
-                                            <div class="cart_item_text">{{item.cartCounter}}</div>
-                                        </div>
-                                        <div class="cart_item_price cart_info_col mx-4 text-center">
-                                            <div class="cart_item_title">Price</div>
-                                            <div class="cart_item_text">{{item.price}}</div>
-                                        </div>
-
-    <!--
-                                        <div class="cart_item_total cart_info_col">
-                                            <div class="cart_item_title">Total</div>
-                                            <div class="cart_item_text"></div>
-                                        </div> -->
-
-
-
-
-                                    </div>
-                                </li>
-                            </ul>
-                          </div>
-
-                    </div>
-                    <div class="col-lg-6">
-
-                        <div class="cart_items"  *ngFor="let ordr of order"  >
-                            <ul class="cart_list">
-                                <li class="cart_item clearfix">
-                                    <div class="cart_item_info d-flex flex-md-row flex-column justify-content-evenly">
-                                        <div class="cart_item_name cart_info_col text-center">
-                                            <div class="cart_item_title">Created at</div>
-                                            <div class="cart_item_text">{{ordr.created_at}}</div>
-                                        </div>
-                                        <div class="cart_item_name cart_info_col text-center">
-                                            <div class="cart_item_title">Updated at</div>
-                                            <div class="cart_item_text">{{ordr.updated_at}}</div>
-                                        </div>
-                                        <div class="cart_item_quantity cart_info_col me-5 text-center">
-                                            <div class="cart_item_title">status</div>
-                                            <div class="cart_item_text">{{ordr.PaymentStatus.status}}</div>
-                                        </div>
-                                        <div class="cart_item_quantity cart_info_col me-5 text-center">
-                                            <div class="cart_item_title">userName</div>
-                                            <div class="cart_item_text">{{ordr.User.User_Name}}</div>
-                                        </div>
-                                        <div class="cart_item_quantity cart_info_col me-5 text-center">
-                                            <div class="cart_item_title">userAddress</div>
-                                            <div class="cart_item_text">{{ordr.User.User_Address}}</div>
-                                        </div>
-                                        <div class="cart_item_quantity cart_info_col me-5 text-center">
-                                            <div class="cart_item_title">userPhone</div>
-                                            <div class="cart_item_text">{{ordr.User.User_Phone}}</div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-<!--
-                          <div class="order_total">
-                                <div class="order_total_content text-md-right">
-                                    <div class="order_total_title">Order Total:</div>
-                                    <div class="order_total_amount"></div>
-                                </div>
-                            </div>  -->
-                </div>
+  <div class="container-fluid">
+      <div class="row ">
+          <div class="col-lg-6">
+            <table class="margin"><tr>
+              <th>
+              <div class="cart_item_quantity cart_info_col ms-5 text-center">
+                <div class="cart_item_title">Image</div>
+              </div>
+              </th>
+              <th>
+              <div class="cart_item_quantity cart_info_col ms-5 text-center">
+              <div class="cart_item_title">Name</div>
             </div>
-        </div>
-    </div>
-</div>
+            </th>
+            <th>
+              <div class="cart_item_quantity cart_info_col ms-5 text-center">
+              <div class="cart_item_title">Quantity</div>
+            </div>
+            </th>
+            <th>
+              <div class="cart_item_quantity cart_info_col ms-5 text-center">
+              <div class="cart_item_title">Price</div>
+            </div>
+            </th>
+
+            </tr>
+
+            <tr *ngFor="let item of food" >
+               <td class="ms-5 text-center">
+                <div class="cart_item_image "><img src={{item.imagepath}} alt="food image" ></div>
+
+              </td>
+              <td  class="ms-5 text-center">
+                {{item.name}}
+              </td>
+              <td class="ms-5 text-center">
+                {{item.cartCounter}}
+              </td>
+              <td class="ms-5 text-center">
+                {{item.price}}
+              </td>
+            </tr>
+              </table>
+            </div>
+            <div class="col-lg-6">
+              <table>
+                <tr>
+                 <th><div class="cart_item_name cart_info_col ms-5 text-center">
+                  <div class="cart_item_title">Created at</div>
+                </div></th>
+                <th><div class="cart_item_name cart_info_col ms-5 text-center">
+                  <div class="cart_item_title">Status</div>
+                </div></th>
+                <th><div class="cart_item_name cart_info_col ms-5 text-center">
+                  <div class="cart_item_title">UserName</div>
+                </div></th>
+                <th><div class="cart_item_name cart_info_col ms-5 text-center">
+                  <div class="cart_item_title">UserAddress</div>
+                </div></th>
+                <th><div class="cart_item_name cart_info_col ms-5 text-center">
+                  <div class="cart_item_title">UserPhone</div>
+                </div></th>
+
+              </tr>
+            <tr *ngFor="let ordr of order"  >
+
+            <td  class="ms-5 space text-center">
+              {{ordr.created_at}}
+            </td>
+            <td class="ms-5 space text-center">
+              {{ordr.PaymentStatus.status}}
+            </td>
+            <td class="ms-5 space text-center">
+              {{ordr.User.User_Name}}
+            </td>
+            <td class="ms-5 space text-center">
+              {{ordr.User.User_Address}}
+            </td>
+            <td class="ms-5 space text-center">
+              {{ordr.User.User_Phone}}
+            </td>
+              </tr>
+              </table>
+            </div>
+            </div>
+            </div>
+            </div>
