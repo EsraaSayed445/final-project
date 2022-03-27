@@ -15,15 +15,18 @@ import {NgForm} from '@angular/forms';
 export class DashboardComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
-              private productService: ProductService,
-              private auth:AuthenticationService,
-              private http: HttpClient) { }
+     private productService: ProductService,
+      private auth:AuthenticationService,
+      private http: HttpClient,
+      private router: Router) { }
 
   user:any;
   productArr!: Product[];
   p:any;
   pro:any;
   searchInput:any;
+
+
   ngOnInit(): void {
 
     this.productService.getAllProducts().subscribe(
@@ -54,9 +57,11 @@ export class DashboardComponent implements OnInit {
   this.pro.name=form.value.name;
   this.pro.price=form.value.price;
   this.pro.imagepath=form.value.imagepath;
-
   this.productService.updateProduct(this.pro.id,this.pro);
 }
+  redirecttodash(){
+    window.location.reload();
+  }
 
   onItemDeleted(id:number){
     this.productService.deleteProduct(id);

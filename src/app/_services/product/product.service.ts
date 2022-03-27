@@ -14,6 +14,7 @@ export class ProductService {
   cartHasBeenChanged: EventEmitter<Product[]> = new EventEmitter<Product[]>();
   private cartArray: Product[] = [];
   errorMessage: any;
+
   constructor(private httpClient: HttpClient) { }
   getAllProducts(): Observable<AllProductResponse> {
     return this.httpClient.get<AllProductResponse>(environment.baseUrl + 'foods')
@@ -58,10 +59,7 @@ export class ProductService {
       }
   })
 
-  }
-
-
-
+}
   addProductToCart(product: Product) {
     console.log(product);
     var found = this.cartArray.find(function (element) {

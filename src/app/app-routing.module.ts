@@ -16,7 +16,6 @@ import { ViewCartComponent } from './core/product-feature/view-cart/view-cart.co
 import { CheckoutComponent } from './core/product-feature/checkout/checkout.component';
 import { OrderComponent } from './admin/dashboard/order/order.component';
 import { ContactComponent } from './admin/dashboard/contact/contact.component';
-
 import { AuthGuard } from './_services/auth.guard';
 import { AuthRoleGuard } from './_services/auth-role.guard';
 import { PaidComponent } from './core/product-feature/paid/paid.component';
@@ -34,9 +33,9 @@ const routes: Routes = [
   {path:'reset-password',component:ResetPasswordComponent},
   {path:'contact-us',component:ContactUsComponent, canActivate:[AuthGuard]},
   {path:'view-cart',component:ViewCartComponent},
-  {path:'checkout',component:CheckoutComponent},
-  {path:'order',component:OrderComponent},
-  {path:'contact',component:ContactComponent},
+  {path:'checkout',component:CheckoutComponent, canActivate:[AuthGuard]},
+  {path:'order',component:OrderComponent, canActivate:[AuthGuard, AuthRoleGuard],data:{role:"admin"}},
+  {path:'contact',component:ContactComponent, canActivate:[AuthGuard]},
   {path:'paid',component:PaidComponent},
   {path:'thanks-for-contact-us',component:ThanksPageComponent},
 

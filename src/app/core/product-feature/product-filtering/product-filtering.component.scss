@@ -1,9 +1,21 @@
-ul{
-    padding-left: 0%;
+h3 {
+  color: #ffb03b;
+  margin-bottom: 8%;
 }
-li{
-    background-color: #595c5f;
+
+li {
+  background-color: #151414;
+  border-radius: 20px;
 }
-li:hover{
-    color: #ff5e14 !important;
-    }
+
+li:hover {
+  color: #ffb03b;
+}
+
+li:focus {
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffb03b !important;
+  padding: 15px;
+  box-shadow: 10px 5px 10px #ffb03b;
+}

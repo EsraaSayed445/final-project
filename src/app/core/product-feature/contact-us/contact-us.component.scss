@@ -1,21 +1,49 @@
-.contact-Us{
-    background-image: url('../../../../assets/img/waterColorPaper.jpg');
-    background-size: cover;
-    background-position: center;
+.contact-Us {
+  background: rgba(0, 0, 0, 0.596);
+  background-image: url('../../../../assets/img/contact.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
 }
-h1{
-    font-size: 55px;
-    line-height: 1.2;
-    font-weight: 600;
-    font-family: Gilroy,-apple-system,BlinkMacSystemFont,Raleway,sans-serif;
+
+h2 {
+  color: #ffb03b;
+  font-family: "Lucida Handwriting" !important;
+  font-size: 40px;
+  text-decoration: underline underline wavy;
+  line-height: 1.2;
+  font-weight: 600;
 }
-.btn{
-    background-color:#FF5E14 ;
-    color: white;
-    
+
+.btn {
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 1px;
+  padding: 12px 30px;
+  border-radius: 50px;
+  line-height: 1;
+  margin-left: 30% !important;
+  background: #ffb03b;
+  color: #fff;
+  width: auto;
 }
-textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
-    border-color: #FF5E14;
-    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6);
-    outline: 0 none;
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+textarea:focus,
+input:focus,
+input[type]:focus,
+.uneditable-input:focus {
+  border-color: #ffb03b;
+  box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6);
+  outline: 0 none;
+}
+
+input,
+textarea {
+  border-radius: 20px;
+  width: 80%;
+  font-size: 16px;
 }

@@ -1,26 +1,27 @@
 <div class="contact-Us">
-<div class="container py-5">
-   
-    <form class="w-50 m-auto" #userFeedback = "ngForm" (ngSubmit) = "onAddFeedback(userFeedback.value)">
-        <h1 class="text-center my-5">Contact Us</h1>
-        <p>Fill out the form below and we’ll be in touch soon. </p>
-        <div class="form-floating mb-3">
-            <input type="text" name="name" class="form-control" id="floatingInput" placeholder="Name..." ngModel>
-            <label for="floatingInput">Name</label>
-          </div>
-        <div class="form-floating mb-3">
-            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="Email..." ngModel>
-            <label for="floatingInput">Email address</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="text" name="phone" class="form-control" id="floatingInput" placeholder="Phone Number..." ngModel>
-            <label for="floatingInput">Phone Number</label>
-          </div>
-        <div class="form-floating">
-            <textarea class="form-control" name="message" placeholder="Leave a message here..." id="floatingTextarea2" style="height: 100px" ngModel></textarea>
-            <label for="floatingTextarea2">Message</label>
-          </div>
-        <button type="submit" class="btn my-5" routerLink="/thanks-for-contact-us" >Send</button>
-      </form>
-</div>
-</div>
+  <div class="container py-5">
+
+    <form class="w-50 mx-auto" #userFeedback="ngForm" (ngSubmit)="onAddFeedback(userFeedback.value)">
+      <h2 class="text-center my-5">Contact Us</h2>
+      <p class="text-white fs-5 my-3">Fill out the form below and we'll be in touch soon. </p>
+      <div class="form-floating mb-3">
+        <input type="text" name="name" class="form-control h-25" id="floatingInput" placeholder="Name..." ngModel>
+        <label for="floatingInput">Name</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="email" name="email" class="form-control h-25" id="floatingInput" placeholder="Email..." ngModel>
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" name="phone" class="form-control h-25" id="floatingInput" placeholder="Phone Number..."
+          ngModel>
+        <label for="floatingInput">Phone Number</label>
+      </div>
+      <div class="form-floating">
+        <textarea class="form-control" name="message" placeholder="Leave a message here..." id="floatingTextarea2"
+          style="height: 100px" ngModel></textarea>
+        <label for="floatingTextarea2">Message</label>
+      </div>
+      <button type="submit" class="btn my-4" routerLink="/thanks-for-contact-us">Send</button>
+    </form>
+  </div>

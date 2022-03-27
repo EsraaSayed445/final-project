@@ -14,8 +14,9 @@ export class ProductItemComponent implements OnInit {
   @Output()
     itemAddToCart: EventEmitter<Product> = new EventEmitter<Product>();
 
-  constructor( private  productService:ProductService ) { }
 
+  constructor( private  productService:ProductService ) { }
+pro:any;
   calculatePrice():number{
     let result;
     if(this.productItem.discount){
@@ -38,11 +39,14 @@ export class ProductItemComponent implements OnInit {
 
 
   getProductById(id:number){
+    
     console.log(id)
     this.productService.getProductById(id).subscribe((res)=>{
-      this.productItem = res.data;
-      console.log(this.productItem)
+      this.pro = res.data;
+      console.log(this.pro)
+      
     })
+  
   }
 
 }

@@ -1,8 +1,6 @@
 import { Category } from "./category.model";
 // import { PaymentType } from "./payment-type.model";
-import { ProductLang } from "./product-lang.model";
 import {Supplier } from "./supplier.model";
-import { Tag } from "./tags.model";
 
 export interface Product{
     id?: number;
@@ -13,7 +11,6 @@ export interface Product{
     supplier?: Supplier;
     name?:string;
     category:Category;
-    tags:Tag[];
     // paymentTypes:PaymentType[];
     description:string;
     // numOfItem: number;
