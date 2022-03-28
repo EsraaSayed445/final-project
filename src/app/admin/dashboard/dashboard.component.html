@@ -3,7 +3,12 @@
 
     <div class="container justify-content-center my-5" >
         <button class="btn btn-success" [routerLink]="['/product/add']">Add Product</button>
-        <button  class="btn btn-success mx-3" [routerLink]="['/order']">Orders </button>
+        <button  class="btn btn-success mx-3 position-relative" [routerLink]="['/order']" type="button" >
+          Orders
+          <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle fs d-none">
+          new
+          </span></button>
+
         <button class="btn btn-success " [routerLink]="['/product/listing']">Menu</button>
         <form class="d-flex">
           <input  class="form-control me-2 search fs-4 mx-3" name="search" [(ngModel)]="searchInput" type="search" placeholder="Search" aria-label="Search">
@@ -88,15 +93,15 @@
       </div>
     </div>
   </div>
-</div> 
+</div>
 
 
 
 
 
 
-<!--edit   Modal --> 
-<div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" > 
+<!--edit   Modal -->
+<div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
   <div class="modal-dialog">
     <div class="modal-content">
       <form #myform = "ngForm" (ngSubmit) = "onSubmit(myform)" >
@@ -106,22 +111,22 @@
       </div>
       <div class="modal-body text-center">
         <ng-template [ngIf]="pro && category">
-         
+
             <input type = "text" name = "name"  [(ngModel)]="pro.name">
             <br/>
-    
+
             <input type = "text" name = "imagepath" [(ngModel)]="pro.imagepath">
             <br/>
 
             <input type = "text" name = "category_name" [(ngModel)]="category.name">
             <br/>
             <select></select>
-            
+
             <input type = "number" name = "price" [(ngModel)]="pro.price">
             <br/>
-          
+
             <textarea name = "description" [(ngModel)]="pro.description"></textarea>
-            <br/>         
+            <br/>
       </ng-template>
       </div>
       <div class="modal-footer">
@@ -148,7 +153,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" (click)="onItemDeleted(pro.id)">Confirm</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="redirecttodash()">close</button>
-        
+
       </div>
     </div>
   </div>
@@ -168,13 +173,13 @@
   const productList = document.querySelectorAll('.product__list');
   const title = document.querySelector('.detail__title');
   const cost = document.querySelector('.detail__price');
-  
+
   const productCost = ['£395', '£245', '£195', '£295', '£345', '£455'];
-  
+
   productList.forEach((list, index) => {
     const view = list.querySelector('.product__viewBtn');
     const productImg = list.querySelector('.product__img').getAttribute('src');
-  
+
     view.addEventListener('click', () => {
       modal.classList.add('modal--bg');
       modalContent.classList.add('modal__content--show');
@@ -183,15 +188,15 @@
       cost.innerText = productCost[index];
     });
   });
-  
+
   close.addEventListener('click', () => {
     modal.classList.remove('modal--bg');
     modalContent.classList.remove('modal__content--show');
   });
-  
+
   modal.addEventListener('click', () => {
     modal.classList.remove('modal--bg');
     modalContent.classList.remove('modal__content--show');
   });
-  
+
   </script>

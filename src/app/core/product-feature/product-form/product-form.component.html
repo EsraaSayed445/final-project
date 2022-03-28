@@ -51,19 +51,8 @@
                     </div>
                 </div> -->
 
-                <!-- <div class="form-group">
-                    <label for="">Payment Types</label>
-                    <div class="form-group__checkboxs">
-                        <div  *ngFor="let paymentType of paymentTypes; let i = index" class="form-group__checkbox"><input    type="checkbox" (change)="onCheckBoxChanged(i)"  ngModel  [name]="'checkbox_'+paymentType.id" id="">
-                            <span>{{paymentType.name}}</span></div>
-                    </div>
-                </div> -->
-                <div class="form-group">
-                    <label for="">Category</label>
-                    <select class="form-control" ngModel name="category_id" id="" [ngModel]="editMode ? product.category.id:''">
-                        <option  *ngFor="let category of categoryArray" [value]="category.id">{{category.name}}</option>
-                    </select>
-                </div>
+   
+
 
               <!-- <div class="form-group">
                   <label for="">Payment Types</label>

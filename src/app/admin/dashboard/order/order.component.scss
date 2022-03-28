@@ -50,7 +50,7 @@
 
   .cart_item_image img {
     max-width: 80%;
-    // max-height: 80%;
+   max-height: 80%;
     border-radius: 50%;
   }
 
@@ -75,6 +75,13 @@
   padding-bottom: 11%;
 }
 .margin{
-  margin-left: 10%;
+  margin-left: 15%;
+}
+.margin-r{
+  margin-right: 15%;
 }
 
+td
+{
+font-size: 126%;
+}

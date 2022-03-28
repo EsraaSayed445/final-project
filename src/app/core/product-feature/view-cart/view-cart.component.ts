@@ -22,13 +22,13 @@ order_id:number=0;
   for(var i=0; i< (this.productService.getproductsfromcart()).length ;i++){
     this.foods.push(this.productService.getproductsfromcart()[i]);
   }
-  
+
 
     this.calculateTotalPrice();
     this.calculateTotalPriceFoodType();
 
   }
-  
+
 
 
   // calculate total price for all types of foods
@@ -51,7 +51,7 @@ order_id:number=0;
    }
 
    onAddOrder(order:any[]) {
-    
+
     this.orderService.getAllFoodsOrders().subscribe(
       (res)=>{
         if(res.data.length >= 1){
@@ -59,61 +59,61 @@ order_id:number=0;
        this.order_id=res.data[res.data.length-1].order.id;
        this.order_id++;
 
-        
+
        console.log(res.data[res.data.length-1]);
-       
+
        this.addedOrder = order;
        for(var i=0; i< this.addedOrder.length ;i++){
-     
+
          this.orders.push({
            food_id: this.addedOrder[i].id,
            quantity:this.addedOrder[i].cartCounter,
            order_id: this.order_id
-       }); 
-       
-       
+       });
+
+
        }
 
 
        console.log(this.orders);
-    
+
        // console.log( this.addedOrder);
        console.log("added order")
       this.orderService.addOrder(this.orders);
-       
+
     //  this.router.navigateByUrl('/product/listing');
       }else{
         this.order_id=1;
-        
+
         this.addedOrder = order;
         for(var i=0; i< this.addedOrder.length ;i++){
-      
+
           this.orders.push({
             food_id: this.addedOrder[i].id,
             quantity:this.addedOrder[i].cartCounter,
             order_id: this.order_id
-        }); 
-        
-        
+        });
+
+
         }
- 
- 
+
+
         console.log(this.orders);
-     
+
         // console.log( this.addedOrder);
         console.log("added order")
        this.orderService.addOrder(this.orders);
-        
+
 
 
 
       }
     }
     );
- 
 
 
-   
+
+
  }
 
 }

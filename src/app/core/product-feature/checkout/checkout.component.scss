@@ -75,13 +75,14 @@ ul {
 }
 
 .cart_item_image {
-  width: 133px;
-  height: 133px;
+  width: 30%;
+  height: 20vh;
   float: left
 }
 
 .cart_item_image img {
-  max-width: 100%
+  max-width: 100%;
+  // max-height:60%
 }
 
 .cart_item_info {
@@ -194,7 +195,7 @@ ul {
 header h1{
 font-size: 55px !important;
 }
-textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
   border-color: #FF5E14;
   box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(245, 104, 17, 0.966);
   outline: 0 none;

@@ -3,7 +3,7 @@ p{
     color: #fa6400;
 }
 div, table, button{
-    font-size: 18px;    
+    font-size: 18px;
 }
 td,th{
     padding: 15px;
@@ -40,13 +40,13 @@ $transition500: all 500ms ease-in-out;
     transition: $transition250;
     opacity: 0;
     visibility: hidden;
-  
+
     &--bg {
       visibility: visible;
       opacity: 1;
       z-index: 1;
     }
-  
+
     &__content {
       position: absolute;
       @include center();
@@ -59,7 +59,7 @@ $transition500: all 500ms ease-in-out;
       opacity: 0;
       transform: translateY(-100px);
       transition: $transition250;
-  
+
       &--show {
         transform: translateY(0);
         visibility: visible;
@@ -67,11 +67,11 @@ $transition500: all 500ms ease-in-out;
         z-index: 2;
       }
     }
-  
+
     &__img {
       width: 100%;
     }
-  
+
     &__close {
       position: absolute;
       top: 20px;
@@ -81,12 +81,12 @@ $transition500: all 500ms ease-in-out;
       cursor: pointer;
       transition: $transition250;
       z-index: 3;
-  
+
       &:hover {
         color: $red;
       }
     }
-  
+
     &__left,
     &__right {
       @include center();
@@ -99,11 +99,11 @@ $transition500: all 500ms ease-in-out;
     &__description {
       text-transform: uppercase;
     }
-  
+
     &__price {
       font-weight: bold;
     }
-  
+
     &__bagBtn {
       cursor: pointer;
       background: $dark2;
@@ -113,9 +113,12 @@ $transition500: all 500ms ease-in-out;
       font-weight: bold;
       text-transform: uppercase;
       transition: $transition250;
-  
+
       &:hover {
         color: $green;
       }
     }
+  }
+  .fs{
+  font-size:10px;
   }
