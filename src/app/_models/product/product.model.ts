@@ -17,6 +17,7 @@ export interface Product{
     cartCounter :number;
     category_id:number;
     totalPriceFoodType:number;
+    rating:number;
 
 }
 export interface ProductWithCounter extends Product{

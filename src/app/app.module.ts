@@ -33,6 +33,7 @@ import { OrderComponent } from './admin/dashboard/order/order.component';
 import { ContactComponent } from './admin/dashboard/contact/contact.component';
 import { PaidComponent } from './core/product-feature/paid/paid.component';
 import { ThanksPageComponent } from './core/product-feature/thanks-page/thanks-page.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,7 @@ import { ThanksPageComponent } from './core/product-feature/thanks-page/thanks-p
     OrderComponent,
     ContactComponent,
     PaidComponent,
-    ThanksPageComponent
+    ThanksPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,7 +72,8 @@ import { ThanksPageComponent } from './core/product-feature/thanks-page/thanks-p
     HttpClientModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
