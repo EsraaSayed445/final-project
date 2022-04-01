@@ -33,6 +33,8 @@ import { OrderComponent } from './admin/dashboard/order/order.component';
 import { ContactComponent } from './admin/dashboard/contact/contact.component';
 import { PaidComponent } from './core/product-feature/paid/paid.component';
 import { ThanksPageComponent } from './core/product-feature/thanks-page/thanks-page.component';
+import { CategoryComponent } from './core/product-feature/category/category.component';
+
 
 @NgModule({
   declarations: [
@@ -62,7 +64,8 @@ import { ThanksPageComponent } from './core/product-feature/thanks-page/thanks-p
     OrderComponent,
     ContactComponent,
     PaidComponent,
-    ThanksPageComponent
+    ThanksPageComponent,
+    CategoryComponent,
   ],
   imports: [
     BrowserModule,

@@ -22,6 +22,7 @@ export class CategoryService {
     // {id:8, name:'Bakery'},
     // {id:9, name:'Extra'}
   ];
+  errorMessage: any;
 
   // getAllCategories():Category[]{
   //   return this.categoryArray;
@@ -29,9 +30,24 @@ export class CategoryService {
   getCategoryById(id:number):Observable<any>{
     return this.httpClient.get<any>(environment.baseUrl + 'categories/'+id);
   }
-  add(){}
-  edit(){}
-  delete(){}
+
+  addCategory(name:any){
+ // this.productsArray.push(product);
+    const body = name;
+    console.log(body);
+    return this.httpClient.post<any>(environment.baseUrl + 'categories', body).subscribe({
+      error: error => {
+        this.errorMessage = error.message;
+        console.error('There was an error!', error);
+      }
+  })
+  }
+  updateCategory(){
+
+  }
+  deleteCategory(){
+
+  }
 
   constructor(private httpClient: HttpClient) { }
 

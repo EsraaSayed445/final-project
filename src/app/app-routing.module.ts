@@ -21,6 +21,7 @@ import { AuthRoleGuard } from './_services/auth-role.guard';
 import { PaidComponent } from './core/product-feature/paid/paid.component';
 import { ThanksPageComponent } from './core/product-feature/thanks-page/thanks-page.component';
 import { ProductFilteringComponent } from './core/product-feature/product-filtering/product-filtering.component';
+import { CategoryComponent } from './core/product-feature/category/category.component';
 
 // lazy loading
 const routes: Routes = [
@@ -39,7 +40,7 @@ const routes: Routes = [
   {path:'contact',component:ContactComponent, canActivate:[AuthGuard]},
   {path:'paid',component:PaidComponent},
   {path:'thanks-for-contact-us',component:ThanksPageComponent},
-  {path:'categories',component:ProductFilteringComponent, canActivate:[AuthGuard, AuthRoleGuard],data:{role:"admin"}},
+  {path:'categories',component:CategoryComponent, canActivate:[AuthGuard, AuthRoleGuard],data:{role:"admin"}},
   
   // {path:'home',redirectTo: '',pathMatch:'full'},
   {path:'product',children:[

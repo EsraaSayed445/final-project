@@ -1,6 +1,3 @@
-
-<p class="text-center fw-bold my-5">Welcome back .. Have a nice day :)</p>
-
     <div class="container justify-content-center my-5" >
         <button class="btn btn-success" [routerLink]="['/product/add']">Add Product</button>
         <button  class="btn btn-success mx-3" [routerLink]="['/order']">Orders </button>
@@ -41,46 +38,34 @@
 
 <!--show  Modal -->
 
-<!-- <div class="product__list">
-  <img class="product__img" src="https://i.ibb.co/68H9LJb/img2.jpg" alt="">
-  <span class="product__viewBtn">view details</span>
-</div>
-
-<div class="modal"></div>
-
-<div class="modal__content">
-
-  <i class="modal__close far fa-times-circle"></i>
-
-  <div class="modal__left">
-    <img class="modal__img" src="" alt="">
-  </div>
-
-  <div class="modal__right">
-    <div class="detail">
-      <h2 class="detail__title"></h2>
-      <p class="detail__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, labore quaerat
-        magni ad dolores libero culpa ipsa fugit voluptates ipsam!</p>
-      <p class="detail__price"></p>
-      <p class="detail__bagBtn">add to bag</p>
-    </div>
-  </div>
-</div> -->
-
- <div class="modal fade" id="show" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+ <div class="modal fade  " id="show" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered  modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Show Product</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body text-center">
+      <div class="modal-body row">
         <ng-template [ngIf]="pro && category">
+
+          <div class="modal__left col-md-6">
+            <img class="modal__img  col-md-12" src="{{pro.imagepath}}" alt="">
+          </div>
+      
+          <div class="modal__right col-md-6">
+            <div class="detail mt-3">
+              <h2 class="detail__title ">{{pro.name}}</h2>
+              <span class="badge bg-primary detail__category">{{category.name}}</span>
+              <p class="detail__description">{{pro.description}}</p>
+              <p class="detail__price">{{pro.price | currency:'EGP'}} </p>
+            </div>
+          </div>
+            <!-- <img src="{{pro.imagepath}}" style="width: 200px; height: 200px;" alt="">
             <h2>{{pro.name}}</h2>
-            <img src="{{pro.imagepath}}" style="width: 200px; height: 200px;" alt="">
             <p>{{pro.price}}</p>
             <p>{{pro.description}}</p>
-            <p>{{category.name}}</p>
+            <p>{{category.name}}</p> -->
+            
       </ng-template>
       </div>
       <div class="modal-footer">
@@ -97,7 +82,7 @@
 
 <!--edit   Modal --> 
 <div class="modal fade" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" > 
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered  modal-lg">
     <div class="modal-content">
       <form #myform = "ngForm" (ngSubmit) = "onSubmit(myform)" >
       <div class="modal-header">
@@ -134,7 +119,7 @@
 </div>
 
 <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered  modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"> Delete Product</h5>
@@ -160,38 +145,3 @@
   </pagination-controls>
 
 
-  <script>
-    const modal = document.querySelector('.modal');
-  const modalContent = document.querySelector('.modal__content');
-  const close = document.querySelector('.modal__close');
-  const modalImg = document.querySelector('.modal__img');
-  const productList = document.querySelectorAll('.product__list');
-  const title = document.querySelector('.detail__title');
-  const cost = document.querySelector('.detail__price');
-  
-  const productCost = ['£395', '£245', '£195', '£295', '£345', '£455'];
-  
-  productList.forEach((list, index) => {
-    const view = list.querySelector('.product__viewBtn');
-    const productImg = list.querySelector('.product__img').getAttribute('src');
-  
-    view.addEventListener('click', () => {
-      modal.classList.add('modal--bg');
-      modalContent.classList.add('modal__content--show');
-      modalImg.setAttribute('src', productImg);
-      title.innerText = `product title ${index + 1}`;
-      cost.innerText = productCost[index];
-    });
-  });
-  
-  close.addEventListener('click', () => {
-    modal.classList.remove('modal--bg');
-    modalContent.classList.remove('modal__content--show');
-  });
-  
-  modal.addEventListener('click', () => {
-    modal.classList.remove('modal--bg');
-    modalContent.classList.remove('modal__content--show');
-  });
-  
-  </script>

@@ -1,7 +1,7 @@
-p{
-    font-size: 30px;
-    color: #fa6400;
-}
+// p{
+//     font-size: 15px;
+//     color: #fa6400;
+// }
 div, table, button{
     font-size: 18px;    
 }
@@ -12,110 +12,103 @@ th{
     background-color: rgb(73, 69, 69);
     color: white;
 }
-// Variables
-$dark1: #3e363f;
-$dark2: #212527;
-$light1: #fffce8;
-$light2: #edf7f6;
-$red: #df4747;
-$green: #47df5b;
-$transition250: all 250ms ease-in-out;
-$transition500: all 500ms ease-in-out;
+// // Variables
+// $dark1: #3e363f;
+// $dark2: #212527;
+// $light1: #fffce8;
+// $light2: #edf7f6;
+// $red: #df4747;
+// $green: #47df5b;
+// $transition250: all 250ms ease-in-out;
+// $transition500: all 500ms ease-in-out;
 
-// Mixin
-@mixin center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+// // Mixin
+// @mixin center {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//   }
 
 
-.modal {
-    @include center();
-    position: fixed;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.75);
-    transition: $transition250;
-    opacity: 0;
-    visibility: hidden;
+// .modal {
+//     @include center();
+//     position: fixed;
+//     top: 0;
+//     height: 100%;
+//     width: 100%;
+//     background: rgba(0, 0, 0, 0.75);
+//     transition: $transition250;
+//     opacity: 0;
+//     visibility: hidden;
   
-    &--bg {
-      visibility: visible;
-      opacity: 1;
-      z-index: 1;
-    }
+//     &--bg {
+//       visibility: visible;
+//       opacity: 1;
+//       z-index: 1;
+//     }
   
-    &__content {
-      position: absolute;
-      @include center();
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      max-height: 540px;
-      max-width: 960px;
-      background-color: $light2;
-      visibility: hidden;
-      opacity: 0;
-      transform: translateY(-100px);
-      transition: $transition250;
+//     &__content {
+//       position: absolute;
+//       @include center();
+//       display: grid;
+//       grid-template-columns: repeat(2, 1fr);
+//       max-height: 540px;
+//       max-width: 960px;
+//       background-color: $light2;
+//       visibility: hidden;
+//       opacity: 0;
+//       transform: translateY(-100px);
+//       transition: $transition250;
   
-      &--show {
-        transform: translateY(0);
-        visibility: visible;
-        opacity: 1;
-        z-index: 2;
-      }
-    }
+//       &--show {
+//         transform: translateY(0);
+//         visibility: visible;
+//         opacity: 1;
+//         z-index: 2;
+//       }
+//     }
   
-    &__img {
-      width: 100%;
-    }
+//     &__img {
+//       width: 100%;
+//     }
   
-    &__close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 24px;
-      color: $dark2;
-      cursor: pointer;
-      transition: $transition250;
-      z-index: 3;
+//     &__close {
+//       position: absolute;
+//       top: 20px;
+//       right: 20px;
+//       font-size: 24px;
+//       color: $dark2;
+//       cursor: pointer;
+//       transition: $transition250;
+//       z-index: 3;
   
-      &:hover {
-        color: $red;
-      }
-    }
+//       &:hover {
+//         color: $red;
+//       }
+//     }
   
-    &__left,
-    &__right {
-      @include center();
-      padding: 20px;
-    }
-  }
+//     &__left,
+//     &__right {
+//       @include center();
+//       padding: 20px;
+//     }
+//   }
 
   .detail {
-    &__title,
+
+    &__title{
+        text-transform: uppercase;
+    }
     &__description {
-      text-transform: uppercase;
+
+      color: #fa6400;
     }
   
     &__price {
       font-weight: bold;
     }
   
-    &__bagBtn {
-      cursor: pointer;
-      background: $dark2;
-      color: $light2;
-      text-align: center;
-      padding: 10px 20px;
-      font-weight: bold;
-      text-transform: uppercase;
-      transition: $transition250;
-  
-      &:hover {
-        color: $green;
-      }
     }
-  }
+    .modal__img{
+        height: 200px;
+    }
