@@ -34,7 +34,7 @@ import { ContactComponent } from './admin/dashboard/contact/contact.component';
 import { PaidComponent } from './core/product-feature/paid/paid.component';
 import { ThanksPageComponent } from './core/product-feature/thanks-page/thanks-page.component';
 import { CategoryComponent } from './core/product-feature/category/category.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -74,7 +74,8 @@ import { CategoryComponent } from './core/product-feature/category/category.comp
     HttpClientModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

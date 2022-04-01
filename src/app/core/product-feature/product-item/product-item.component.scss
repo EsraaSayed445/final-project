@@ -1,3 +1,23 @@
 h4{
     color: #ffb03b;
 }
+
+// .notpainted{
+//     color:grey;
+// }
+
+.filled{
+    color: red;
+}
+.default{
+    position: relative;
+    display: inline-block;
+    color: grey;
+    font-size: 25px;
+}
+.colored{
+    position: absolute;
+    display: inline-block;
+    color: red;
+    overflow: hidden;
+}

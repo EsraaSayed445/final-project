@@ -11,10 +11,24 @@
     </div>
   </div>
 
-  <textarea cols="50" rows="3" class="bg-transparent border-0 text-center text-white fs-6" disabled maxlength="20"
+  <textarea cols="40" rows="2" class="bg-transparent border-0 text-center text-white fs-6" disabled maxlength="20"
     style="overflow:hidden">
     {{productItem.description}}
   </textarea>
+</div>
+
+<div style="text-align:center" *ngIf="loggedIn">
+<ngb-rating [(rate)]="myrating" [readonly]="true" [max]="5">
+  <ng-template let-fill="fill">
+    <span class="default" [class.filled]="fill ===100">
+      <span class="colored" [style.width.%]="fill">&hearts;</span>&hearts;</span>
+  </ng-template>
+</ngb-rating>
+
+<div class="input-group w-50 mx-auto" *ngIf="loggedIn">
+  <input class="form-control" placeholder="enter a number" type="text" [(ngModel)]="userRating">
+  <button class="btn btn-danger" type="button" (click)="submit(userRating)">Rate</button>
+</div>
 </div>
 
 <!-- <div class="crud-actions">
