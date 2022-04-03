@@ -22,6 +22,7 @@ export class AuthRoleGuard implements CanActivate {
     if (!isAuthorized) {
       this.router.navigate(['/product/listing']);
       // window.alert('you are not authorized');
+    //  this.user.navbar.hide;
     }
 
     return isAuthorized || false;

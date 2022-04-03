@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Product } from 'src/app/_models/product/product.model';
+import { User } from 'src/app/_models/product/user.model';
 import { ProductService } from 'src/app/_services/product/product.service';
 import { RatingService } from 'src/app/_services/rating.service';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
@@ -13,6 +14,7 @@ import { AuthenticationService } from 'src/app/_services/authentication.service'
 export class ProductItemComponent implements OnInit {
  myrating = 0;
  userRating!:number;
+ user!: User;
  loggedIn:boolean = false;
 
   @Input()
@@ -65,7 +67,7 @@ export class ProductItemComponent implements OnInit {
   submit(rating:any){
     this.myrating= this.userRating;
     this.ratingService.addRating(rating);
-    // console.log(rating);
+    console.log(rating, this.productItem.id, this.user);
   }
  
 }
