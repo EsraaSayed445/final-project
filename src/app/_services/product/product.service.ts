@@ -40,7 +40,6 @@ export class ProductService {
   updateProduct(id: number,product:Product){
     const body = product;
     console.log(body);
-    console.log(id);
     return this.httpClient.post<any>(environment.baseUrl +'foods/'+id,body).subscribe({
       error: error => {
           this.errorMessage = error.message;

@@ -1,4 +1,4 @@
-<div class="container-fluid d-flex p-0">
+<div class="container-fluid d-flex p-0 mt-5">
 
   <div class="col-md-4 d-flex flex-column flex-shrink-0 p-3 text-white nav-bg" style="width: 250px;"> <a href="/"
       class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"> <svg class="bi me-2"
@@ -15,6 +15,8 @@
             [routerLink]="['/dashboard']">Home</span> </a> </li>
       <li> <a class="nav-link text-white"> <i class="fa fa-dashboard"></i><span class="ms-2"
             [routerLink]="['/product/add']"><i class="fas fa-plus"></i> Add Product</span> </a> </li>
+            <li> <a class="nav-link text-white"> <i class="fa fa-dashboard"></i><span class="ms-2"
+              [routerLink]="['/categories']"><i class="fas fa-plus"></i> Add Category </span> </a> </li>
       <li> <a class="nav-link text-white"> <i class="fab fa-battle-net"></i><span class="ms-2"
             [routerLink]="['/order']">Orders</span> </a> </li>
       <li> <a class="nav-link text-white"> <i class="fa fa-bookmark"></i><span class="ms-2"
@@ -86,11 +88,6 @@
       </div>
     </div>
 
-
-
-
-
-
     <!--edit   Modal -->
     <div class="modal fade w-" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered  modal-lg">
@@ -100,25 +97,34 @@
               <h5 class="modal-title" id="exampleModalLabel">Edit Product</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body text-center mx-auto w-50">
+            <div class="modal-body row mx-auto">
 
               <ng-template [ngIf]="pro && category">
 
+                <div class="modal__left col-md-6">
+                  <label for="files" class="btn btn-primary  mb-2">Select New Image</label>
+                  <img class="modal__img  col-md-12" src="{{pro.imagepath}}" alt="">
+                  <input id="files" type="file" style="visibility:hidden;" (change)="onSelect($event)" accept="image/*" >
+                </div>
+
+                <div class="modal__right col-md-6">
+                  <label for="name">Name</label>
+                  <input class="form-control mb-2" type="text" name="name" [(ngModel)]="pro.name">
+                  
+                  <label for="imagepath">Image Path</label>
+                  <input class="form-control mb-2" type="text" name="imagepath" [(ngModel)]="pro.imagepath">
+                  
+                  <!-- <label for="category_name">Category Name</label>
+                  <input class="form-control mb-2" type="text" name="category_name" [(ngModel)]="category.name"> -->
+                  
+                  <label for="price">Price</label>
+                  <input class="form-control mb-2" type="number" name="price" [(ngModel)]="pro.price">
+                 
+                  <label for="description">Description</label>
+                  <textarea class="form-control mb-5" name="description" [(ngModel)]="pro.description"></textarea>
+               
+                </div>
                 
-                <img class="modal__img  col-md-12" src="{{pro.imagepath}}" alt="">
-                <label for="files" class="btn">Select New Image</label>
-                <input id="files" type="file" style="visibility:hidden;" (change)="onSelect($event)" accept="image/*" >
-
-                <input class="form-control mb-2" type="text" name="name" [(ngModel)]="pro.name">
-
-                <input class="form-control mb-2" type="text" name="imagepath" [(ngModel)]="pro.imagepath">
-
-                <input class="form-control mb-2" type="text" name="category_name" [(ngModel)]="category.name">
-                <!-- <select></select> -->
-
-                <input class="form-control mb-2" type="number" name="price" [(ngModel)]="pro.price">
-
-                <textarea class="form-control mb-5" name="description" [(ngModel)]="pro.description"></textarea>
               </ng-template>
             </div>
             <div class="modal-footer">
@@ -130,7 +136,7 @@
         </div>
       </div>
     </div>
-
+<!-- delete modal -->
     <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered  modal-lg">
         <div class="modal-content">
@@ -140,13 +146,17 @@
           </div>
           <div class="modal-body text-center">
             <ng-template [ngIf]="pro">
-              <p>Are you sure to delete this {{pro.name}} food</p>
+              <h3>{{pro.name}}</h3>
+              <img src="{{pro.imagepath}}" alt="" style="width:200px; height:200px">
+              <h2>Are you sure for Deleting this Product </h2>
             </ng-template>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger" (click)="onItemDeleted(pro.id)">Confirm</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-              (click)="redirecttodash()">close</button>
+            <button type="button" class="btn btn-danger" (click)="onItemDeleted(pro.id)">Yes</button>
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+              (click)="redirecttodash()">No</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+              (click)="redirecttodash()">Confirm</button>
 
           </div>
         </div>
