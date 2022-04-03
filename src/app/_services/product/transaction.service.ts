@@ -30,11 +30,12 @@ export class TransactionService {
   (res)=>{
     console.log(res);
     this.response=res;
-    // return this.response;
-  });
-  console.log(this.response);
+ console.log(this.response);
+ window.location.href =this.response.InvoiceURL;
+//  return this.response;
 
-    return this.response;
+  });
+
   }
 
 
