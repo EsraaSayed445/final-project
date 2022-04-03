@@ -50,7 +50,7 @@
               </ng-container>
               <ng-container class="body">
                 <!-- items -->
-                <ul class="dropdown__items list list--vr-separator">
+                <ul class="dropdown__items list list--vr-separator p-0">
                   <li *ngFor="let item of addedProducts " class="dropdown__item list__item">
                     <!-- item small 2 -->
                     <div class="item-small-1">
@@ -68,7 +68,7 @@
                         <a class="item-small-1__image image" [style]="'background-image: url('+item.imagepath+')'">
                         </a>
                         <a class="item-small-1__action" (click)="delete(item)">
-                          <i class="fas fa-times"></i>
+                          <i class="fas fa-times" style="color: red;"></i>
                         </a>
                       </div>
                     </div>
@@ -77,8 +77,7 @@
                 </ul>
                 <!-- actions -->
                 <div class="block list list--hr">
-                  <a class="list-item btn gray" routerLink="/view-cart">View Cart</a>
-                  <a class="list-item btn gray" routerLink="/checkout">Checkout</a>
+                  <a class="list-item btn btn-secondary btn-lg " routerLink="/view-cart">View Cart</a>
                 </div>
               </ng-container>
             </app-dropdown>
