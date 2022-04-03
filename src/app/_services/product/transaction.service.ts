@@ -12,7 +12,7 @@ export class TransactionService {
   errorMessage: any;
 
   constructor(private _httpClient: HttpClient) {
-    
+
    }
 
   // getAllTransactionData():Observable<allTransactionResponse>{
@@ -21,7 +21,7 @@ export class TransactionService {
   //   return y;
   // }
 
-  
+
   postAllTransactionData(transactionInfo: any) {
     // this.productsArray.push(product);
     const body = transactionInfo;
@@ -30,11 +30,12 @@ export class TransactionService {
   (res)=>{
     console.log(res);
     this.response=res;
-    // return this.response;
-  },(error)=>{console.error('There was an error in transaction!', error);});
-  console.log(this.response);
-  
-    return this.response;
+ console.log(this.response);
+ window.location.href =this.response.InvoiceURL;
+//  return this.response;
+
+  });
+
   }
 
 

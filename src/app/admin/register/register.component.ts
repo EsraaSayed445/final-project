@@ -14,6 +14,8 @@ export class RegisterComponent implements OnInit {
     name:null,
     email:null,
     password:null,
+    phone:null,
+    address:null
   }
 
   constructor(private auth:AuthenticationService, private router:Router) { }
@@ -26,7 +28,7 @@ export class RegisterComponent implements OnInit {
     const email = form.value.email;
     const password = form.value.password;
     const password_confirmation = form.value.password_confirmation;
-  
+
 
     // console.log(form.value);
 

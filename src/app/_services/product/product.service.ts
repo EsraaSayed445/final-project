@@ -58,7 +58,7 @@ export class ProductService {
           console.error('There was an error!', error);
       }
   })
-   
+
 }
   addProductToCart(product: Product) {
     console.log(product);

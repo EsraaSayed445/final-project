@@ -60,7 +60,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ContactUsComponent,
     ViewCartComponent,
     CheckoutComponent,
-    OrderDetailsComponent,
     OrderComponent,
     ContactComponent,
     PaidComponent,

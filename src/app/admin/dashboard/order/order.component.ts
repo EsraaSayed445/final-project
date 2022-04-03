@@ -27,6 +27,7 @@ export class OrderComponent implements OnInit {
 
         }
 
+console.log(this.food);
 
 console.log(this.order);
 

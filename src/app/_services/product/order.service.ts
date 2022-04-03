@@ -20,7 +20,7 @@ orderId!:number;
     return this._httpClient.get<any>(environment.baseUrl + 'food_order');
 
   }
-  
+
   getFoodsOrdersById(id:number):Observable<any>{
     return this._httpClient.get<any>(environment.baseUrl + 'food_order'+id);
 
@@ -35,7 +35,7 @@ orderId!:number;
     const body = order;
     this.orderId=body[0].order_id;
     console.log(this.orderId);
-    
+
     console.log(body);
     console.log("addedorder item")
    this._auth.user().subscribe(
@@ -45,7 +45,7 @@ orderId!:number;
 
       this.myuser.push({
         "user_id": this.user.id,
-      }); 
+      });
 
        this._httpClient.post<any>(environment.baseUrl + 'orders',this.myuser[0]).subscribe({
             error: error => {
@@ -62,8 +62,8 @@ orderId!:number;
              console.error('There was an error on food-order!', error);
          }
      })
- 
- 
+
+
      }
      }
 

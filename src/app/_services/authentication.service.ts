@@ -55,7 +55,7 @@ export class AuthenticationService {
   user() {
     const user: any = localStorage.getItem('user');
     const userObj: any = JSON.parse(user);
-
+console.log(user);
     const token = userObj.token;
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,

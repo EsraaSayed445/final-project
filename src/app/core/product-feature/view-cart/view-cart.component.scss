@@ -49,6 +49,7 @@ ul {
   width: 100%;
   padding-top: 93px;
   padding-bottom: 111px;
+  padding-left: 10%;
   // background-image: url("../../../../assets/img/home2.jpg");
   // background-size: cover;
   // background-position: center;
@@ -82,7 +83,8 @@ ul {
 }
 
 .cart_item_image img {
-  max-width: 100%
+  max-width: 100%;
+  max-height:60%
 }
 
 .cart_item_info {
