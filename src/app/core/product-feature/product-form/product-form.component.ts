@@ -58,7 +58,6 @@ export class ProductFormComponent implements OnInit {
      this.categoryArray=res
     });
 
-
   }
 
   getAllTags(){
@@ -101,7 +100,8 @@ export class ProductFormComponent implements OnInit {
 
    this.productService.addProduct(this.addProduct);
     console.log(this.product);
-    // this.router.navigateByUrl('/product/listing');
+
+    this.router.navigateByUrl('/dashboard');
   }
 
   getProductById(){
