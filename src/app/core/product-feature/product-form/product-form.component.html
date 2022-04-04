@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="slider__items">
-                <div class="slider__item active" [style]="'background-image:url(' + product.imagepath + ')'"></div>
+                <img class="img-preview  col-md-12 mt-5" src="{{product.imagepath}}" alt="">
             </div>
         </div>
         <div class="add-product__data col-md-6">
@@ -76,7 +76,7 @@
                 </div>
 
                 <div class="add-product__actions">
-                    <button class="btn btn--gray" [routerLink]="['/product/listing']">Cancel</button>
+                    <button class="btn btn--gray" [routerLink]="['/dashboard']">Cancel</button>
                     <!-- [disabled]="!productForm.valid" -->
                     <button (click)="onAddProduct(productForm)" [disabled]="productForm.invalid" class="btn btn--primary">{{editMode ? 'Edit' : 'Add'}}</button>
                 </div>

@@ -1,3 +1,23 @@
+.btn {
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 50px;
+  transition: 0.5s;
+  line-height: 1;
+  margin: 0 10px;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  border: 2px solid #ffb03b;
+}
+
+.btn:hover {
+  background: #ffb03b;
+  color: #fff !important;
+}
+
 body{
   height: 100vh;
   padding-top: 10%;
@@ -20,9 +40,13 @@ body{
 #customers th {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
-  background-color:#FF5E14 ;
+  text-align: center;
+  background-color:#ffb03b;
   color: white;
+  font-size: 18px;
+}
+td{
+  font-size: 15px;
 }
 
 
