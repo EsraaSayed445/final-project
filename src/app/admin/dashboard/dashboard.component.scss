@@ -71,3 +71,25 @@ th{
   .nav-link:hover i {
       transform: rotate(360deg)
   }
+  ._btn{
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    line-height: 1;
+    margin: 0 10px;
+    animation-delay: 0.8s;
+    background: #ffb03b;
+    color: #fff !important;
+
+  }
+  
+  ._btn:hover {
+    transform: translateY(-1px);
+}
+.submit{
+    background: #ffb03b;
+    color: #fff !important;
+}
