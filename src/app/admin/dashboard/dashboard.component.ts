@@ -29,13 +29,14 @@ export class DashboardComponent implements OnInit {
   pro: any;
   searchInput: any;
   category: any;
-  myArray: any[] = [];
+  addProduct:any;
 
-
+  cat:any[]=[];
 
   ngOnInit(): void {
 
     this.getAllProducts();
+    this.getAllCategories();
 
     // Check status
     this.auth.status().subscribe((res) => {
@@ -58,7 +59,6 @@ export class DashboardComponent implements OnInit {
       (res) => {
         console.log(res)
         this.productArr = res.data
-
       });
   }
 
@@ -67,14 +67,7 @@ export class DashboardComponent implements OnInit {
     this.productService.getProductById(id).subscribe((res) => {
       this.pro = res.data;
 
-      this.categoryService.getCategoryById(this.pro.category_id).subscribe((res) => {
-        this.category = res
-
-        console.log(this.pro)
-
-      })
-
-
+    this.getCategoryById(this.pro.category_id)
     })
   }
 
@@ -82,12 +75,13 @@ export class DashboardComponent implements OnInit {
     this.categoryService.getAllCategories().subscribe((res) => {
       console.log(res)
       this.category= res
+      
     })
   }
 
   getCategoryById(id: number) {
     this.categoryService.getCategoryById(id).subscribe((res) => {
-      console.log(res)
+      this.cat= res.name;
     })
   }
 
@@ -103,16 +97,23 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  onSubmit(form: NgForm) {
 
-    console.log(form.value);
+  onSubmit(form: NgForm) {
+    console.log(form.value.category_id);
     this.pro.description = form.value.description;
     this.pro.name = form.value.name;
     this.pro.price = form.value.price;
     this.pro.imagepath = form.value.imagepath;
-    this.category.name = form.value.category_name;
+    this.pro.category_id = form.value.category_id;
     this.productService.updateProduct(this.pro.id, this.pro);
   }
+
+  onAdd(form: NgForm) {
+    console.log(form.value);
+    this.addProduct = form.value;
+   this.productService.addProduct(this.addProduct);
+  }
+
   redirecttodash() {
     window.location.reload();
   }
@@ -121,6 +122,5 @@ export class DashboardComponent implements OnInit {
     this.productService.deleteProduct(id);
     console.log("delete");
   }
-
 
 }

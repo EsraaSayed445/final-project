@@ -1,11 +1,144 @@
+<div class="container-fluid d-flex p-0 category">
+    <div class="row col-md-12">
+        <!-- sidebar -->
+        <div class="col-md-2 p-3 text-white nav-bg" >
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"> 
+              <svg class="bi me-2" width="40" height="32"> </svg> 
+              <span class="fs-4">Categories</span> 
+             </a>
+             <hr>
+             <ul class="nav nav-pills flex-column mb-auto">
+               <li>
+                 <form class="d-flex mt-5 mb-5">
+                   <input class="form-control me-2 search fs-4 mx-3" name="search" [(ngModel)]="searchInput" type="search"
+                     placeholder="Search" aria-label="Search">
+                 </form>
+               </li>
+               <li class="nav-item"> <a class="nav-link text-white" aria-current="page"> <i class="fa fa-home"></i><span class="ms-2"
+                     [routerLink]="['/dashboard']">Home</span> </a> </li>
+               <li> <a class="nav-link text-white"> <i class="fa fa-dashboard"></i><span class="ms-2"
+                     [routerLink]="['/dashboard']"><i class="fas fa-plus"></i> Products</span> </a> </li>
+                     <li> <a class="nav-link text-white"> <i class="fa fa-dashboard"></i><span class="ms-2"
+                       [routerLink]="['/categories']"><i class="fas fa-plus"></i> Categories </span> </a> </li>
+               <li> <a class="nav-link text-white"> <i class="fab fa-battle-net"></i><span class="ms-2"
+                     [routerLink]="['/order']">Orders</span> </a> </li>
+               <li> <a class="nav-link text-white"> <i class="fa fa-bookmark"></i><span class="ms-2"
+                     [routerLink]="['/contact']">Messages</span> </a> </li>
+             </ul>
+        </div>
+<!-- table -->
+        <div class="col-md-10">
+            <button  class="btn add text-black" data-bs-toggle="modal" data-bs-target="#add"
+            ><i class="fas fa-plus"></i> Add Category</button>
+            
+            <table class=" table table-bordered text-center mb-5">
+                <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let category of categoryArr | filter: searchInput | paginate:{ itemsPerPage: 5, currentPage: c}">
+                    <td>{{category.id}}</td>
+                    <td>{{category.name}}</td>
+                    <td><button class="btn btn-default" data-bs-toggle="modal" data-bs-target="#edit"
+                        (click)="getCategoryById(category.id!)"><i class="fas fa-edit"></i></button></td>
+                    <td><button class="btn btn-default" data-bs-toggle="modal" data-bs-target="#delete"
+                        (click)="getCategoryById(category.id!)"><i class="fas fa-trash-alt"></i></button></td>
+                </tr>
+            
+                </tbody>
+            </table>
 
+        <!-- add modal  -->
+        <div class="modal fade " id="add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered ">
+            <div class="modal-content">
+                <form #myform1="ngForm" (ngSubmit)="onAdd(myform1)">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Cagtegory</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body row mx-auto">
+                    <div class="modal__right col-md-6">
+                        <label for="name">Name</label>
+                        <input class="form-control mb-2" type="text" name="name" ngModel>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="btn btn-primary" value="Save changes">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                    (click)="redirecttodash()">Close</button>
+                </div>
+                </form>
+            </div>
+            </div>
+        </div>
+        <!-- edit modal -->
+        <div class="modal fade " id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered ">
+            <div class="modal-content">
+                <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Cagtegory</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body row mx-auto">
 
-<div class="categories">
-    <label for="name">Category Name</label>
-    <input type="text" name="name" id="name">
-    <button  class="btn btn-primary btn-lg">add category</button>
-    <button  class="btn btn-success btn-lg">update category</button>
-    <button  class="btn btn-danger btn-lg">delete category</button>
-    <app-product-filtering></app-product-filtering>  
+                    <ng-template [ngIf]="category">
+
+                    <div class="modal__right col-md-6">
+                        <label for="name">Name</label>
+                        <input class="form-control mb-2" type="text" name="name" [(ngModel)]="category.name">
+                    
+                    </div>
+                    
+                    </ng-template>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="btn btn-primary" value="Save changes">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                    (click)="redirecttodash()">Close</button>
+                </div>
+                </form>
+            </div>
+            </div>
+        </div>
+
+        <!-- delete modal -->
+        <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered  modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> Delete Category</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                <ng-template [ngIf]="category">
+                    <h3>{{category.name}}</h3>
+                    <h2>Are you sure for Deleting this Category </h2>
+                </ng-template>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="onItemDeleted(category.id)">Yes</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+                    (click)="redirecttodash()">No</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                    (click)="redirecttodash()">Confirm</button>
+
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <pagination-controls (pageChange)="c = $event" class="d-flex justify-content-end fs-4 me-5">
+        </pagination-controls>
+
+        </div>
+    </div>
 </div>
+
+
+
 

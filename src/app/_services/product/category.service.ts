@@ -42,12 +42,29 @@ export class CategoryService {
       }
   })
   }
-  updateCategory(){
 
+  updateCategory(id:number,category:any){
+    const body = category;
+    console.log(body);
+    return this.httpClient.post<any>(environment.baseUrl +'categories/'+id,body).subscribe({
+      error: error => {
+          this.errorMessage = error.message;
+          console.error('There was an error!', error);
+      }
+  })
   }
-  deleteCategory(){
 
-  }
+   deleteCategory(id:number){
+    console.log(id);
+    
+    return this.httpClient.delete(environment.baseUrl +'categories/'+id).subscribe({
+      error: error => {
+          this.errorMessage = error.message;
+          console.error('There was an error!', error);
+      }
+  })
+
+}
 
   constructor(private httpClient: HttpClient) { }
 
