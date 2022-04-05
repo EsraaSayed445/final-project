@@ -15,6 +15,7 @@
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
   border: 2px solid #ffb03b;
+  width: 15%;
 }
 
 .add:hover {
@@ -88,8 +89,4 @@ th{
   
   ._btn:hover {
     transform: translateY(-1px);
-}
-.submit{
-    background: #ffb03b;
-    color: #fff !important;
 }
