@@ -35,27 +35,21 @@ addedOrder:any;
     this.calculateTotalPriceFoodType();
   }
 
-
-
 // send form to post in db
  onAddTransactionInfo(transData:any,totalPrice:number) {
   this.onAddOrder(this.foods);
   console.log(this.foods);
   var obj=transData;
   obj.total_price=totalPrice;
-  //  obj.status='paid';
 
   setTimeout(()=>{
     obj.order_id= this._OrderService.orderId;
     console.log(this._OrderService.orderId);
+    console.log(obj);
   this._TransactionService.postAllTransactionData(obj);
-
-},3000);
-
-
-
+      // window.location.href =this._TransactionService.response.InvoiceURL;
+},4000);
 }
-
 
   // calculate total price for all types of foods
   calculateTotalPrice(){
@@ -99,18 +93,12 @@ addedOrder:any;
 
 
        }
-
-
        console.log(this.orders);
-
-       // console.log( this.addedOrder);
        console.log("added order")
       this._OrderService.addOrder(this.orders);
-
     //  this.router.navigateByUrl('/product/listing');
       }else{
         this.order_id=1;
-
         this.addedOrder = order;
         for(var i=0; i< this.addedOrder.length ;i++){
 
@@ -119,26 +107,12 @@ addedOrder:any;
             quantity:this.addedOrder[i].cartCounter,
             order_id: this.order_id
         });
-
-
         }
-
-
         // console.log( this.addedOrder);
         console.log("added order")
        this._OrderService.addOrder(this.orders);
-
-
-
-
-
       }
     }
     );
-
-
-
-
  }
-
 }
