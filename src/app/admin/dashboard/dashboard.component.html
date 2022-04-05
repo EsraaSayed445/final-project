@@ -1,31 +1,37 @@
-<div class="container-fluid d-flex p-0 mt-5">
+<div class="container-fluid d-flex p-0 dash">
+<div class="row col-md-12">
+  <!-- sidebar -->
+  <div class="col-md-2  p-3 text-white nav-bg">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"> 
+      <svg class="bi me-2" width="40" height="32"> </svg> 
+      <span class="fs-4">Products</span> 
+     </a>
+     <hr>
+     <ul class="nav nav-pills flex-column mb-auto">
+       <li>
+         <form class="d-flex mt-5 mb-5">
+           <input class="form-control me-2 search fs-4 mx-3" name="search" [(ngModel)]="searchInput" type="search"
+             placeholder="Search" aria-label="Search">
+         </form>
+       </li>
+       <li class="nav-item"> <a class="nav-link text-white" aria-current="page"> <i class="fa fa-home"></i><span class="ms-2"
+             [routerLink]="['/dashboard']">Home</span> </a> </li>
+       <li> <a class="nav-link text-white"> <i class="fa fa-dashboard"></i><span class="ms-2"
+             [routerLink]="['/dashboard']"><i class="fas fa-plus"></i> Products</span> </a> </li>
+             <li> <a class="nav-link text-white"> <i class="fa fa-dashboard"></i><span class="ms-2"
+               [routerLink]="['/categories']"><i class="fas fa-plus"></i> Categories </span> </a> </li>
+       <li> <a class="nav-link text-white"> <i class="fab fa-battle-net"></i><span class="ms-2"
+             [routerLink]="['/order']">Orders</span> </a> </li>
+       <li> <a class="nav-link text-white"> <i class="fa fa-bookmark"></i><span class="ms-2"
+             [routerLink]="['/contact']">Messages</span> </a> </li>
+     </ul>
+   </div>
 
-  <div class="col-md-4 d-flex flex-column flex-shrink-0 p-3 text-white nav-bg" style="width: 250px;"> <a href="/"
-      class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"> <svg class="bi me-2"
-        width="40" height="32"> </svg> <span class="fs-4">Welcome Back</span> </a>
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-      <li>
-        <form class="d-flex mt-5 mb-5">
-          <input class="form-control me-2 search fs-4 mx-3" name="search" [(ngModel)]="searchInput" type="search"
-            placeholder="Search" aria-label="Search">
-        </form>
-      </li>
-      <li class="nav-item"> <a class="nav-link text-white" aria-current="page"> <i class="fa fa-home"></i><span class="ms-2"
-            [routerLink]="['/dashboard']">Home</span> </a> </li>
-      <li> <a class="nav-link text-white"> <i class="fa fa-dashboard"></i><span class="ms-2"
-            [routerLink]="['/product/add']"><i class="fas fa-plus"></i> Add Product</span> </a> </li>
-            <li> <a class="nav-link text-white"> <i class="fa fa-dashboard"></i><span class="ms-2"
-              [routerLink]="['/categories']"><i class="fas fa-plus"></i> Add Category </span> </a> </li>
-      <li> <a class="nav-link text-white"> <i class="fab fa-battle-net"></i><span class="ms-2"
-            [routerLink]="['/order']">Orders</span> </a> </li>
-      <li> <a class="nav-link text-white"> <i class="fa fa-bookmark"></i><span class="ms-2"
-            [routerLink]="['/contact']">Messages</span> </a> </li>
-    </ul>
-  </div>
+  <!-- table -->
+  <div class="col-md-10 ">
+    <button  class="btn add text-black" data-bs-toggle="modal" data-bs-target="#add"
+    ><i class="fas fa-plus"></i> Add Product</button>
 
-
-  <div class="row w-100 mx-auto">
     <table class=" table table-bordered text-center">
       <thead>
         <tr>
@@ -42,7 +48,7 @@
           <td>{{prod.name}}</td>
           <td><img src="{{prod.imagepath}}" style="width: 80px; height: 80px;" alt=""></td>
           <td>{{prod.description}}</td>
-          <td>{{prod.price}}</td>
+          <td>{{prod.price | currency:'EGP'}}</td>
           <td><button class="btn btn-default" data-bs-toggle="modal" data-bs-target="#show"
               (click)="getProductById(prod.id!)"><i class="fas fa-eye"></i></button></td>
           <td><button class="btn btn-default" data-bs-toggle="modal" data-bs-target="#edit"
@@ -73,9 +79,9 @@
               <div class="modal__right col-md-6">
                 <div class="detail mt-3">
                   <h2 class="detail__title ">{{pro.name}}</h2>
-                  <span class="badge bg-primary detail__category">{{category.name}}</span>
+                  <span class="badge bg-primary detail__category">{{cat}}</span>
                   <p class="detail__description">{{pro.description}}</p>
-                  <p class="detail__price">{{pro.price | currency:'EGP'}} </p>
+                  <p class="detail__price">{{pro.price | currency:'EGP'}}</p>
                 </div>
               </div>
 
@@ -88,6 +94,57 @@
       </div>
     </div>
 
+     <!-- add modal  -->
+     <div class="modal fade " id="add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+          <form #myform1="ngForm" (ngSubmit)="onAdd(myform1)">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add Cagtegory</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body row mx-auto">
+
+              <div class="modal__left col-md-6">
+                <label for="files" class="btn btn-primary  mb-2">Select New Image</label>
+                <img class="modal__img  col-md-12" src="" alt="">
+                <input id="files" type="file" style="visibility:hidden;" (change)="onSelect($event)" accept="image/*" >
+              </div>
+
+              <div class="modal__right col-md-6">
+                <label for="name">Name</label>
+                <input class="form-control mb-2" type="text" name="name" ngModel>
+                
+                <label for="imagepath">Image Path</label>
+                <input class="form-control mb-2" type="text" name="imagepath" ngModel >
+                
+                <label for="category_id">Category Name</label>
+                <!-- <input class="form-control mb-2" type="text" name="category_name" ngModel> -->
+
+                  <select class="form-control" ngModel name="category_id" id="" ngModel >
+                      <option  *ngFor="let cate of category" [value]="cate.id">{{cate.name}}</option>
+                  </select>
+
+                <label for="price">Price</label>
+                <input class="form-control mb-2" type="number" name="price" ngModel>
+               
+                <label for="description">Description</label>
+                <textarea class="form-control mb-5" name="description" ngModel></textarea>
+             
+              </div>
+              
+           
+          </div>
+          <div class="modal-footer">
+              <input type="submit" class="btn btn-primary" value="Save changes">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+              (click)="redirecttodash()">Close</button>
+          </div>
+          </form>
+      </div>
+      </div>
+  </div>
+  
     <!--edit   Modal -->
     <div class="modal fade w-" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered  modal-lg">
@@ -117,6 +174,13 @@
                   <!-- <label for="category_name">Category Name</label>
                   <input class="form-control mb-2" type="text" name="category_name" [(ngModel)]="category.name"> -->
                   
+                  <label for="category_id">Category Name</label>
+                  <!-- <input class="form-control mb-2" type="text" name="category_name" ngModel> -->
+  
+                    <select class="form-control" [(ngModel)]="pro.category_id" name="category_id" id="">
+                        <option  *ngFor="let cate of category" [value]="cate.id">{{cate.name}}</option>
+                    </select>
+
                   <label for="price">Price</label>
                   <input class="form-control mb-2" type="number" name="price" [(ngModel)]="pro.price">
                  
@@ -167,4 +231,7 @@
     </pagination-controls>
 
   </div>
+
+</div>
+  
 </div>
