@@ -3,16 +3,19 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~13.1.0",
+    "@angular/cli": "^13.3.1",
     "@angular/common": "~13.1.0",
     "@angular/compiler": "~13.1.0",
+    "@angular/compiler-cli": "~13.1.0",
     "@angular/core": "~13.1.0",
     "@angular/forms": "~13.1.0",
     "@angular/localize": "~13.1.0",
@@ -23,15 +26,18 @@
     "@ng-bootstrap/ng-bootstrap": "^12.0.1",
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.1.3",
+    "express": "^4.17.3",
     "jquery": "^3.6.0",
     "ng2-search-filter": "^0.5.1",
     "ngx-pagination": "^5.1.1",
+    "path": "^0.12.7",
     "rxjs": "~7.4.0",
+    "typescript": "~4.5.2",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^13.2.5",
-    "@angular/cli": "~13.1.4",
+    "@angular/cli": "^13.3.1",
     "@angular/compiler-cli": "~13.1.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
@@ -43,5 +49,9 @@
     "karma-jasmine-html-reporter": "~1.7.0",
     "tslib": "^2.3.1",
     "typescript": "~4.5.2"
+  },
+  "engines": {
+    "node": "12.18.2",
+    "npm": "6.14.5"
   }
 }
