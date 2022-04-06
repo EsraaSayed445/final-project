@@ -5,4 +5,5 @@ export interface Transaction{
 
 export interface allTransactionResponse{
     data:Transaction[];
+    
 }
