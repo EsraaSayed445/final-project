@@ -33,8 +33,7 @@
     "path": "^0.12.7",
     "rxjs": "~7.4.0",
     "typescript": "~4.5.2",
-    "zone.js": "~0.11.4",
-    "node": "16.x"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^13.2.5",
@@ -52,7 +51,7 @@
     "typescript": "~4.5.2"
   },
   "engines": {
-    "node": "16.x",
-    "npm": "8.x"
+    "node": "v16.13.1",
+    "npm": "8.3.0"
   }
 }
