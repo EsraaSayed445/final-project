@@ -50,7 +50,7 @@ addedOrder:any;
     console.log(this._OrderService.orderId);
   this._TransactionService.postAllTransactionData(obj);
 
-},3000);
+},4000);
 
 
 
@@ -124,7 +124,7 @@ addedOrder:any;
         }
 
 
-        // console.log( this.addedOrder);
+         console.log( this.orders);
         console.log("added order")
        this._OrderService.addOrder(this.orders);
 
