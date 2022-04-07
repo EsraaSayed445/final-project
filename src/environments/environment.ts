@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // baseUrl:"http://localhost:8000/api/",
-  baseUrl:"https://restaurant-ang.herokuapp.com/api/"
+  baseUrl:"http://localhost:8000/api/",
+  // baseUrl:"https://restaurant-ang.herokuapp.com/api/"
 };
 
 /*
