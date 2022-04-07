@@ -1,6 +1,8 @@
 export interface Transaction{
     status:string,
-    invoiceUrl:string
+    invoiceUrl:string,
+    phone:number,
+    address:string
 }
 
 export interface allTransactionResponse{
