@@ -104,7 +104,7 @@ export class DashboardComponent implements OnInit {
     this.pro.name = form.value.name;
     this.pro.price = form.value.price;
     this.pro.imagepath = form.value.imagepath;
-    this.pro.category_id = form.value.category_id;
+    this.pro.category_id = form.value.category_id[0];
     this.productService.updateProduct(this.pro.id, this.pro);
   }
 
